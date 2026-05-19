@@ -29,12 +29,12 @@ const container = {
 
 export default function WhyNow() {
   return (
-    <div className="relative w-full h-full flex items-center bg-[#030303]">
+    <div className="relative w-full h-full flex flex-col items-center justify-center bg-[#030303]">
       <WaveformBg opacity={0.022} speed={0.35} />
 
-      {/* Cinematic depth gradient */}
+      {/* Cinematic depth gradient — centered */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 80% 70% at 50% 35%, #0c0c0c 0%, #030303 100%)' }}
+        style={{ background: 'radial-gradient(ellipse 80% 70% at 50% 42%, #0c0c0c 0%, #030303 100%)' }}
       />
 
       {/* Subtle top glow */}
@@ -46,44 +46,42 @@ export default function WhyNow() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 w-full max-w-5xl mx-auto px-20 flex flex-col gap-12"
+        className="relative z-10 w-full max-w-5xl mx-auto px-20 flex flex-col items-center gap-20 text-center"
       >
-        {/* Label + Headline */}
-        <motion.div variants={fadeUp} className="flex flex-col gap-5">
+        {/* Label + Headline — centered */}
+        <motion.div variants={fadeUp} className="flex flex-col items-center gap-5">
           <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">
             Hvorfor nå
           </span>
           <h2
             className="font-bold tracking-tight text-white leading-[1.02]"
-            style={{ fontSize: 'clamp(44px, 5.5vw, 62px)' }}
+            style={{ fontSize: 'clamp(44px, 5.5vw, 64px)' }}
           >
             Conversational AI eksploderer.<br />Infrastrukturen henger etter.
           </h2>
         </motion.div>
 
-
-        {/* Statements — 2×2 grid, no cards */}
-        <div className="grid grid-cols-2 gap-x-20 gap-y-10">
-          {statements.map((s) => (
-            <motion.div
-              key={s.number}
-              variants={fadeUp}
-              className="flex flex-col gap-3"
-            >
-              {/* Top rule */}
-              <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-
-              <div className="flex flex-col gap-2 pt-1">
-                <span className="text-[9px] font-mono text-white/18 tracking-[0.2em]">
+        {/* Statements — horizontal strip, separated by vertical dividers */}
+        <motion.div variants={fadeUp} className="w-full flex items-start">
+          {statements.map((s, i) => (
+            <div key={s.number} className="flex flex-1 items-start">
+              {/* Vertical divider */}
+              <div className="flex-shrink-0 w-[1px] self-stretch" style={{ background: 'rgba(255,255,255,0.06)' }} />
+              <div className="flex flex-col gap-3 px-8 text-left">
+                <span className="text-[9px] font-mono tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.30)' }}>
                   {s.number}
                 </span>
-                <p className="text-[17px] font-semibold text-white/85 leading-snug tracking-[-0.01em]">
+                <p className="text-[20px] font-semibold leading-snug tracking-[-0.02em]" style={{ color: 'rgba(255,255,255,0.92)' }}>
                   {s.title}
                 </p>
               </div>
-            </motion.div>
+              {/* Right divider on last item */}
+              {i === statements.length - 1 && (
+                <div className="flex-shrink-0 w-[1px] self-stretch" style={{ background: 'rgba(255,255,255,0.06)' }} />
+              )}
+            </div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   )

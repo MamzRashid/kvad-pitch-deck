@@ -1,92 +1,221 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import WaveformBg from '../WaveformBg'
+
+const ease = [0.25, 0.1, 0.25, 1]
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.15, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.14, delayChildren: 0.08 } },
 }
 
-const item = {
+const fadeUp = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.25, 0.1, 0.25, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease } },
+}
+
+// Tiny animated waveform bars — shows prosody/rhythm visually
+function MicroWave() {
+  const bars = [0.3, 0.7, 0.5, 0.9, 0.4, 0.8, 0.6, 0.95, 0.35, 0.7, 0.5, 0.85]
+  return (
+    <div className="flex items-center gap-[3px]" style={{ height: 20 }}>
+      {bars.map((h, i) => (
+        <motion.div
+          key={i}
+          className="rounded-full bg-white"
+          style={{ width: 2, opacity: 0.22 }}
+          animate={{ height: [h * 20, (0.3 + Math.abs(Math.sin(i * 0.8)) * 0.65) * 20, h * 20] }}
+          transition={{ duration: 2.2 + i * 0.15, repeat: Infinity, ease: 'easeInOut', delay: i * 0.08 }}
+        />
+      ))}
+    </div>
+  )
+}
+
+// Tiny data dots — represents proprietary data depth
+function MicroDots() {
+  const dots = Array.from({ length: 18 })
+  return (
+    <div className="flex flex-wrap gap-[5px]" style={{ width: 80 }}>
+      {dots.map((_, i) => (
+        <motion.div
+          key={i}
+          className="rounded-full bg-white"
+          style={{ width: 3, height: 3 }}
+          animate={{ opacity: [0.08, 0.32, 0.08] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.14 }}
+        />
+      ))}
+    </div>
+  )
+}
+
+// Microphone + audio level bars
+function MicroStudio() {
+  const bars = [0.45, 0.75, 0.55, 0.90, 0.60]
+  return (
+    <div className="flex items-center gap-3">
+      <svg width="18" height="26" viewBox="0 0 18 26" fill="none" style={{ shapeRendering: 'geometricPrecision' }}>
+        <rect x="5.5" y="0.5" width="7" height="12" rx="3.5" stroke="rgba(255,255,255,0.52)" strokeWidth="1" />
+        <path d="M2 11.5 C2 18 16 18 16 11.5" stroke="rgba(255,255,255,0.38)" strokeWidth="1" strokeLinecap="round" fill="none" />
+        <line x1="9" y1="18" x2="9" y2="23" stroke="rgba(255,255,255,0.30)" strokeWidth="1" strokeLinecap="round" />
+        <line x1="5" y1="23" x2="13" y2="23" stroke="rgba(255,255,255,0.30)" strokeWidth="1" strokeLinecap="round" />
+      </svg>
+      <div className="flex items-center gap-[3px]" style={{ height: 22 }}>
+        {bars.map((h, i) => (
+          <motion.div
+            key={i}
+            className="rounded-full bg-white"
+            style={{ width: 2.5, opacity: 0.22 }}
+            animate={{ height: [h * 22, (0.25 + Math.abs(Math.sin(i * 1.2)) * 0.7) * 22, h * 22] }}
+            transition={{ duration: 1.6 + i * 0.2, repeat: Infinity, ease: 'easeInOut', delay: i * 0.12 }}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// Podcast recording indicator — pulsing rec dot + episode lines
+function MicroRecord() {
+  return (
+    <div className="flex items-center gap-3">
+      <div className="relative flex items-center justify-center flex-shrink-0" style={{ width: 18, height: 18 }}>
+        <motion.div
+          className="absolute rounded-full"
+          style={{ width: 18, height: 18, border: '1px solid rgba(255,255,255,0.15)' }}
+          animate={{ opacity: [0.3, 0.7, 0.3], scale: [0.9, 1.1, 0.9] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <div className="rounded-full bg-white" style={{ width: 6, height: 6, opacity: 0.40 }} />
+      </div>
+      <div className="flex flex-col gap-1.5">
+        {[0.55, 0.38, 0.70].map((w, i) => (
+          <motion.div
+            key={i}
+            className="rounded-full bg-white"
+            style={{ height: 1.5, width: w * 52, opacity: 0.20 }}
+            animate={{ opacity: [0.12, 0.28, 0.12] }}
+            transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
+          />
+        ))}
+      </div>
+    </div>
+  )
 }
 
 const moats = [
   {
     number: '01',
-    title: 'Proprietære norske samtaledata',
-    desc: 'Bygget på kuraterte, høykvalitets norske taledata som fanger den fulle naturlige rytmen i menneskelig samtale — ikke studioopplesning.',
+    title: 'Bygget på data ingen andre har tilgang til',
+    desc: 'Flere hundre timer segmentert norsk tale — ikke studioopplesning, men naturlig samtale.',
     tag: 'Datafortrinn',
+    visual: <MicroDots />,
   },
   {
     number: '02',
-    title: 'Menneskelig samtalelevering',
-    desc: 'Modellene våre er finjustert spesielt for frem-og-tilbake-dialog: pustemønstre, rytme, naturlig nøling og prosodisk variasjon.',
+    title: 'Samtalerytme og prosodi',
+    desc: 'Trent på pauser, tempo, trykk og emosjonell flyt. Ikke bare ord — men hvordan de sies.',
     tag: 'Modellfortrinn',
+    visual: <MicroWave />,
   },
   {
     number: '03',
-    title: 'Bygget for AI-agenter',
-    desc: 'Kvad er designet fra grunnen av for agentsystemer — streaming, avbrytbar, kontekstbevisst tale med under 200ms forsinkelse.',
-    tag: 'Infrastrukturfortrinn',
+    title: 'Eksklusivt råmateriale fra norske podcastere',
+    desc: 'Direkte avtaler med norske podcastere gir oss tilgang til autentiske samtaler vi trener modellene direkte på.',
+    tag: 'Innholdsfortrinn',
+    visual: <MicroRecord />,
+  },
+  {
+    number: '04',
+    title: 'Internt podcastrom for norsk taleinnsamling',
+    desc: 'Eget opptaksrom lar teamet snakke fritt på norsk — lydfilene brukes direkte til å trene og forbedre modellene løpende.',
+    tag: 'Produksjonsfortrinn',
+    visual: <MicroStudio />,
   },
 ]
 
 export default function WhyKvad() {
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center bg-[#030303] px-16">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,#0f0f0f_0%,#030303_100%)] pointer-events-none" />
+    <div className="relative w-full h-full flex items-center bg-[#030303]">
+      <WaveformBg opacity={0.016} speed={0.2} />
 
       <div
-        className="absolute inset-0 opacity-[0.012] pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-        }}
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 90% 70% at 30% 50%, #0e0e0e 0%, #030303 100%)' }}
       />
 
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 w-full max-w-5xl flex flex-col gap-14"
+        className="relative z-10 w-full h-full flex"
       >
-        <motion.div variants={item} className="flex flex-col gap-4">
-          <span className="text-[11px] text-white/25 tracking-[0.2em] uppercase font-medium">
-            Konkurransefortrinn
-          </span>
-          <h2 className="text-[52px] font-bold tracking-tight text-white leading-[1.05] max-w-2xl">
-            Bygget for naturlig norsk AI-kommunikasjon.
-          </h2>
-        </motion.div>
+        {/* ── LEFT — bold statement ── */}
+        <div className="flex flex-col justify-center px-16 flex-shrink-0" style={{ width: '42%' }}>
+          <motion.div variants={fadeUp} className="flex flex-col gap-6">
+            <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">
+              Konkurransefortrinn
+            </span>
 
-        <motion.div variants={item} className="flex flex-col gap-3">
-          {moats.map((moat) => (
-            <div
-              key={moat.number}
-              className="flex items-start gap-8 p-7 bg-[#0c0c0c] border border-[#181818] rounded-2xl"
+            <h2
+              className="font-bold tracking-tight text-white leading-[1.03]"
+              style={{ fontSize: 'clamp(34px, 3.8vw, 50px)' }}
             >
-              <span className="text-[11px] font-mono text-white/18 tracking-widest pt-0.5 w-6 flex-shrink-0">
-                {moat.number}
-              </span>
-              <div className="flex-1 flex flex-col gap-2">
-                <h3 className="text-[17px] font-semibold text-white/85 leading-snug">
-                  {moat.title}
-                </h3>
-                <p className="text-[13px] text-white/35 font-light leading-relaxed">
-                  {moat.desc}
-                </p>
-              </div>
-              <div className="flex-shrink-0 pt-0.5">
-                <span className="text-[10px] text-white/20 tracking-[0.14em] uppercase font-medium bg-white/4 border border-white/6 rounded-full px-3 py-1">
-                  {moat.tag}
+              Norsk conversational AI krever noe globale modeller ikke har.
+            </h2>
+
+            <p className="text-[12.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.42)', maxWidth: 320 }}>
+              Generiske stemme-modeller er brede. Kvad er dypt optimalisert — trent på norsk rytme, norske pauser og norsk samtaleflyt.
+            </p>
+
+          </motion.div>
+        </div>
+
+        {/* Vertical separator */}
+        <motion.div
+          variants={fadeUp}
+          className="flex-shrink-0 self-stretch"
+          style={{ width: '1px', background: 'rgba(255,255,255,0.06)', margin: '48px 0' }}
+        />
+
+        {/* ── RIGHT — editorial moat rows ── */}
+        <div className="flex flex-col justify-center flex-1 px-14">
+          {moats.map((m, i) => (
+            <motion.div key={m.number} variants={fadeUp}>
+              {/* Top rule */}
+              <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+
+              <div className="flex items-center gap-10 py-6">
+                {/* Number */}
+                <span className="text-[9px] font-mono tracking-[0.2em] flex-shrink-0 w-5" style={{ color: 'rgba(255,255,255,0.20)' }}>
+                  {m.number}
                 </span>
+
+                {/* Text */}
+                <div className="flex flex-col gap-1.5 flex-1">
+                  <h3 className="text-[17px] font-semibold tracking-tight leading-snug" style={{ color: 'rgba(255,255,255,0.92)' }}>
+                    {m.title}
+                  </h3>
+                  <p className="text-[12px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.50)' }}>
+                    {m.desc}
+                  </p>
+                </div>
+
+                {/* Micro visual */}
+                <div className="flex-shrink-0 flex items-center justify-end" style={{ width: 90 }}>
+                  {m.visual}
+                </div>
               </div>
-            </div>
+
+              {/* Bottom rule on last */}
+              {i === moats.length - 1 && (
+                <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+              )}
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </motion.div>
     </div>
   )

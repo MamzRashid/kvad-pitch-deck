@@ -88,7 +88,7 @@ export default function Solution() {
                 </div>
 
                 {/* Right: body */}
-                <p className="text-[13.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.32)' }}>
+                <p className="text-[13.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
                   {s.body}
                 </p>
               </div>

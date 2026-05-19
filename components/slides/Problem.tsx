@@ -39,8 +39,8 @@ export default function Problem() {
             <div className="flex flex-col gap-2.5 pl-1">
               {['Robotaktig tale', 'Høy forsinkelse', 'Unaturlig samtaleflyt'].map((point) => (
                 <div key={point} className="flex items-center gap-3">
-                  <div className="w-[3px] h-[3px] rounded-full bg-white/20 flex-shrink-0" />
-                  <span className="text-[13px] text-white/50 font-light">{point}</span>
+                  <div className="w-[3px] h-[3px] rounded-full bg-white/40 flex-shrink-0" />
+                  <span className="text-[13px] text-white/72 font-light">{point}</span>
                 </div>
               ))}
             </div>
@@ -51,8 +51,8 @@ export default function Problem() {
             <div className="flex flex-col gap-2.5 pl-1">
               {['Naturlig tempo', 'Sanntidssvar', 'Flytende samtale'].map((point) => (
                 <div key={point} className="flex items-center gap-3">
-                  <div className="w-[3px] h-[3px] rounded-full bg-white/35 flex-shrink-0" />
-                  <span className="text-[13px] text-white/60 font-light">{point}</span>
+                  <div className="w-[3px] h-[3px] rounded-full bg-white/55 flex-shrink-0" />
+                  <span className="text-[13px] text-white/82 font-light">{point}</span>
                 </div>
               ))}
             </div>

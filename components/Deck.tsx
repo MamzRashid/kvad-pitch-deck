@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
 import Cover from './slides/Cover'
 import Problem from './slides/Problem'
 import WhyNow from './slides/WhyNow'
@@ -153,6 +154,11 @@ export default function Deck() {
           <SlideComponent />
         </motion.div>
       </AnimatePresence>
+
+      {/* Persistent Kvad icon — top-left on all slides */}
+      <div className="absolute top-7 left-8 z-50 pointer-events-none">
+        <Image src="/kvad-icon.svg" alt="Kvad" width={22} height={22} style={{ opacity: 0.30 }} />
+      </div>
 
       {/* Left nav arrow */}
       {current > 0 && (

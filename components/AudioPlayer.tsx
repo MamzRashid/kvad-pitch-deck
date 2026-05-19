@@ -29,15 +29,15 @@ function barHeight(index: number, phase: number, playing: boolean): number {
 // Smooth bezier path through sine wave points
 function smoothPath(amp: number, freq: number, phase: number): string {
   const cy = WAVE_H / 2
-  const n = 120
+  const n = 320
   const pts = Array.from({ length: n }, (_, i) => ({
     x: (i / (n - 1)) * W,
     y: cy + Math.sin((i / (n - 1)) * Math.PI * 2 * freq + phase) * amp * cy,
   }))
-  let d = `M${pts[0].x.toFixed(1)},${pts[0].y.toFixed(1)}`
+  let d = `M${pts[0].x.toFixed(2)},${pts[0].y.toFixed(2)}`
   for (let i = 1; i < pts.length; i++) {
     const mx = (pts[i - 1].x + pts[i].x) / 2
-    d += ` C${mx.toFixed(1)},${pts[i - 1].y.toFixed(1)} ${mx.toFixed(1)},${pts[i].y.toFixed(1)} ${pts[i].x.toFixed(1)},${pts[i].y.toFixed(1)}`
+    d += ` C${mx.toFixed(2)},${pts[i - 1].y.toFixed(2)} ${mx.toFixed(2)},${pts[i].y.toFixed(2)} ${pts[i].x.toFixed(2)},${pts[i].y.toFixed(2)}`
   }
   return d
 }
@@ -101,9 +101,9 @@ export default function AudioPlayer({
 
   // Human paths: 3 overlapping sine layers
   const humanLayers = [
-    { amp: 0.38, freq: 2.0, phaseOffset: 0,   opacity: playing ? 0.60 : 0.14, width: 1.2 },
-    { amp: 0.22, freq: 3.4, phaseOffset: 1.1,  opacity: playing ? 0.32 : 0.08, width: 0.8 },
-    { amp: 0.13, freq: 5.2, phaseOffset: 2.3,  opacity: playing ? 0.18 : 0.05, width: 0.5 },
+    { amp: 0.38, freq: 2.0, phaseOffset: 0,   opacity: playing ? 0.88 : 0.55, width: 1.4 },
+    { amp: 0.22, freq: 3.4, phaseOffset: 1.1,  opacity: playing ? 0.55 : 0.30, width: 1.0 },
+    { amp: 0.13, freq: 5.2, phaseOffset: 2.3,  opacity: playing ? 0.32 : 0.18, width: 0.6 },
   ]
 
   return (
@@ -146,7 +146,7 @@ export default function AudioPlayer({
                 exit={{ opacity: 0, y: -5 }}
                 transition={{ duration: 0.35 }}
                 className="block text-[9px] font-semibold tracking-[0.25em] uppercase"
-                style={{ color: type === 'ai' ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.38)' }}
+                style={{ color: type === 'ai' ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.68)' }}
               >
                 {label}
               </motion.span>
@@ -176,7 +176,7 @@ export default function AudioPlayer({
               />
             )}
           </AnimatePresence>
-          <span className="font-mono text-[9px] tabular-nums" style={{ color: 'rgba(255,255,255,0.14)' }}>
+          <span className="font-mono text-[9px] tabular-nums" style={{ color: 'rgba(255,255,255,0.38)' }}>
             {formatTime(progress)} / 0:{String(DURATION).padStart(2, '0')}
           </span>
         </div>
@@ -192,7 +192,7 @@ export default function AudioPlayer({
               const x = i * barW + barGap / 2
               const bw = Math.max(1, barW - barGap)
               const cy = WAVE_H / 2
-              const opacity = playing ? 0.18 + h * 0.30 : 0.09 + h * 0.08
+              const opacity = playing ? 0.55 + h * 0.45 : 0.35 + h * 0.32
               return (
                 <rect
                   key={i}
@@ -208,7 +208,7 @@ export default function AudioPlayer({
             })}
           </svg>
         ) : (
-          <svg viewBox={`0 0 ${W} ${WAVE_H}`} preserveAspectRatio="none" className="w-full h-full">
+          <svg viewBox={`0 0 ${W} ${WAVE_H}`} preserveAspectRatio="xMidYMid meet" className="w-full h-full" style={{ shapeRendering: 'geometricPrecision' }}>
             <line x1={0} y1={WAVE_H / 2} x2={W} y2={WAVE_H / 2} stroke="rgba(255,255,255,0.04)" strokeWidth={0.5} />
             {humanLayers.map((layer, i) => (
               <path
@@ -278,11 +278,11 @@ export default function AudioPlayer({
         <div className="flex items-center gap-2">
           <div
             className="w-[3px] h-[3px] rounded-full flex-shrink-0"
-            style={{ background: type === 'ai' ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.28)' }}
+            style={{ background: type === 'ai' ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.50)' }}
           />
           <span
             className="text-[11px] font-light tracking-wide"
-            style={{ color: type === 'ai' ? 'rgba(255,255,255,0.20)' : 'rgba(255,255,255,0.34)' }}
+            style={{ color: type === 'ai' ? 'rgba(255,255,255,0.50)' : 'rgba(255,255,255,0.65)' }}
           >
             {type === 'ai'
               ? 'Høy forsinkelse · Robotaktig tale'
