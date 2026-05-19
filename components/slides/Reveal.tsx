@@ -106,19 +106,6 @@ export default function Reveal() {
             onReveal={() => setRevealed(true)}
           />
 
-          <AnimatePresence>
-            {!revealed && (
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-[11px] text-white/18 tracking-[0.15em] uppercase mt-5"
-              >
-                Trykk play for å avsløre
-              </motion.p>
-            )}
-          </AnimatePresence>
         </motion.div>
 
         <AnimatePresence>
