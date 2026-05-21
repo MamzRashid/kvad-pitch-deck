@@ -51,14 +51,6 @@ export default function Cover() {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 1 }}
-        className="absolute bottom-14 left-1/2 -translate-x-1/2 text-[10px] text-white/14 tracking-[0.2em] uppercase"
-      >
-        Trykk → for å starte
-      </motion.div>
     </div>
   )
 }

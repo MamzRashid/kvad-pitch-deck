@@ -47,30 +47,43 @@ const slideVariants = {
 }
 
 
+const MARKET_INDEX = SLIDES.indexOf(Market)
+
 export default function Deck() {
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(1)
+  const [marketSignalsShown, setMarketSignalsShown] = useState(false)
 
   const total = SLIDES.length
 
   const goNext = useCallback(() => {
+    if (current === MARKET_INDEX && !marketSignalsShown) {
+      setMarketSignalsShown(true)
+      return
+    }
     if (current < total - 1) {
       setDirection(1)
       setCurrent((c) => c + 1)
     }
-  }, [current, total])
+  }, [current, total, marketSignalsShown])
 
   const goPrev = useCallback(() => {
+    if (current === MARKET_INDEX && marketSignalsShown) {
+      setMarketSignalsShown(false)
+      return
+    }
     if (current > 0) {
       setDirection(-1)
       setCurrent((c) => c - 1)
+      if (current - 1 !== MARKET_INDEX) setMarketSignalsShown(false)
     }
-  }, [current])
+  }, [current, marketSignalsShown])
 
   const goTo = useCallback(
     (index: number) => {
       setDirection(index > current ? 1 : -1)
       setCurrent(index)
+      if (index !== MARKET_INDEX) setMarketSignalsShown(false)
     },
     [current]
   )
@@ -149,7 +162,10 @@ export default function Deck() {
           transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
           className="absolute inset-0"
         >
-          <SlideComponent />
+          {current === MARKET_INDEX
+            ? <Market showSignals={marketSignalsShown} />
+            : <SlideComponent />
+          }
         </motion.div>
       </AnimatePresence>
 

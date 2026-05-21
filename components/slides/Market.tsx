@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const ease = [0.25, 0.1, 0.25, 1]
 
@@ -63,50 +63,55 @@ const SIGNALS = [
   { stat: '40%',   text: 'av kundeservice-interaksjoner håndteres av AI innen 2025', source: 'Gartner' },
 ]
 
-function NordicSignals() {
+function NordicSignals({ show }: { show: boolean }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9, ease, delay: 1.0 }}
-      className="flex flex-col gap-4"
-      style={{ maxWidth: 300 }}
-    >
-      <span className="text-[9px] tracking-[0.22em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.20)' }}>
-        Markedssignaler
-      </span>
+    <AnimatePresence>
+      {show && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.7, ease }}
+          className="flex flex-col gap-4"
+          style={{ maxWidth: 300 }}
+        >
+          <span className="text-[9px] tracking-[0.22em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.20)' }}>
+            Markedssignaler
+          </span>
 
-      <div className="flex flex-col">
-        {SIGNALS.map((s, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease, delay: 1.2 + i * 0.15 }}
-          >
+          <div className="flex flex-col">
+            {SIGNALS.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease, delay: 0.1 + i * 0.12 }}
+              >
+                <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+                <div className="flex items-center gap-5 py-3">
+                  <span className="font-bold tracking-tight text-white flex-shrink-0" style={{ fontSize: 26, lineHeight: 1, minWidth: 72 }}>
+                    {s.stat}
+                  </span>
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-[12px] font-light leading-tight" style={{ color: 'rgba(255,255,255,0.95)' }}>
+                      {s.text}
+                    </span>
+                    <span className="text-[9px] font-medium tracking-wide" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                      {s.source}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
             <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-            <div className="flex items-center gap-5 py-3">
-              <span className="font-bold tracking-tight text-white flex-shrink-0" style={{ fontSize: 26, lineHeight: 1, minWidth: 72 }}>
-                {s.stat}
-              </span>
-              <div className="flex flex-col gap-0.5">
-                <span className="text-[12px] font-light leading-tight" style={{ color: 'rgba(255,255,255,0.95)' }}>
-                  {s.text}
-                </span>
-                <span className="text-[9px] font-medium tracking-wide" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                  {s.source}
-                </span>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-        <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-      </div>
-    </motion.div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
 
-export default function Market() {
+export default function Market({ showSignals = false }: { showSignals?: boolean }) {
   const n = nodes.length
 
   return (
@@ -129,14 +134,12 @@ export default function Market() {
         >
           Norden beveger seg mot conversational AI.
         </h2>
-        <p className="text-[11.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)', maxWidth: 250 }}>
-          Tale blir neste grensesnitt for AI. Kvad er infrastrukturen under.
-        </p>
+
       </motion.div>
 
       {/* Chart — bottom-left */}
       <div className="absolute bottom-12 left-16 z-20">
-        <NordicSignals />
+        <NordicSignals show={showSignals} />
       </div>
 
       {/* ── Full-screen SVG — everything in one coordinate system ── */}
