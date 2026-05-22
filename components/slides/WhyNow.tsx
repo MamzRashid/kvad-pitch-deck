@@ -32,6 +32,15 @@ export default function WhyNow() {
     <div className="relative w-full h-full flex flex-col items-center justify-center bg-[#030303]">
       <WaveformBg opacity={0.022} speed={0.35} />
 
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
+      >
+        Hvorfor nå
+      </motion.span>
+
       {/* Cinematic depth gradient — centered */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 80% 70% at 50% 42%, #0c0c0c 0%, #030303 100%)' }}
@@ -48,11 +57,8 @@ export default function WhyNow() {
         animate="show"
         className="relative z-10 w-full max-w-5xl mx-auto px-20 flex flex-col items-center gap-20 text-center"
       >
-        {/* Label + Headline — centered */}
+        {/* Headline — centered */}
         <motion.div variants={fadeUp} className="flex flex-col items-center gap-5">
-          <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">
-            Hvorfor nå
-          </span>
           <h2
             className="font-bold tracking-tight text-white leading-[1.02]"
             style={{ fontSize: 'clamp(44px, 5.5vw, 64px)' }}

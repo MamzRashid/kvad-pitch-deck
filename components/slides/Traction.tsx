@@ -149,7 +149,7 @@ export default function Traction() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.95, ease: [0.25, 0.1, 0.25, 1], delay: 0.08 }}
-        className="absolute top-14 left-16 z-10 flex flex-col gap-4"
+        className="absolute top-8 left-16 z-10 flex flex-col gap-4"
         style={{ maxWidth: 260 }}
       >
         <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">

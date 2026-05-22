@@ -27,7 +27,7 @@ export default function Closing() {
             src="/kvad-logo.svg"
             alt="Kvad"
             width={220}
-            height={44}
+            height={50}
             style={{ opacity: 0.08 }}
           />
         </motion.div>

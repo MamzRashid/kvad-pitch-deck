@@ -32,6 +32,15 @@ export default function Team() {
     <div className="relative w-full h-full flex flex-col items-center justify-center bg-[#030303] px-20">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,#0e0e0e_0%,#030303_100%)] pointer-events-none" />
 
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
+      >
+        Teamet
+      </motion.span>
+
       <motion.div
         variants={container}
         initial="hidden"
@@ -39,9 +48,6 @@ export default function Team() {
         className="relative z-10 w-full max-w-3xl flex flex-col gap-14 items-center text-center"
       >
         <motion.div variants={item} className="flex flex-col gap-3">
-          <span className="text-[10px] text-white/22 tracking-[0.24em] uppercase font-medium">
-            Teamet
-          </span>
           <h2 className="text-[52px] font-bold tracking-tight text-white leading-[1.05]">
             Grunnleggerne.
           </h2>

@@ -11,6 +11,7 @@ import Reveal from './slides/Reveal'
 import Traction from './slides/Traction'
 import WhyKvad from './slides/WhyKvad'
 import Market from './slides/Market'
+import GoToMarket from './slides/GoToMarket'
 import BusinessModel from './slides/BusinessModel'
 import Team from './slides/Team'
 import Ask from './slides/Ask'
@@ -25,6 +26,7 @@ const SLIDES = [
   Traction,
   WhyKvad,
   Market,
+  GoToMarket,
   BusinessModel,
   Team,
   Ask,

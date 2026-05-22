@@ -100,3 +100,15 @@ body {
 .reveal-glow {
   animation: revealGlow 1.5s ease forwards;
 }
+
+/* Investor page audio player bars */
+@keyframes barBounce {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+.audio-bar-playing {
+  animation: barBounce var(--bar-dur, 0.8s) ease-in-out infinite;
+  animation-delay: var(--bar-delay, 0s);
+  transform-origin: center;
+}

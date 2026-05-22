@@ -16,8 +16,8 @@ const sections = [
   },
   {
     number: '03',
-    title: 'Bygget for AI-agenter',
-    body: 'Infrastruktur designet for conversational AI-systemer.',
+    title: 'Skalerbar stemmeinfrastruktur',
+    body: 'Produksjonsklar API som skalerer med produktet — uavhengig av plattform eller brukscase.',
   },
 ]
 
@@ -50,6 +50,15 @@ export default function Solution() {
         style={{ height: '40%', background: 'linear-gradient(to top, #030303 0%, transparent 100%)' }}
       />
 
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
+      >
+        Løsningen
+      </motion.span>
+
       <motion.div
         variants={container}
         initial="hidden"
@@ -58,9 +67,6 @@ export default function Solution() {
       >
         {/* Header */}
         <motion.div variants={fadeUp} className="flex flex-col gap-5">
-          <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">
-            Løsningen
-          </span>
           <h2
             className="font-bold tracking-tight text-white leading-[1.02] max-w-3xl"
             style={{ fontSize: 'clamp(40px, 5vw, 58px)' }}

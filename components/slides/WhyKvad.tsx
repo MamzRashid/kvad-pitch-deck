@@ -146,6 +146,15 @@ export default function WhyKvad() {
         style={{ background: 'radial-gradient(ellipse 90% 70% at 30% 50%, #0e0e0e 0%, #030303 100%)' }}
       />
 
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
+      >
+        Konkurransefortrinn
+      </motion.span>
+
       <motion.div
         variants={container}
         initial="hidden"
@@ -155,10 +164,6 @@ export default function WhyKvad() {
         {/* ── LEFT — bold statement ── */}
         <div className="flex flex-col justify-center px-16 flex-shrink-0" style={{ width: '42%' }}>
           <motion.div variants={fadeUp} className="flex flex-col gap-6">
-            <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">
-              Konkurransefortrinn
-            </span>
-
             <h2
               className="font-bold tracking-tight text-white leading-[1.03]"
               style={{ fontSize: 'clamp(34px, 3.8vw, 50px)' }}

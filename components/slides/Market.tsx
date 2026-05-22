@@ -22,9 +22,9 @@ const DOT_CONFIGS = [
 ]
 
 const nodes = [
-  { label: 'Salgsagenter',        sub: 'AI-drevet salg' },
-  { label: 'Enterprise AI',      sub: 'Bedriftsassistenter' },
-  { label: 'AI-agenter',         sub: 'Autonome systemer' },
+  { label: 'Mediahus',           sub: 'Nyheter & innhold' },
+  { label: 'Utdanning',          sub: 'Læringsverktøy' },
+  { label: 'Finans',             sub: 'Rådgivning & service' },
   { label: 'Booking',            sub: 'Reservasjon & service' },
   { label: 'Helse',              sub: 'Pasientdialog' },
   { label: 'Kundeservice',       sub: 'Live support' },
@@ -33,7 +33,7 @@ const nodes = [
 
 const signals = [
   '+38% vekst i conversational AI',
-  'Norske selskaper adopterer AI-agenter',
+  'Norske selskaper adopterer stemmebaserte løsninger',
   'Voice AI-adopsjon øker i Norden',
   'Nordisk enterprise-AI vokser raskt',
 ]
@@ -122,7 +122,7 @@ export default function Market({ showSignals = false }: { showSignals?: boolean 
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.95, ease, delay: 0.06 }}
-        className="absolute top-14 left-16 z-20 flex flex-col gap-4"
+        className="absolute top-8 left-16 z-20 flex flex-col gap-4"
         style={{ maxWidth: 280 }}
       >
         <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">

@@ -116,7 +116,7 @@ export default function BusinessModel() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.05 }}
-        className="absolute top-9 left-16 z-20 flex items-center gap-6"
+        className="absolute top-8 left-16 z-20 flex items-center gap-6"
       >
         <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">
           Forretningsmodell

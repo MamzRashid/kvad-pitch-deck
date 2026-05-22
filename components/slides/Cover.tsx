@@ -33,7 +33,7 @@ export default function Cover() {
             src="/kvad-logo.svg"
             alt="Kvad"
             width={380}
-            height={74}
+            height={86}
             priority
             style={{ opacity: 0.92 }}
           />
