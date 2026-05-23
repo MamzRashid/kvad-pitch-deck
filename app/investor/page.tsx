@@ -83,25 +83,107 @@ function Bullet({ children }: { children: React.ReactNode }) {
   )
 }
 
+function Tag({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="text-[10px] font-medium tracking-[0.12em] uppercase px-2.5 py-1 rounded-full"
+      style={{ color: 'rgba(255,255,255,0.40)', border: '1px solid rgba(255,255,255,0.09)' }}>
+      {children}
+    </span>
+  )
+}
+
 // ── COVER ────────────────────────────────────────────────────────────
 
 function Cover() {
   return (
-    <section className="relative w-full flex flex-col items-center justify-center bg-[#030303] py-32 md:py-40 px-8 text-center">
+    <section className="relative w-full flex flex-col items-center justify-center bg-[#030303] py-32 md:py-44 px-8 text-center">
       <WaveformBg opacity={0.035} speed={0.6} />
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 40%, #030303 100%)' }}
       />
-      <div className="relative z-10 flex flex-col items-center gap-8 max-w-2xl">
-        <Image src="/kvad-logo.svg" alt="Kvad" width={380} height={86} priority style={{ opacity: 0.92 }} />
-        <p className="text-[14px] font-light text-white/50 tracking-[0.14em] uppercase">
-          Infrastruktur for menneskelig AI-kommunikasjon.
-        </p>
-        <div className="w-px h-8 bg-white/8" />
-        <p className="text-[14px] md:text-[15px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.40)' }}>
-          Kvad bygger stemmelaget for norsk og nordisk AI — en API som gir utviklere og
-          bedrifter tilgang til naturlig norsk tale med sanntidsrespons og menneskelig kvalitet.
-        </p>
+      <div className="relative z-10 flex flex-col items-center gap-10 max-w-2xl">
+        <Image src="/kvad-logo.svg" alt="Kvad" width={360} height={82} priority style={{ opacity: 0.92 }} />
+
+        <div className="flex flex-col items-center gap-6">
+          <p className="text-[14px] font-light text-white/50 tracking-[0.14em] uppercase">
+            Infrastruktur for menneskelig AI-kommunikasjon
+          </p>
+          <div className="w-px h-6 bg-white/8" />
+          <p className="text-[15px] md:text-[16px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.48)' }}>
+            Kvad bygger stemmelaget som mangler i norsk AI-infrastruktur — et API som gir
+            bedrifter og utviklere tilgang til naturlig norsk tale med sanntidsrespons og
+            menneskelig kvalitet. Tenk Twilio for norsk stemme.
+          </p>
+        </div>
+
+        <div className="flex flex-col items-center gap-3 pt-2">
+          <p className="text-[12px] font-light" style={{ color: 'rgba(255,255,255,0.22)' }}>
+            Dette dokumentet er konfidensielt og kun ment for potensielle investorer.
+          </p>
+          <p className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.14)' }}>
+            Spørsmål? mamoon@kvad.no
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ── EXECUTIVE SUMMARY ────────────────────────────────────────────────
+
+function ExecutiveSummary() {
+  const points = [
+    {
+      label: 'Problemet',
+      text: 'AI-drevne taleagenter høres robotaktige ut på norsk. Norske brukere avviser dem — og bedriftene som bygger dem, har ingen god løsning.',
+    },
+    {
+      label: 'Løsningen',
+      text: 'Kvad er et API for naturlig norsk tale i sanntid. Bedrifter integrerer med noen linjer kode og får menneskelig stemmekvalitet ut av boksen.',
+    },
+    {
+      label: 'Markedet',
+      text: '$47B global voice AI-markedsverdi innen 2029. Vi anslår et nordisk SAM på $2.4B. Kvad posisjonerer seg som standardinfrastrukturen for norsk tale-AI.',
+    },
+    {
+      label: 'Traksjon',
+      text: 'Selly — en AI-salgsagent med interesse fra store norske selskaper — er klar til å lansere, men blokkert av manglende norsk TTS-kvalitet. Kvad er løsningen.',
+    },
+    {
+      label: 'Teamet',
+      text: 'Mamoon Rashid (Produkt & distribusjon) og Vebjørn (Modelltrening & teknisk arkitekt). Kompetansen treffer kjernen av det som kreves for å lykkes.',
+    },
+    {
+      label: 'Vi søker',
+      text: '$2M seed for å ferdigstille kjerneinfrastrukturen, skalere treningsdata og sikre de første betalende enterprise-kundene.',
+    },
+  ]
+
+  return (
+    <section className="relative w-full bg-[#030303] px-8 py-16 md:py-20">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-10">
+        <div className="flex flex-col gap-3">
+          <Label>Sammendrag</Label>
+          <h2 className="font-bold tracking-tight text-white leading-[1.04]"
+            style={{ fontSize: 'clamp(28px, 3vw, 38px)' }}>
+            Kvad på ett minutt.
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px"
+          style={{ background: 'rgba(255,255,255,0.06)' }}>
+          {points.map((p) => (
+            <div key={p.label} className="flex flex-col gap-3 p-7 bg-[#030303]">
+              <span className="text-[10px] font-semibold tracking-[0.20em] uppercase"
+                style={{ color: 'rgba(255,255,255,0.28)' }}>
+                {p.label}
+              </span>
+              <p className="text-[13.5px] font-light leading-relaxed"
+                style={{ color: 'rgba(255,255,255,0.68)' }}>
+                {p.text}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -116,57 +198,48 @@ function Problem() {
         style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 40%, #0f0f0f 0%, #030303 100%)' }}
       />
       <div className="relative z-10 w-full max-w-5xl flex flex-col gap-14">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5 max-w-3xl">
           <Label>Problemet</Label>
           <h2 className="text-[42px] md:text-[52px] font-bold tracking-tight text-white leading-[1.05]">
-            AI høres fortsatt ikke<br />menneskelig ut.
+            AI høres fortsatt ikke<br />menneskelig ut på norsk.
           </h2>
-          <p className="text-[14px] font-light leading-relaxed max-w-2xl" style={{ color: 'rgba(255,255,255,0.42)' }}>
-            Generiske tale-modeller er trenet på engelske datasett og oversatt til norsk i ettertid.
-            Resultatet bryter ned tillit til AI-drevne produkter blant norske brukere.
+          <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.50)' }}>
+            Globale tale-modeller er trent på engelske datasett og etterpå tilpasset norsk. Resultatet er
+            stiv, umenneskelig tale som norske brukere umiddelbart kjenner igjen og avviser. Norske
+            selskaper som vil bygge AI-agenter, callbots og stemmeprodukter har ikke et godt nok
+            fundament å bygge på — og vet det.
+          </p>
+          <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.36)' }}>
+            Dette er ikke et bekvemmelhetsproblem. Forsinkelse på 300–800ms og unaturlig intonasjon
+            ødelegger tillit i kundedialoger, support og salg. For selskaper som konkurrerer på
+            kundeopplevelse, er dette en blokkerende faktor — ikke en "nice to have".
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="flex flex-col gap-5 p-7 bg-[#0c0c0c] border border-[#181818] rounded-2xl">
             <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
-              AI-stemme i dag
+              Generisk AI-stemme i dag
             </span>
             <AudioPlayerInline label="DEMO" accent="rgba(255,255,255,0.40)" />
-            <div className="flex flex-col gap-2">
-              {['Robotaktig tale', 'Høy forsinkelse', 'Unaturlig samtaleflyt'].map((p) => (
-                <div key={p} className="flex items-center gap-3">
-                  <div className="w-[3px] h-[3px] rounded-full bg-white/40 flex-shrink-0" />
-                  <span className="text-[13px] text-white/72 font-light">{p}</span>
-                </div>
-              ))}
-            </div>
-            <Divider />
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-3 mt-1">
               <Bullet>Forsinkelse på 300–800ms ødelegger naturlig samtaleflyt</Bullet>
-              <Bullet>Trenet på studioopplesning — mangler norsk rytme og intonasjon</Bullet>
-              <Bullet>Norske brukere har lavere toleranse for unaturlig tale</Bullet>
+              <Bullet>Trent på studioopplesning — mangler norsk rytme og intonasjon</Bullet>
+              <Bullet>Norske brukere har lavere toleranse for robotaktig tale enn f.eks. engelsktalende markeder</Bullet>
+              <Bullet>Ingen eksisterende løsning er bygget spesifikt for norsk samtale-AI</Bullet>
             </div>
           </div>
 
           <div className="flex flex-col gap-5 p-7 bg-[#0c0c0c] border border-[#181818] rounded-2xl">
             <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
-              Menneskelig stemme
+              Kvad-stemme
             </span>
             <AudioPlayerInline label="KVAD" accent="rgba(255,255,255,0.70)" />
-            <div className="flex flex-col gap-2">
-              {['Naturlig tempo', 'Sanntidssvar', 'Flytende samtale'].map((p) => (
-                <div key={p} className="flex items-center gap-3">
-                  <div className="w-[3px] h-[3px] rounded-full bg-white/55 flex-shrink-0" />
-                  <span className="text-[13px] text-white/82 font-light">{p}</span>
-                </div>
-              ))}
-            </div>
-            <Divider />
-            <div className="flex flex-col gap-2.5">
-              <Bullet>Emosjonell intonasjon og naturlige pauser bygger tillit</Bullet>
-              <Bullet>Norsk rytme og prosodi som norske brukere kjenner igjen</Bullet>
-              <Bullet>Dette er standarden Kvad leverer — via API</Bullet>
+            <div className="flex flex-col gap-3 mt-1">
+              <Bullet>Trent på norske samtaler — ikke studioopplesning. Naturlig rytme og intonasjon</Bullet>
+              <Bullet>Under 200ms ende-til-ende forsinkelse — reell sanntidsdialog</Bullet>
+              <Bullet>Emosjonell troverdighet og naturlige pauser som bygger tillit</Bullet>
+              <Bullet>API-første — integreres i eksisterende systemer med noen linjer kode</Bullet>
             </div>
           </div>
         </div>
@@ -180,20 +253,24 @@ function Problem() {
 function WhyNow() {
   const statements = [
     {
-      number: '01', title: 'AI-agenter er allerede her.',
-      desc: 'Norske bedrifter implementerer AI i kundedialog og salg raskere enn forventet.',
+      number: '01',
+      title: 'AI-agenter er allerede her.',
+      desc: 'Norske bedrifter implementerer AI i kundedialog, salg og support raskere enn forventet. Etterspørselen etter stemmebasert AI er ikke fremtidig — den er nåtidig.',
     },
     {
-      number: '02', title: 'Norsk tale-AI henger etter.',
-      desc: 'Infrastrukturen for naturlig norsk tale eksisterer ikke — bedriftene mangler noe å bygge på.',
+      number: '02',
+      title: 'Norsk tale-AI henger kritisk etter.',
+      desc: 'Infrastrukturen for naturlig norsk tale eksisterer ikke i produksjonskvalitet. Bedriftene som vil bygge dette, har ingen plattform å stole på.',
     },
     {
-      number: '03', title: 'Norsk tale-AI er uferdig.',
-      desc: 'Eksisterende løsninger mangler den samtaleflyt og prosodien norske brukere krever.',
+      number: '03',
+      title: 'Vinduet er åpent — men lukkes.',
+      desc: 'Store aktører som Google, Microsoft og ElevenLabs trener bredt. De vil komme til Norden, men norsk prosodi og samtaledynamikk krever lokal forankring. Det er Kvads fortrinn akkurat nå.',
     },
     {
-      number: '04', title: 'Kvad bygger fundamentet.',
-      desc: 'Vinduet for å etablere seg som standardlaget er åpent nå — men lukkes raskt.',
+      number: '04',
+      title: 'Kvad bygger fundamentet.',
+      desc: 'Første aktør som etablerer seg som infrastrukturlaget vinner nettverkseffekter: data, kunder og integrasjoner forsterker hverandre. Vi er der.',
     },
   ]
 
@@ -203,38 +280,42 @@ function WhyNow() {
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 80% 70% at 50% 42%, #0c0c0c 0%, #030303 100%)' }}
       />
-      <div className="relative z-10 w-full max-w-5xl flex flex-col items-center gap-16 text-center">
-        <div className="flex flex-col items-center gap-5 max-w-3xl">
+      <div className="relative z-10 w-full max-w-5xl flex flex-col gap-14">
+        <div className="flex flex-col gap-5 max-w-3xl">
           <Label>Hvorfor nå</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.02]"
-            style={{ fontSize: 'clamp(36px, 5vw, 56px)' }}
+            style={{ fontSize: 'clamp(36px, 5vw, 52px)' }}
           >
             Conversational AI eksploderer.<br />Infrastrukturen henger etter.
           </h2>
+          <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
+            Timingen er ikke tilfeldig. Fire konvergerende krefter gjør dette til det rette øyeblikket
+            for Kvad — og vi er allerede i posisjon.
+          </p>
         </div>
 
-        <div className="w-full flex flex-col md:flex-row">
+        <div className="flex flex-col">
           {statements.map((s, i) => (
-            <div key={s.number} className="flex flex-1 items-start">
-              <div className="w-px self-stretch" style={{ background: 'rgba(255,255,255,0.06)', flexShrink: 0 }} />
-              <div className="flex flex-col gap-3 px-8 py-4 text-left">
-                <span className="text-[9px] font-mono tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.30)' }}>
+            <div key={s.number}>
+              <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+              <div className="flex gap-8 py-8 items-start">
+                <span className="text-[9px] font-mono tracking-[0.2em] flex-shrink-0 w-6 pt-1.5"
+                  style={{ color: 'rgba(255,255,255,0.22)' }}>
                   {s.number}
                 </span>
-                <p className="text-[18px] font-semibold leading-snug tracking-[-0.02em]"
-                  style={{ color: 'rgba(255,255,255,0.92)' }}
-                >
-                  {s.title}
-                </p>
-                <p className="text-[12.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.42)' }}>
-                  {s.desc}
-                </p>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-[18px] font-semibold leading-snug tracking-[-0.01em]"
+                    style={{ color: 'rgba(255,255,255,0.92)' }}>
+                    {s.title}
+                  </h3>
+                  <p className="text-[13.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.46)' }}>
+                    {s.desc}
+                  </p>
+                </div>
               </div>
-              {i === statements.length - 1 && (
-                <div className="w-px self-stretch" style={{ background: 'rgba(255,255,255,0.06)', flexShrink: 0 }} />
-              )}
             </div>
           ))}
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
         </div>
       </div>
     </section>
@@ -246,19 +327,22 @@ function WhyNow() {
 function Solution() {
   const sections = [
     {
-      number: '01', title: 'Menneskelig tale',
-      body: 'Naturlig rytme, emosjonell flyt og samtalevennlig levering.',
-      detail: 'Trent på ekte norske samtaler — ikke studioopplesning. Modellen modulerer tempo, pauser og emosjonell troverdighet.',
+      number: '01',
+      title: 'Menneskelig tale',
+      body: 'Naturlig rytme, emosjonell flyt og samtalevennlig levering — ikke studioopplesning.',
+      detail: 'Trent på ekte norske samtaler med pauser, temperaturveksling og emosjonell variasjon. Modellen modulerer tone og tempo kontekstuelt — noe ingen global modell gjør for norsk i dag.',
     },
     {
-      number: '02', title: 'Sanntidsrespons',
-      body: 'Optimalisert for live samtaler med ultra-lav forsinkelse.',
-      detail: 'Streaming-arkitektur som genererer og leverer tale mens setningen formuleres. Under 200ms ende-til-ende.',
+      number: '02',
+      title: 'Sanntidsrespons',
+      body: 'Optimalisert for live samtaler med under 200ms ende-til-ende forsinkelse.',
+      detail: 'Streaming-arkitektur som genererer og leverer tale mens setningen formuleres. Dette er ikke batch-TTS — det er konversasjonell infrastruktur bygget for agenter som må svare umiddelbart.',
     },
     {
-      number: '03', title: 'Skalerbar stemmeinfrastruktur',
-      body: 'Produksjonsklar API som skalerer med produktet.',
-      detail: 'Fungerer på alle plattformer, fra prototype til enterprise. Noen linjer kode er alt som trengs for å komme i gang.',
+      number: '03',
+      title: 'API-første infrastruktur',
+      body: 'Produksjonsklar API som integreres på minutter og skalerer til enterprise.',
+      detail: 'Fungerer på alle plattformer, fra prototype til produksjon. Gratis tier for utviklere senker adopsjonsbarrieren. Enterprise-kunder får dedikerte deployments med SLA og prioritert support.',
     },
   ]
 
@@ -269,40 +353,42 @@ function Solution() {
         style={{ background: 'radial-gradient(ellipse 75% 65% at 50% 40%, #0d0d0d 0%, #030303 100%)' }}
       />
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-14">
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 max-w-3xl">
           <Label>Løsningen</Label>
-          <h2 className="font-bold tracking-tight text-white leading-[1.02] max-w-3xl"
+          <h2 className="font-bold tracking-tight text-white leading-[1.02]"
             style={{ fontSize: 'clamp(36px, 5vw, 52px)' }}
           >
-            Kvad gjør det mulig for AI å kommunisere naturlig i sanntid.
+            Kvad gjør det mulig for AI å kommunisere naturlig på norsk i sanntid.
           </h2>
+          <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
+            Det er tre ting som må fungere simultant for at norsk tale-AI skal være akseptabelt i
+            produksjon. Kvad er bygget rundt alle tre.
+          </p>
         </div>
 
         <div className="flex flex-col">
           {sections.map((s, i) => (
             <div key={s.number}>
               <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-              <div className="flex flex-col md:flex-row items-start md:items-baseline gap-4 md:gap-20 py-8">
-                <div className="flex items-baseline gap-5 flex-shrink-0 md:w-[260px]">
+              <div className="flex flex-col md:flex-row items-start md:items-baseline gap-4 md:gap-20 py-9">
+                <div className="flex items-baseline gap-5 flex-shrink-0 md:w-[240px]">
                   <span className="text-[9px] font-mono text-white/18 tracking-[0.2em]">{s.number}</span>
-                  <h3 className="text-[20px] font-semibold tracking-tight" style={{ color: 'rgba(255,255,255,0.88)' }}>
+                  <h3 className="text-[20px] font-semibold tracking-tight" style={{ color: 'rgba(255,255,255,0.90)' }}>
                     {s.title}
                   </h3>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <p className="text-[13.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
+                <div className="flex flex-col gap-2.5">
+                  <p className="text-[14px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.68)' }}>
                     {s.body}
                   </p>
-                  <p className="text-[12.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                  <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.36)' }}>
                     {s.detail}
                   </p>
                 </div>
               </div>
-              {i === sections.length - 1 && (
-                <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-              )}
             </div>
           ))}
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
         </div>
       </div>
     </section>
@@ -384,79 +470,96 @@ function Traction() {
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 90% 80% at 50% 44%, #0f0f0f 0%, #030303 100%)' }}
       />
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-14">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-14">
 
-        {/* Left — text */}
-        <div className="flex flex-col gap-6 md:w-[42%] flex-shrink-0">
+        <div className="flex flex-col gap-5 max-w-3xl">
           <Label>Tidlig etterspørsel</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.04]"
-            style={{ fontSize: 'clamp(28px, 3.2vw, 38px)' }}
+            style={{ fontSize: 'clamp(28px, 3.2vw, 42px)' }}
           >
-            AI-systemer er allerede klare for naturlig norsk tale.
+            Markedet er klart. Infrastrukturen er det eneste som mangler.
           </h2>
-          <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.42)' }}>
-            Selly har i over ett år slitt med å lansere fordi ingen norsk TTS høres menneskelig nok ut. De har allerede interesse fra store selskaper som vil benytte tjenesten — men har ikke gått ut i markedet ennå. Kvad er blokkeren som fjernes.
+          <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.50)' }}>
+            Selly er en norsk AI-salgsagent som i over ett år har vært klar til å lansere.
+            Problemet er at ingen norsk TTS-løsning er god nok til at norske sluttbrukere
+            aksepterer den. De har allerede interesse fra store norske selskaper som ønsker å
+            bruke tjenesten — men har ikke gått ut i markedet fordi stemmen ikke holder mål.
           </p>
-          <div className="flex flex-col gap-2.5">
-            <Bullet>Selly: klar til lansering — venter kun på Kvad</Bullet>
-            <Bullet>Store selskaper har allerede vist interesse for Sellys tjeneste</Bullet>
-            <Bullet>Ingen av dem har gått ut i markedet ennå</Bullet>
-          </div>
+          <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.36)' }}>
+            Kvad fjerner den blokkerende faktoren. Når Selly lanserer med Kvad, får vi umiddelbar
+            eksponering mot de fem kundene i diagrammet nedenfor — selskaper som allerede er
+            interessert og ventet. Dette er ikke hypotetisk fremtidig etterspørsel.
+            Det er konkret, ventet etterspørsel som Kvad låser opp dag én.
+          </p>
         </div>
 
-        {/* Right — pyramid */}
-        <div className="flex flex-col items-center flex-1 py-4">
-          {/* Kvad */}
-          <div className="flex flex-col items-center">
-            <div className="relative flex items-center justify-center rounded-full bg-black"
-              style={{ width: 120, height: 120, border: '1px solid rgba(255,255,255,0.11)', boxShadow: '0 0 28px 4px rgba(255,255,255,0.015)' }}
-            >
-              <motion.div className="absolute rounded-full pointer-events-none"
-                style={{ width: 170, height: 170, top: -25, left: -25, border: '1px solid rgba(255,255,255,0.04)' }}
-                animate={{ opacity: [0.2, 0.5, 0.2] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              />
-              <div className="flex flex-col items-center gap-1.5">
-                <Image src="/kvad-icon.svg" alt="Kvad" width={38} height={38} style={{ opacity: 0.93 }} />
-                <span className="text-[10px] font-semibold tracking-[0.28em] uppercase text-white/85">Kvad</span>
-              </div>
-            </div>
-            <span className="text-[9px] tracking-[0.18em] uppercase font-medium mt-2.5" style={{ color: 'rgba(255,255,255,0.28)' }}>Infrastrukturlag</span>
-          </div>
-
-          <TFlowLine height={40} />
-
-          {/* Selly */}
-          <div className="flex flex-col items-center">
-            <div className="flex items-center justify-center rounded-full bg-black"
-              style={{ width: 84, height: 84, border: '1px solid rgba(255,255,255,0.08)' }}
-            >
-              <Image src="/selly-logo-white.svg" alt="Selly" width={48} height={18} style={{ opacity: 0.82 }} />
-            </div>
-            <span className="text-[9px] tracking-[0.18em] uppercase font-medium mt-2.5" style={{ color: 'rgba(255,255,255,0.28)' }}>Selly — Venter på Kvad.</span>
-          </div>
-
-          <TBranchConnector />
-
-          {/* Customers */}
-          <div className="flex items-start" style={{ gap: CUST_GAP }}>
-            {customers.map((c) => (
-              <div key={c.name} className="flex flex-col items-center gap-2" style={{ width: CUST_SIZE }}>
-                <div className="flex items-center justify-center rounded-full bg-black flex-shrink-0"
-                  style={{ width: CUST_SIZE, height: CUST_SIZE, border: '1px solid rgba(255,255,255,0.07)' }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={c.img} alt={c.name} width={c.w} height={c.h} style={c.style} />
+        <div className="flex flex-col md:flex-row items-center gap-14">
+          <div className="flex flex-col items-center flex-1 py-4">
+            <div className="flex flex-col items-center">
+              <div className="relative flex items-center justify-center rounded-full bg-black"
+                style={{ width: 120, height: 120, border: '1px solid rgba(255,255,255,0.11)', boxShadow: '0 0 28px 4px rgba(255,255,255,0.015)' }}
+              >
+                <motion.div className="absolute rounded-full pointer-events-none"
+                  style={{ width: 170, height: 170, top: -25, left: -25, border: '1px solid rgba(255,255,255,0.04)' }}
+                  animate={{ opacity: [0.2, 0.5, 0.2] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <div className="flex flex-col items-center gap-1.5">
+                  <Image src="/kvad-icon.svg" alt="Kvad" width={38} height={38} style={{ opacity: 0.93 }} />
+                  <span className="text-[10px] font-semibold tracking-[0.28em] uppercase text-white/85">Kvad</span>
                 </div>
-                <span className="text-[9.5px] font-medium tracking-[0.12em] uppercase text-center leading-snug" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                  {c.name}
-                </span>
               </div>
-            ))}
+              <span className="text-[9px] tracking-[0.18em] uppercase font-medium mt-2.5" style={{ color: 'rgba(255,255,255,0.28)' }}>Infrastrukturlag</span>
+            </div>
+
+            <TFlowLine height={40} />
+
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center rounded-full bg-black"
+                style={{ width: 84, height: 84, border: '1px solid rgba(255,255,255,0.08)' }}
+              >
+                <Image src="/selly-logo-white.svg" alt="Selly" width={48} height={18} style={{ opacity: 0.82 }} />
+              </div>
+              <span className="text-[9px] tracking-[0.18em] uppercase font-medium mt-2.5" style={{ color: 'rgba(255,255,255,0.28)' }}>Selly — Venter på Kvad.</span>
+            </div>
+
+            <TBranchConnector />
+
+            <div className="flex items-start" style={{ gap: CUST_GAP }}>
+              {customers.map((c) => (
+                <div key={c.name} className="flex flex-col items-center gap-2" style={{ width: CUST_SIZE }}>
+                  <div className="flex items-center justify-center rounded-full bg-black flex-shrink-0"
+                    style={{ width: CUST_SIZE, height: CUST_SIZE, border: '1px solid rgba(255,255,255,0.07)' }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={c.img} alt={c.name} width={c.w} height={c.h} style={c.style} />
+                  </div>
+                  <span className="text-[9.5px] font-medium tracking-[0.12em] uppercase text-center leading-snug" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                    {c.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="text-[11px] font-light mt-4 text-center" style={{ color: 'rgba(255,255,255,0.28)' }}>
+              Konverterer når stemmen høres menneskelig ut
+            </p>
           </div>
-          <p className="text-[11px] font-light mt-4 text-center" style={{ color: 'rgba(255,255,255,0.28)' }}>
-            Konverterer når stemmen høres menneskelig ut
-          </p>
+
+          <div className="flex flex-col gap-5 md:w-[38%] flex-shrink-0">
+            <div className="flex flex-col gap-3 p-6 rounded-2xl"
+              style={{ background: '#0b0b0b', border: '1px solid rgba(255,255,255,0.07)' }}>
+              <span className="text-[10px] font-semibold tracking-[0.18em] uppercase"
+                style={{ color: 'rgba(255,255,255,0.25)' }}>
+                Hva dette betyr
+              </span>
+              <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                Selly er ett eksempel på et bredere mønster: norske AI-produktselskaper er klare til å lansere stemmefunksjoner, men blokkert av infrastrukturmangel.
+              </p>
+              <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                Kvad posisjonerer seg som løsningen hele dette segmentet venter på. Det er ikke bare én kunde — det er et nytt produktkategori som aktiveres.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -470,23 +573,23 @@ function WhyKvad() {
   const moats = [
     {
       number: '01', title: 'Bygget på data ingen andre har tilgang til', tag: 'Datafortrinn',
-      desc: 'Flere hundre timer segmentert norsk tale — ikke studioopplesning, men naturlig samtale.',
-      detail: 'Historiske samtaledata kan ikke gjenskapes. Konkurrenter må starte fra scratch.',
+      desc: 'Flere hundre timer segmentert norsk tale — ikke studioopplesning, men autentiske samtaler med naturlig rytme, pauser og emosjonell variasjon.',
+      detail: 'Historisk samtaledata kan ikke gjenskapes på bestilling. Konkurrenter som vil inn i dette markedet i dag, må starte fra null og vente år på sammenlignbart volum og kvalitet.',
     },
     {
-      number: '02', title: 'Samtalerytme og prosodi', tag: 'Modellfortrinn',
-      desc: 'Trent på pauser, tempo, trykk og emosjonell flyt. Ikke bare ord — men hvordan de sies.',
-      detail: 'Modellen forstår kontekst og modulerer deretter — ingen global modell gjør dette for norsk.',
+      number: '02', title: 'Samtalerytme og prosodi som en kjernekompetanse', tag: 'Modellfortrinn',
+      desc: 'Vi trener ikke bare på hva som sies — men på hvordan det sies. Tempo, trykk, pauser og emosjonell flyt er eksplisitt modellert.',
+      detail: 'Global TTS er bredde-optimert. Kvad er dypt optimalisert for norsk samtale-AI. Ingen global aktør vil gjøre dette arbeidet for et marked på 5 millioner mennesker.',
     },
     {
       number: '03', title: 'Eksklusivt råmateriale fra norske podcastere', tag: 'Innholdsfortrinn',
-      desc: 'Direkte avtaler med norske podcastere gir oss tilgang til autentiske samtaler.',
-      detail: 'Utilgjengelig for konkurrenter — vi eier relasjonene og datarettighetene.',
+      desc: 'Direkte avtaler med norske podcastere gir oss tilgang til autentiske samtaleopptak med rettigheter klare for modelltrening.',
+      detail: 'Disse relasjonene og rettighetene er utilgjengelige for konkurrenter. Dataen er ikke skrapet — den er eksklusivt lisensiert.',
     },
     {
-      number: '04', title: 'Internt podcastrom for norsk taleinnsamling', tag: 'Produksjonsfortrinn',
-      desc: 'Eget opptaksrom lar teamet produsere treningsdata løpende.',
-      detail: 'Vi kontrollerer dataproduksjonen helt — kvalitet og volum styres internt.',
+      number: '04', title: 'Internt produksjonsapparat for taledata', tag: 'Produksjonsfortrinn',
+      desc: 'Eget opptaksrom lar teamet produsere og kontrollere treningsdata løpende — med full kontroll over kvalitet, format og volum.',
+      detail: 'Vi er ikke avhengig av tredjeparter for dataproduksjon. Det betyr raskere iterasjon og konsekvent datakvalitet over tid.',
     },
   ]
 
@@ -503,9 +606,14 @@ function WhyKvad() {
           >
             Norsk conversational AI krever noe globale modeller ikke har.
           </h2>
-          <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.42)', maxWidth: 320 }}>
-            Generiske stemme-modeller er brede. Kvad er dypt optimalisert — trent på norsk rytme,
-            norske pauser og norsk samtaleflyt. Fire fortrinn som forsterker hverandre.
+          <p className="text-[13.5px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
+            Generiske stemmemodeller er brede. Kvad er dypt optimalisert — trent på norsk rytme,
+            norske pauser og norsk samtaleflyt. Fire fortrinn som forsterker hverandre over tid,
+            og som skaper en grøft som er vanskeligere å krysse for hver måned vi opererer.
+          </p>
+          <p className="text-[13px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.28)' }}>
+            ElevenLabs, Google og Microsoft tilbyr norsk TTS — men de er ikke bygget for norsk samtale-AI.
+            Det er forskjellen mellom å lese opp en tekst og å føre en naturlig dialog.
           </p>
         </div>
 
@@ -517,29 +625,25 @@ function WhyKvad() {
           {moats.map((m, i) => (
             <div key={m.number}>
               <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-              <div className="flex items-start gap-8 py-6">
+              <div className="flex items-start gap-8 py-7">
                 <span className="text-[9px] font-mono tracking-[0.2em] flex-shrink-0 w-5 pt-1"
                   style={{ color: 'rgba(255,255,255,0.20)' }}
                 >
                   {m.number}
                 </span>
-                <div className="flex flex-col gap-1.5 flex-1">
+                <div className="flex flex-col gap-2 flex-1">
                   <div className="flex items-start justify-between gap-3 flex-wrap">
                     <h3 className="text-[15px] font-semibold tracking-tight leading-snug"
                       style={{ color: 'rgba(255,255,255,0.90)' }}
                     >
                       {m.title}
                     </h3>
-                    <span className="text-[9px] font-medium tracking-[0.14em] uppercase px-2 py-0.5 rounded-full flex-shrink-0"
-                      style={{ color: 'rgba(255,255,255,0.40)', border: '1px solid rgba(255,255,255,0.09)' }}
-                    >
-                      {m.tag}
-                    </span>
+                    <Tag>{m.tag}</Tag>
                   </div>
-                  <p className="text-[12px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.50)' }}>
+                  <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.52)' }}>
                     {m.desc}
                   </p>
-                  <p className="text-[11.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.30)' }}>
+                  <p className="text-[12px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.28)' }}>
                     {m.detail}
                   </p>
                 </div>
@@ -558,13 +662,13 @@ function WhyKvad() {
 // ── MARKED ───────────────────────────────────────────────────────────
 
 const M_NODES = [
-  { label: 'Mediahus',    sub: 'Nyheter & innhold' },
-  { label: 'Utdanning',   sub: 'Læringsverktøy' },
-  { label: 'Finans',      sub: 'Rådgivning & service' },
-  { label: 'Booking',     sub: 'Reservasjon & service' },
-  { label: 'Helse',       sub: 'Pasientdialog' },
-  { label: 'Kundeservice',sub: 'Live support' },
-  { label: 'Restauranter',sub: 'Bestilling & hjelp' },
+  { label: 'Mediahus',     sub: 'Nyheter & innhold' },
+  { label: 'Utdanning',    sub: 'Læringsverktøy' },
+  { label: 'Finans',       sub: 'Rådgivning & service' },
+  { label: 'Booking',      sub: 'Reservasjon & service' },
+  { label: 'Helse',        sub: 'Pasientdialog' },
+  { label: 'Kundeservice', sub: 'Live support' },
+  { label: 'Restauranter', sub: 'Bestilling & hjelp' },
 ]
 const M_DOT_CONFIGS = [
   { duration: 1.4, delay: 1.2, repeatDelay: 5.8 },
@@ -590,7 +694,7 @@ function mGetLabel(px: number, py: number) {
 function MarketOrbit() {
   const n = M_NODES.length
   return (
-    <svg viewBox={`0 0 ${M_VW} ${M_VH}`} style={{ width: '100%', maxWidth: 500, height: 'auto' }}>
+    <svg viewBox={`0 0 ${M_VW} ${M_VH}`} style={{ width: '100%', maxWidth: 460, height: 'auto' }}>
       <circle cx={M_CX} cy={M_CY} r={M_R} fill="none" stroke="rgba(255,255,255,0.10)" strokeWidth="0.8" />
       {M_NODES.map((_, i) => {
         const pos = mGetPos(i, n, M_R * 0.84)
@@ -633,56 +737,100 @@ function MarketOrbit() {
   )
 }
 
-function Market() {
-  const signals = [
-    { stat: '$47B', text: 'global voice AI-markedsverdi innen 2029', source: 'MarketsandMarkets' },
-    { stat: '4 mrd', text: 'samtaler håndtert av AI daglig globalt i 2024', source: 'Gartner' },
-    { stat: '40%', text: 'av kundeservice-interaksjoner håndteres av AI innen 2025', source: 'Gartner' },
-  ]
+const MARKET_SEGMENTS = [
+  {
+    label: 'TAM',
+    desc: 'Global voice AI-markedsverdi innen 2029',
+    value: '$47B',
+    bar: 1.0,
+    source: 'MarketsandMarkets',
+    color: 'rgba(255,255,255,0.55)',
+  },
+  {
+    label: 'SAM',
+    desc: 'Nordisk enterprise voice AI',
+    value: '$2.4B',
+    bar: 0.30,
+    source: 'Estimert',
+    color: 'rgba(255,255,255,0.36)',
+  },
+  {
+    label: 'SOM',
+    desc: 'Kvads adresserbart marked — år 1–3',
+    value: '$85M',
+    bar: 0.10,
+    source: 'Intern estimat',
+    color: 'rgba(74,222,128,0.70)',
+  },
+]
 
+function Market() {
   return (
     <section className="relative w-full bg-[#030303] px-8 py-20 md:py-28">
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 90% 70% at 30% 50%, #0e0e0e 0%, #030303 100%)' }}
       />
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-14">
 
-        {/* Left — text + signals */}
-        <div className="flex flex-col gap-8 md:w-[42%] flex-shrink-0">
-          <div className="flex flex-col gap-5">
-            <Label>Markedsmulighet</Label>
-            <h2 className="font-bold tracking-tight text-white leading-[1.04]"
-              style={{ fontSize: 'clamp(26px, 3vw, 36px)' }}
-            >
-              Norden beveger seg mot conversational AI.
-            </h2>
-            <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.42)' }}>
-              Voice AI er et av de raskest voksende segmentene innen enterprise-teknologi.
-              Kvad er infrastrukturlaget for norsk og nordisk tale — på tvers av alle bransjer.
-            </p>
-          </div>
-          <div className="flex flex-col">
-            {signals.map((s, i) => (
-              <div key={i}>
-                <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-                <div className="flex items-center gap-5 py-4">
-                  <span className="font-bold tracking-tight text-white flex-shrink-0"
-                    style={{ fontSize: 26, lineHeight: 1, minWidth: 72 }}
-                  >{s.stat}</span>
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-[12px] font-light" style={{ color: 'rgba(255,255,255,0.88)' }}>{s.text}</span>
-                    <span className="text-[9px] font-medium tracking-wide" style={{ color: 'rgba(255,255,255,0.35)' }}>{s.source}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-            <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-          </div>
+        <div className="flex flex-col gap-5 max-w-3xl">
+          <Label>Markedsmulighet</Label>
+          <h2 className="font-bold tracking-tight text-white leading-[1.04]"
+            style={{ fontSize: 'clamp(28px, 3.5vw, 44px)' }}
+          >
+            Norden beveger seg mot conversational AI — og trenger et stemmelag.
+          </h2>
+          <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.50)' }}>
+            Voice AI er et av de raskest voksende segmentene innen enterprise-teknologi globalt.
+            Kvad addresserer den nordiske delen av dette markedet — et segment som i dag ikke
+            har dedikert infrastruktur for naturlig samtale-AI.
+          </p>
+          <p className="text-[13.5px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.34)' }}>
+            Det er ikke bare ett marked — Kvad er horisontal infrastruktur. Mediahus, finans,
+            helse, booking, kundeservice: alle trenger naturlig norsk tale-AI.
+            Infrastrukturlaget vinner på tvers av alle vertikaler.
+          </p>
         </div>
 
-        {/* Right — orbit diagram */}
-        <div className="flex-1 flex items-center justify-center">
-          <MarketOrbit />
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+          <div className="flex flex-col gap-7 md:w-[42%] flex-shrink-0">
+            {MARKET_SEGMENTS.map((m) => (
+              <div key={m.label} className="flex flex-col gap-1.5">
+                <div className="flex items-baseline justify-between">
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-[10px] font-semibold tracking-[0.18em] uppercase"
+                      style={{ color: 'rgba(255,255,255,0.28)' }}>
+                      {m.label}
+                    </span>
+                    <span className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                      {m.desc}
+                    </span>
+                  </div>
+                  <span className="text-[16px] font-bold tracking-tight text-white ml-3 flex-shrink-0">
+                    {m.value}
+                  </span>
+                </div>
+                <div className="relative h-[3px] rounded-full overflow-hidden"
+                  style={{ background: 'rgba(255,255,255,0.07)' }}>
+                  <motion.div
+                    className="absolute left-0 top-0 h-full rounded-full"
+                    style={{ background: m.color }}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${m.bar * 100}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1] }}
+                  />
+                </div>
+                <span className="text-[9px] font-medium tracking-wide"
+                  style={{ color: 'rgba(255,255,255,0.20)' }}>
+                  {m.source}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex-1 flex items-center justify-center">
+            <MarketOrbit />
+          </div>
         </div>
 
       </div>
@@ -696,18 +844,33 @@ function GoToMarket() {
   const phases = [
     {
       number: '01', timeframe: '0 – 6 mnd', title: 'Developer API',
-      desc: 'Åpent API med gratis tier for å senke adopsjonsbariæren.',
-      bullets: ['Gratis tier senker terskel', 'Enkel API-dokumentasjon og SDK', 'Mål: 50 aktive integrasjoner', 'Feedback-loop for produktutvikling'],
+      desc: 'Vi åpner APIet med en gratis tier og fokuserer på å få norske utviklere til å bygge med Kvad. Målet er å etablere Kvad som standardvalget for norsk tale-AI fra dag én.',
+      bullets: [
+        'Gratis tier senker adopsjonsbariæren til null',
+        'Mål: 50 aktive integrasjoner i løpet av 6 måneder',
+        'Tett feedback-loop for rask produktiterasjon',
+        'Selly-lansering gir umiddelbar distribusjon til enterprise-kunder',
+      ],
     },
     {
       number: '02', timeframe: '6 – 18 mnd', title: 'Vertikal ekspansjon',
-      desc: 'Direktesalg mot kundeservice, mediahus og helse i Norge.',
-      bullets: ['10 betalende enterprise-kunder', 'Partneravtaler med digitalbyrå', 'SLA-avtaler og dedikert onboarding', 'Fokus: media & kundeservice'],
+      desc: 'Direktesalg mot de vertikalene med høyest ROI på naturlig tale: kundeservice, mediahus og helse. Vi fokuserer på å vinne referansekunder som beviser forretningsverdien.',
+      bullets: [
+        'Mål: 10 betalende enterprise-kunder i Norge',
+        'Partneravtaler med norske digitalbyråer for distribusjon',
+        'SLA-avtaler og dedikert onboarding for enterprise',
+        'ARR-mål: [FYLL INN] innen måned 18',
+      ],
     },
     {
       number: '03', timeframe: '18 – 36 mnd', title: 'Nordisk skalering',
-      desc: 'Ekspansjon til Sverige og Danmark via white-label og partnernettverk.',
-      bullets: ['Sverige og Danmark i år 2', 'White-label for store aktører', 'Lokalt tilpassede modeller', 'Nordic voice infrastructure standard'],
+      desc: 'Med norsk posisjon etablert ekspanderer vi til Sverige og Danmark via white-label og partnernettverk. Modellen er skalert, relasjoner er bygd, og Kvad er nordisk standard.',
+      bullets: [
+        'Sverige og Danmark i år 2 — lokalt tilpassede modeller',
+        'White-label for store nordiske aktører',
+        'Kvad som defacto-infrastruktur for nordisk enterprise voice AI',
+        'Posisjoner for serie A-runde',
+      ],
     },
   ]
 
@@ -717,23 +880,24 @@ function GoToMarket() {
         style={{ background: 'radial-gradient(ellipse 100% 80% at 50% 50%, #0d0d0d 0%, #030303 100%)' }}
       />
 
-      {/* Header */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-8 pt-20 pb-12 flex flex-col gap-4">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-8 pt-20 pb-12 flex flex-col gap-5">
         <Label>Go-to-Market</Label>
         <h2 className="font-bold tracking-tight text-white leading-[1.04]"
           style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}
         >
           Tre faser mot nordisk markedsledelse.
         </h2>
+        <p className="text-[14px] font-light leading-[1.8] max-w-3xl" style={{ color: 'rgba(255,255,255,0.44)' }}>
+          Vi starter tett og dypt med norske utviklere, vinner enterprise-referansekunder vertikalt,
+          og skalerer deretter nordisk. Alle tre faser er finansiert av denne seed-runden.
+        </p>
       </div>
 
-      {/* Phases */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-8 pb-20">
         {phases.map((p, i) => (
           <div key={p.number} className="flex gap-8 md:gap-12 py-10"
             style={{ borderTop: '1px solid rgba(255,255,255,0.055)' }}
           >
-            {/* Left — number + timeline dot */}
             <div className="flex flex-col items-center gap-2 flex-shrink-0" style={{ width: 40 }}>
               <span className="text-[13px] font-bold tabular-nums" style={{ color: 'rgba(255,255,255,0.22)' }}>
                 {p.number}
@@ -741,9 +905,7 @@ function GoToMarket() {
               <div className="w-px flex-1" style={{ background: i < phases.length - 1 ? 'rgba(255,255,255,0.06)' : 'transparent' }} />
             </div>
 
-            {/* Content */}
             <div className="flex flex-col md:flex-row gap-6 flex-1 md:items-start">
-              {/* Title block */}
               <div className="flex flex-col gap-3 flex-1">
                 <span className="text-[10px] font-medium tracking-[0.14em] uppercase px-2.5 py-1 rounded-full self-start"
                   style={{ color: 'rgba(255,255,255,0.45)', border: '1px solid rgba(255,255,255,0.09)' }}
@@ -751,16 +913,15 @@ function GoToMarket() {
                   {p.timeframe}
                 </span>
                 <h3 className="font-bold tracking-tight text-white leading-[1.05]"
-                  style={{ fontSize: 'clamp(26px, 3vw, 36px)' }}
+                  style={{ fontSize: 'clamp(22px, 2.5vw, 30px)' }}
                 >
                   {p.title}
                 </h3>
-                <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.40)' }}>
+                <p className="text-[13.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.48)' }}>
                   {p.desc}
                 </p>
               </div>
 
-              {/* Bullets block */}
               <div className="flex flex-col gap-2.5 flex-shrink-0 md:w-[260px] md:pt-9">
                 {p.bullets.map((b) => <Bullet key={b}>{b}</Bullet>)}
               </div>
@@ -776,21 +937,30 @@ function GoToMarket() {
 // ── FORRETNINGSMODELL ─────────────────────────────────────────────────
 
 function BusinessModel() {
-  const models = [
+  const tiers = [
     {
-      number: '01', title: 'API & Usage', hook: 'per/sek', tag: 'Betal per samtale',
-      desc: 'AI-systemer kaller Kvad per sekund. Jo mer de bruker, jo mer tjener vi.',
-      bullets: ['Fakturering per sekund', 'Streaming og sanntidsdialog', 'Gratis tier for utviklere', 'Volumrabatter'],
+      number: '01',
+      title: 'API & Usage',
+      pricing: 'Pay-as-you-go · per sekund',
+      who: 'Utviklere og voksende produkter',
+      desc: 'Gratis tier for utviklere, betalt bruk fra første sekund over kvoten. Inntekten skalerer automatisk — jo mer produktet til kunden vokser, jo mer tjener vi.',
+      retention: 'Medium',
     },
     {
-      number: '02', title: 'AI Infrastructure', hook: 'fast/mnd', tag: 'Månedlig abonnement',
-      desc: 'Bedrifter betaler fast månedlig for dedikert infrastruktur med høy retensjon.',
-      bullets: ['Dedikerte deployments', 'SLA-støttet oppetid 99.9%', 'Volumbasert prising', 'Prioritert support'],
+      number: '02',
+      title: 'AI Infrastructure',
+      pricing: 'Fast MRR · månedlig abonnement',
+      who: 'Bedrifter i produksjon',
+      desc: 'Dedikert infrastruktur med SLA og garantert kapasitet. Fast månedlig kontrakt gir forutsigbar ARR og lav churn — disse kundene bytter ikke.',
+      retention: 'Høy',
     },
     {
-      number: '03', title: 'Enterprise Licensing', hook: 'custom', tag: 'Egendefinerte kontrakter',
-      desc: 'Store aktører lisenserer Kvad som eget stemmelag — white-label og on-premise.',
-      bullets: ['Egendefinerte stemmemodeller', 'On-premise integrasjoner', 'White-label distribusjon', 'Årskontrakter med høy ACV'],
+      number: '03',
+      title: 'Enterprise Licensing',
+      pricing: 'Custom ACV · årskontrakter',
+      who: 'Store aktører og mediehus',
+      desc: 'White-label og on-premise. Multi-år kontrakter med høy ACV og ekstremt sterke switching costs — kunden bygger produktet sitt på Kvad.',
+      retention: 'Svært høy',
     },
   ]
 
@@ -799,64 +969,79 @@ function BusinessModel() {
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 80% 70% at 50% 50%, #0d0d0d 0%, #030303 100%)' }}
       />
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-12">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-14">
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5 max-w-3xl">
           <Label>Forretningsmodell</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.04]"
             style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}
           >
             Kvad skalerer med hver AI-samtale.
           </h2>
+          <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
+            Tre inntektsstrømmer bygget for land-and-expand. Utviklere starter gratis,
+            voksende produkter oppgraderer, de største kundene låses inn. Hvert nivå mater det neste.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {models.map((m, i) => (
-            <div key={m.number} className="relative flex flex-col rounded-2xl overflow-hidden"
-              style={{ background: '#0b0b0b', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              {/* Top half — hook + title */}
-              <div className="flex flex-col gap-4 p-7 pb-6">
-                <div className="flex items-start justify-between">
-                  <span className="text-[9px] font-mono tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.18)' }}>
-                    {m.number}
+        {/* Table header */}
+        <div>
+          <div className="hidden md:grid grid-cols-12 gap-4 pb-3"
+            style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+            {['Tier', 'Prising · målgruppe', 'Beskrivelse', 'Retensjon'].map((h) => (
+              <span key={h} className={`text-[9px] font-medium tracking-[0.18em] uppercase
+                ${h === 'Tier' ? 'col-span-2' : h === 'Prising · målgruppe' ? 'col-span-3' : h === 'Beskrivelse' ? 'col-span-5' : 'col-span-2 text-right'}
+              `} style={{ color: 'rgba(255,255,255,0.20)' }}>
+                {h}
+              </span>
+            ))}
+          </div>
+
+          {tiers.map((t, i) => (
+            <div key={t.number}
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 py-6 md:items-start">
+                {/* Tier */}
+                <div className="md:col-span-2 flex flex-col gap-1">
+                  <span className="text-[9px] font-mono tracking-[0.2em]"
+                    style={{ color: 'rgba(255,255,255,0.22)' }}>{t.number}</span>
+                  <span className="text-[15px] font-semibold tracking-tight"
+                    style={{ color: 'rgba(255,255,255,0.90)' }}>{t.title}</span>
+                </div>
+
+                {/* Pricing + who */}
+                <div className="md:col-span-3 flex flex-col gap-1 md:pt-0.5">
+                  <span className="text-[12px] font-light" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                    {t.pricing}
                   </span>
-                  <span className="text-[10px] font-medium tracking-[0.12em] uppercase px-2 py-0.5 rounded-full"
-                    style={{ color: 'rgba(255,255,255,0.35)', border: '1px solid rgba(255,255,255,0.08)' }}
-                  >
-                    {m.tag}
+                  <span className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                    {t.who}
                   </span>
                 </div>
 
-                {/* Big hook — the pricing "hook" */}
-                <div className="py-4">
-                  <span className="font-bold tracking-tight text-white select-none"
-                    style={{ fontSize: 'clamp(36px, 4vw, 52px)', opacity: 0.12, letterSpacing: '-0.04em' }}
-                  >
-                    {m.hook}
-                  </span>
-                </div>
-
-                <h3 className="text-[20px] font-bold tracking-tight text-white leading-tight">
-                  {m.title}
-                </h3>
-              </div>
-
-              {/* Divider */}
-              <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', flexShrink: 0 }} />
-
-              {/* Bottom half — desc + bullets */}
-              <div className="flex flex-col gap-4 p-7 pt-6 flex-1">
-                <p className="text-[12.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
-                  {m.desc}
+                {/* Description */}
+                <p className="md:col-span-5 text-[13px] font-light leading-relaxed md:pt-0.5"
+                  style={{ color: 'rgba(255,255,255,0.46)' }}>
+                  {t.desc}
                 </p>
-                <div className="flex flex-col gap-2 mt-auto pt-2">
-                  {m.bullets.map((b) => <Bullet key={b}>{b}</Bullet>)}
+
+                {/* Retention */}
+                <div className="md:col-span-2 flex md:justify-end md:pt-0.5">
+                  <span className="text-[11px] font-medium tracking-wide"
+                    style={{ color: 'rgba(255,255,255,0.38)' }}>
+                    {t.retention}
+                  </span>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        <p className="text-[13px] font-light leading-relaxed max-w-2xl"
+          style={{ color: 'rgba(255,255,255,0.26)' }}>
+          Infrastrukturselskaper med usage-based pricing vinner nettverkseffekter —
+          jo mer kundene bruker, jo dyrere er det å bytte. Kvad er bygget slik fra dag én.
+        </p>
 
       </div>
     </section>
@@ -868,14 +1053,26 @@ function BusinessModel() {
 function Team() {
   const founders = [
     {
-      name: 'Mamoon Rashid', role: 'Medgrunnlegger & President',
-      focus: 'AI-agentsystemer og conversational products',
-      detail: 'Produkt, distribusjon og sanntids-AI-opplevelser. Bygger brukeropplevelser og go-to-market for Kvad.',
+      name: 'Mamoon Rashid',
+      role: 'Medgrunnlegger & President',
+      initials: 'MR',
+      bio: 'Mamoon leder produkt, distribusjon og go-to-market for Kvad. Han har erfaring med å bygge AI-agentsystemer og conversational products, og forstår samspillet mellom brukerbehov, teknisk arkitektur og kommersiell vekst.',
+      focus: [
+        'Produkt og brukeropplevelse',
+        'Go-to-market og partnerskap',
+        'AI-agentarkitektur og sanntids-AI-opplevelser',
+      ],
     },
     {
-      name: 'Vebjørn', role: 'Medgrunnlegger & CEO',
-      focus: 'Real-time talesystemer og nordiske talemodeller',
-      detail: 'Modelltrening, latency-optimering og conversational infrastructure. Teknisk arkitekt bak Kvad-plattformen.',
+      name: 'Vebjørn',
+      role: 'Medgrunnlegger & CEO',
+      initials: 'V',
+      bio: 'Vebjørn er den tekniske arkitekten bak Kvad-plattformen. Han leder modelltrening, latency-optimering og utviklingen av den nordiske taleinfrastrukturen — og har dyp kompetanse innen real-time talesystemer.',
+      focus: [
+        'Modelltrening og nordisk taleoptimering',
+        'Streaming-arkitektur og latency',
+        'Conversational infrastructure og API-design',
+      ],
     },
   ]
 
@@ -884,34 +1081,52 @@ function Team() {
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 45%, #0e0e0e 0%, #030303 100%)' }}
       />
-      <div className="relative z-10 w-full max-w-3xl flex flex-col gap-12 items-center text-center">
-        <div className="flex flex-col gap-3">
+      <div className="relative z-10 w-full max-w-5xl flex flex-col gap-12">
+        <div className="flex flex-col gap-5">
           <Label>Teamet</Label>
-          <h2 className="text-[42px] md:text-[52px] font-bold tracking-tight text-white leading-[1.05]">
-            Grunnleggerne.
+          <h2 className="font-bold tracking-tight text-white leading-[1.04]"
+            style={{ fontSize: 'clamp(32px, 4vw, 48px)' }}>
+            To grunnleggere. Komplementær kompetanse. Eksakt det som trengs.
           </h2>
+          <p className="text-[14px] font-light leading-[1.8] max-w-2xl" style={{ color: 'rgba(255,255,255,0.44)' }}>
+            Kvad krever to ting for å lykkes: teknisk dybde i talemodeller og sanntidssystemer,
+            og kommersiell evne til å distribuere og skalere. Teamet er bygget rundt nettopp dette.
+          </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {founders.map((f) => (
-            <div key={f.name} className="flex flex-col gap-5 p-7 bg-[#0c0c0c] border border-[#181818] rounded-2xl text-left">
-              <div className="w-full rounded-xl bg-[#111111] border border-[#1e1e1e] flex items-center justify-center" style={{ height: 120 }}>
-                <span className="text-[42px] font-bold text-white/8 tracking-tight select-none">
-                  {f.name.split(' ').map((n: string) => n[0]).join('')}
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-[17px] font-semibold text-white/88 tracking-tight">{f.name}</span>
-                <span className="text-[10.5px] text-white/30 tracking-[0.14em] uppercase font-medium">{f.role}</span>
+            <div key={f.name} className="flex flex-col gap-6 p-7 bg-[#0c0c0c] border border-[#181818] rounded-2xl">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-[#111111] border border-[#1e1e1e] flex items-center justify-center flex-shrink-0">
+                  <span className="text-[16px] font-bold text-white/20 tracking-tight select-none">
+                    {f.initials}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-[17px] font-semibold text-white/90 tracking-tight">{f.name}</span>
+                  <span className="text-[10.5px] text-white/30 tracking-[0.14em] uppercase font-medium">{f.role}</span>
+                </div>
               </div>
               <div className="h-px bg-white/[0.05]" />
-              <p className="text-[13px] text-white/45 leading-relaxed">{f.focus}.</p>
-              <p className="text-[12px] text-white/30 leading-relaxed">{f.detail}</p>
+              <p className="text-[13.5px] font-light leading-[1.75]" style={{ color: 'rgba(255,255,255,0.52)' }}>
+                {f.bio}
+              </p>
+              <div className="flex flex-col gap-2">
+                {f.focus.map((item) => <Bullet key={item}>{item}</Bullet>)}
+              </div>
             </div>
           ))}
         </div>
-        <p className="text-[12px] text-white/20 tracking-wide font-light">
-          Bygger stemmelaget for neste generasjon AI-systemer.
-        </p>
+
+        <div className="p-6 rounded-2xl" style={{ background: '#0b0b0b', border: '1px solid rgba(255,255,255,0.07)' }}>
+          <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
+            <span style={{ color: 'rgba(255,255,255,0.60)' }}>Hvorfor vi vinner:</span>{' '}
+            De beste stemme-AI-selskapene kombinerer modellkompetanse med sterk markedsforståelse.
+            Mamoon og Vebjørn dekker begge dimensjoner — og har allerede etablert relasjoner
+            med dataeiere, partnerselskaper og potensielle kunder i det nordiske markedet.
+          </p>
+        </div>
       </div>
     </section>
   )
@@ -922,20 +1137,30 @@ function Team() {
 function Ask() {
   const allocations = [
     {
-      number: '01', area: 'Bygge Nordens conversational AI-lag', pct: 45,
+      number: '01', area: 'Modell & infrastruktur', pct: 45,
+      detail: 'Ferdigstille kjernemodellen for norsk conversational AI, skalere treningsdata og bygge produksjonsklar streaming-infrastruktur.',
       bullets: ['Norske og nordiske talemodeller', 'Sanntidsdialog og naturlig samtaleflyt', 'Proprietær conversational data'],
       color: '#38BDF8',
     },
     {
-      number: '02', area: 'Skalere conversational infrastructure', pct: 30,
+      number: '02', area: 'Skalering av infrastruktur', pct: 30,
+      detail: 'Bygge API-distribusjon, latency-optimering og produksjonsinfrastruktur som tåler enterprise-scale.',
       bullets: ['Low-latency streaming', 'Production-grade AI infrastructure', 'API-distribusjon og integrasjoner'],
       color: '#818CF8',
     },
     {
-      number: '03', area: 'Etablere Kvad i enterprise-markedet', pct: 25,
-      bullets: ['Strategiske piloter og distribusjon', 'Developer og enterprise onboarding', 'Partneravtaler og vekst'],
+      number: '03', area: 'Salg & enterprise-etablering', pct: 25,
+      detail: 'Sikre de første betalende enterprise-kundene, bygge partnernettverk og etablere Kvad som foretrukket infrastruktur.',
+      bullets: ['Strategiske piloter og direktesalg', 'Developer og enterprise onboarding', 'Partneravtaler og vekst'],
       color: '#34D399',
     },
+  ]
+
+  const milestones = [
+    { label: 'Mnd 3', text: 'API i produksjon, Selly lansert, første betalende kunder' },
+    { label: 'Mnd 6', text: '50+ aktive integrasjoner, [X] betalende kunder' },
+    { label: 'Mnd 12', text: '[X] enterprise-kunder, [ARR] årlig tilbakevendende inntekt' },
+    { label: 'Mnd 18', text: 'Posisjon for Serie A eller breakeven i norsk markedet' },
   ]
 
   return (
@@ -943,71 +1168,142 @@ function Ask() {
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 65% 55% at 50% 44%, #0f0f0f 0%, #030303 100%)' }}
       />
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-14">
-        <div className="flex flex-col gap-7 flex-1">
-          <div className="flex flex-col gap-3">
-            <Label>Vi søker</Label>
-            <div className="flex items-baseline gap-5">
-              <h2 className="text-[72px] md:text-[80px] font-bold tracking-tight text-white leading-none">$2M</h2>
-              <span className="text-[16px] font-light tracking-wide" style={{ color: 'rgba(255,255,255,0.26)' }}>
-                Seed-runde
-              </span>
-            </div>
-            <p className="text-[13px] font-light leading-relaxed max-w-sm" style={{ color: 'rgba(255,255,255,0.42)' }}>
-              For å ferdigstille kjerneinfrastrukturen, skalere treningsdata og etablere
-              de første betalende kundene i norsk enterprise-markedet.
-            </p>
-          </div>
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-14">
 
-          <div className="flex flex-col">
-            {allocations.map((a, i) => (
-              <div key={a.number}>
-                {i > 0 && <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />}
-                <div className="py-5 flex flex-col gap-2.5">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className="text-[9px] font-mono tracking-widest" style={{ color: 'rgba(255,255,255,0.16)' }}>
-                        {a.number}
+        <div className="flex flex-col md:flex-row items-start gap-14">
+          <div className="flex flex-col gap-6 flex-1">
+            <div className="flex flex-col gap-3">
+              <Label>Vi søker</Label>
+              <div className="flex items-baseline gap-5">
+                <h2 className="text-[72px] md:text-[80px] font-bold tracking-tight text-white leading-none">$2M</h2>
+                <span className="text-[16px] font-light tracking-wide" style={{ color: 'rgba(255,255,255,0.26)' }}>
+                  Seed-runde
+                </span>
+              </div>
+              <p className="text-[14px] font-light leading-[1.8] max-w-lg" style={{ color: 'rgba(255,255,255,0.48)' }}>
+                $2M gir oss 18 måneder med full fart: ferdigstille modellen, lansere i markedet,
+                sikre de første enterprise-kundene og nå et punkt der veksten er selvforsterkende.
+                Alle tre allokeringer er kritiske for å nå dette.
+              </p>
+            </div>
+
+            <div className="flex flex-col">
+              {allocations.map((a, i) => (
+                <div key={a.number}>
+                  {i > 0 && <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)' }} />}
+                  <div className="py-6 flex flex-col gap-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <span className="text-[9px] font-mono tracking-widest" style={{ color: 'rgba(255,255,255,0.16)' }}>
+                          {a.number}
+                        </span>
+                        <h3 className="text-[16px] font-semibold tracking-tight" style={{ color: 'rgba(255,255,255,0.88)' }}>
+                          {a.area}
+                        </h3>
+                      </div>
+                      <span className="text-[22px] font-bold tabular-nums tracking-tight" style={{ color: 'rgba(255,255,255,0.70)' }}>
+                        {a.pct}%
                       </span>
-                      <h3 className="text-[16px] font-semibold tracking-tight" style={{ color: 'rgba(255,255,255,0.88)' }}>
-                        {a.area}
-                      </h3>
                     </div>
-                    <span className="text-[22px] font-bold tabular-nums tracking-tight" style={{ color: 'rgba(255,255,255,0.70)' }}>
-                      {a.pct}%
-                    </span>
-                  </div>
-                  <div className="relative h-[2px] rounded-full overflow-hidden ml-6"
-                    style={{ background: 'rgba(255,255,255,0.05)' }}
-                  >
-                    <div className="absolute inset-y-0 left-0 rounded-full"
-                      style={{ width: `${a.pct}%`, background: a.color }}
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1.5 ml-6">
-                    {a.bullets.map((b) => <Bullet key={b}>{b}</Bullet>)}
+                    <p className="text-[12.5px] font-light leading-relaxed ml-6" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                      {a.detail}
+                    </p>
+                    <div className="relative h-[2px] rounded-full overflow-hidden ml-6"
+                      style={{ background: 'rgba(255,255,255,0.05)' }}
+                    >
+                      <div className="absolute inset-y-0 left-0 rounded-full"
+                        style={{ width: `${a.pct}%`, background: a.color }}
+                      />
+                    </div>
+                    <div className="flex flex-col gap-1.5 ml-6">
+                      {a.bullets.map((b) => <Bullet key={b}>{b}</Bullet>)}
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6 md:w-[280px] flex-shrink-0">
+            <div className="flex flex-col gap-4 p-6 rounded-2xl"
+              style={{ background: '#0b0b0b', border: '1px solid rgba(255,255,255,0.07)' }}>
+              <span className="text-[10px] font-semibold tracking-[0.18em] uppercase"
+                style={{ color: 'rgba(255,255,255,0.25)' }}>
+                Milepæler
+              </span>
+              <div className="flex flex-col gap-4">
+                {milestones.map((m, i) => (
+                  <div key={i} className="flex gap-3">
+                    <span className="text-[10px] font-mono tracking-wide flex-shrink-0 pt-0.5"
+                      style={{ color: 'rgba(255,255,255,0.25)', minWidth: 44 }}>
+                      {m.label}
+                    </span>
+                    <p className="text-[12px] font-light leading-relaxed"
+                      style={{ color: 'rgba(255,255,255,0.45)' }}>
+                      {m.text}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            <div className="flex flex-col gap-4 p-6 rounded-2xl"
+              style={{ background: '#0b0b0b', border: '1px solid rgba(255,255,255,0.07)' }}>
+              <span className="text-[10px] font-semibold tracking-[0.18em] uppercase"
+                style={{ color: 'rgba(255,255,255,0.25)' }}>
+                Kontakt
+              </span>
+              <div className="flex flex-col gap-1.5">
+                <span className="text-[13px] font-semibold" style={{ color: 'rgba(255,255,255,0.78)' }}>
+                  Mamoon Rashid
+                </span>
+                <span className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.30)' }}>
+                  Grunnlegger & President, Kvad
+                </span>
+              </div>
+              <a href="mailto:mamoon@kvad.no"
+                className="text-[12px] font-mono hover:text-white/50 transition-colors"
+                style={{ color: 'rgba(255,255,255,0.28)' }}>
+                mamoon@kvad.no
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 flex-shrink-0 md:pt-24">
-          <div className="w-8 h-px" style={{ background: 'rgba(255,255,255,0.10)' }} />
-          <div className="flex flex-col gap-1.5">
-            <span className="text-[13px] font-semibold" style={{ color: 'rgba(255,255,255,0.78)' }}>
-              Mamoon Rashid
-            </span>
-            <span className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.30)' }}>
-              Grunnlegger & President, Kvad
-            </span>
-          </div>
-          <div className="flex flex-col gap-1">
-            <a href="mailto:mamoon@kvad.no" className="text-[11px] font-mono" style={{ color: 'rgba(255,255,255,0.22)' }}>
-              mamoon@kvad.no
-            </a>
-          </div>
+      </div>
+    </section>
+  )
+}
+
+// ── CLOSING ───────────────────────────────────────────────────────────
+
+function Closing() {
+  return (
+    <section className="relative w-full flex flex-col items-center justify-center bg-[#030303] py-28 md:py-40 px-8 text-center">
+      <WaveformBg opacity={0.025} speed={0.5} />
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 55% at 50% 50%, #0c0c0c 0%, #030303 100%)' }}
+      />
+      <div className="relative z-10 flex flex-col items-center gap-8 max-w-2xl">
+        <Image src="/kvad-icon.svg" alt="Kvad" width={40} height={40} style={{ opacity: 0.35 }} />
+        <h2 className="font-bold tracking-tight text-white leading-[1.05]"
+          style={{ fontSize: 'clamp(28px, 4vw, 44px)' }}>
+          Norsk AI trenger en stemme.<br />Vi bygger den.
+        </h2>
+        <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.38)' }}>
+          Infrastrukturlaget for norsk tale-AI finnes ikke ennå. Kvad bygger det —
+          med de rette menneskene, de rette dataene og den rette timingen.
+          Vi inviterer deg med på den reisen.
+        </p>
+        <div className="flex flex-col items-center gap-2 pt-4">
+          <a href="mailto:mamoon@kvad.no"
+            className="text-[13px] font-mono hover:text-white/60 transition-colors"
+            style={{ color: 'rgba(255,255,255,0.30)' }}>
+            mamoon@kvad.no
+          </a>
+          <span className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.16)' }}>
+            kvad.no
+          </span>
         </div>
       </div>
     </section>
@@ -1023,6 +1319,8 @@ export default function InvestorPage() {
         <Image src="/kvad-icon.svg" alt="Kvad" width={22} height={22} style={{ opacity: 0.30 }} />
       </div>
       <Cover />
+      <Divider />
+      <ExecutiveSummary />
       <Divider />
       <Problem />
       <Divider />
@@ -1043,6 +1341,8 @@ export default function InvestorPage() {
       <Team />
       <Divider />
       <Ask />
+      <Divider />
+      <Closing />
     </div>
   )
 }

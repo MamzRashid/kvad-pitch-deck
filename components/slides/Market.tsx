@@ -1,16 +1,15 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const ease = [0.25, 0.1, 0.25, 1]
 
 const VW = 1440
 const VH = 820
-const CX = 860   // Kvad center
+const CX = 940
 const CY = 410
-const R = 215    // orbit radius
+const R = 205
 
-// Random-feeling dot timing per node
 const DOT_CONFIGS = [
   { duration: 1.4, delay: 1.2, repeatDelay: 5.8 },
   { duration: 1.8, delay: 2.6, repeatDelay: 6.2 },
@@ -22,29 +21,45 @@ const DOT_CONFIGS = [
 ]
 
 const nodes = [
-  { label: 'Mediahus',           sub: 'Nyheter & innhold' },
-  { label: 'Utdanning',          sub: 'Læringsverktøy' },
-  { label: 'Finans',             sub: 'Rådgivning & service' },
-  { label: 'Booking',            sub: 'Reservasjon & service' },
-  { label: 'Helse',              sub: 'Pasientdialog' },
-  { label: 'Kundeservice',       sub: 'Live support' },
-  { label: 'Restauranter',       sub: 'Bestilling & hjelp' },
+  { label: 'Mediahus',     sub: 'Nyheter & innhold' },
+  { label: 'Utdanning',    sub: 'Læringsverktøy' },
+  { label: 'Finans',       sub: 'Rådgivning & service' },
+  { label: 'Booking',      sub: 'Reservasjon & service' },
+  { label: 'Helse',        sub: 'Pasientdialog' },
+  { label: 'Kundeservice', sub: 'Live support' },
+  { label: 'Restauranter', sub: 'Bestilling & hjelp' },
 ]
 
-const signals = [
-  '+38% vekst i conversational AI',
-  'Norske selskaper adopterer stemmebaserte løsninger',
-  'Voice AI-adopsjon øker i Norden',
-  'Nordisk enterprise-AI vokser raskt',
-]
-
-// Deterministic star field
 const STARS = Array.from({ length: 72 }, (_, i) => ({
   x: 260 + ((i * 137 + 23) % (VW - 260)),
   y: 10 + ((i * 97 + 41) % (VH - 20)),
   r: 0.3 + (i % 6) * 0.18,
   opacity: 0.025 + (i % 10) * 0.013,
 }))
+
+const MARKETS = [
+  {
+    label: 'TAM',
+    desc: 'Global voice AI-markedsverdi innen 2029',
+    value: '$47B',
+    bar: 1.0,
+    source: 'MarketsandMarkets',
+  },
+  {
+    label: 'SAM',
+    desc: 'Nordisk enterprise voice AI',
+    value: '$2.4B',
+    bar: 0.30,
+    source: 'Estimert',
+  },
+  {
+    label: 'SOM',
+    desc: 'Kvads adresserbart marked — år 1–3',
+    value: '$85M',
+    bar: 0.10,
+    source: 'Intern estimat',
+  },
+]
 
 function getPos(i: number, n: number, radius: number) {
   const angle = ((i * 360 / n) - 90) * Math.PI / 180
@@ -57,92 +72,98 @@ function getLabelProps(px: number, py: number) {
   return          { anchor: 'middle' as const, dx: 0,   dy: py > 0 ? 52 : -52 }
 }
 
-const SIGNALS = [
-  { stat: '$47B',  text: 'global voice AI-markedsverdi innen 2029',     source: 'MarketsandMarkets' },
-  { stat: '4 mrd', text: 'samtaler håndtert av AI daglig globalt i 2024', source: 'Gartner' },
-  { stat: '40%',   text: 'av kundeservice-interaksjoner håndteres av AI innen 2025', source: 'Gartner' },
-]
-
-function NordicSignals({ show }: { show: boolean }) {
-  return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.7, ease }}
-          className="flex flex-col gap-4"
-          style={{ maxWidth: 300 }}
-        >
-          <span className="text-[9px] tracking-[0.22em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.20)' }}>
-            Markedssignaler
-          </span>
-
-          <div className="flex flex-col">
-            {SIGNALS.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease, delay: 0.1 + i * 0.12 }}
-              >
-                <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-                <div className="flex items-center gap-5 py-3">
-                  <span className="font-bold tracking-tight text-white flex-shrink-0" style={{ fontSize: 26, lineHeight: 1, minWidth: 72 }}>
-                    {s.stat}
-                  </span>
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-[12px] font-light leading-tight" style={{ color: 'rgba(255,255,255,0.95)' }}>
-                      {s.text}
-                    </span>
-                    <span className="text-[9px] font-medium tracking-wide" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                      {s.source}
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-            <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
-}
-
-export default function Market({ showSignals = false }: { showSignals?: boolean }) {
+export default function Market() {
   const n = nodes.length
 
   return (
     <div className="relative w-full h-full bg-[#030303] overflow-hidden">
 
-      {/* Header — top-left */}
-      <motion.div
-        initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.95, ease, delay: 0.06 }}
-        className="absolute top-8 left-16 z-20 flex flex-col gap-4"
-        style={{ maxWidth: 280 }}
-      >
-        <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">
+      {/* Left panel */}
+      <div className="absolute top-0 left-0 h-full z-20 flex flex-col justify-center"
+        style={{ width: 420, paddingLeft: 64, paddingRight: 32 }}>
+
+        {/* Label */}
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.05 }}
+          className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium mb-4 block"
+        >
           Markedsmulighet
-        </span>
-        <h2
-          className="font-bold tracking-tight text-white leading-[1.04]"
-          style={{ fontSize: 'clamp(26px, 2.8vw, 36px)' }}
+        </motion.span>
+
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease, delay: 0.12 }}
+          className="font-bold tracking-tight text-white leading-[1.04] mb-4"
+          style={{ fontSize: 'clamp(26px, 2.6vw, 34px)' }}
         >
           Norden beveger seg mot conversational AI.
-        </h2>
+        </motion.h2>
 
-      </motion.div>
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.22 }}
+          className="text-[13px] font-light leading-relaxed mb-10"
+          style={{ color: 'rgba(255,255,255,0.42)' }}
+        >
+          Voice AI er et av de raskest voksende segmentene innen enterprise-teknologi. Kvad er infrastrukturlaget for norsk og nordisk tale — på tvers av alle bransjer.
+        </motion.p>
 
-      {/* Chart — bottom-left */}
-      <div className="absolute bottom-12 left-16 z-20">
-        <NordicSignals show={showSignals} />
+        {/* TAM / SAM / SOM */}
+        <div className="flex flex-col gap-5">
+          {MARKETS.map((m, i) => (
+            <motion.div
+              key={m.label}
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease, delay: 0.38 + i * 0.14 }}
+            >
+              <div className="flex items-baseline justify-between mb-1.5">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-[10px] font-semibold tracking-[0.18em] uppercase"
+                    style={{ color: 'rgba(255,255,255,0.28)' }}>
+                    {m.label}
+                  </span>
+                  <span className="text-[11px] font-light"
+                    style={{ color: 'rgba(255,255,255,0.38)' }}>
+                    {m.desc}
+                  </span>
+                </div>
+                <span className="text-[15px] font-bold tracking-tight text-white ml-3 flex-shrink-0">
+                  {m.value}
+                </span>
+              </div>
+
+              {/* Bar track */}
+              <div className="relative h-[3px] rounded-full overflow-hidden"
+                style={{ background: 'rgba(255,255,255,0.07)' }}>
+                <motion.div
+                  className="absolute left-0 top-0 h-full rounded-full"
+                  style={{ background: i === 0 ? 'rgba(255,255,255,0.55)' : i === 1 ? 'rgba(255,255,255,0.36)' : 'rgba(74,222,128,0.70)' }}
+                  initial={{ width: 0 }}
+                  animate={{ width: `${m.bar * 100}%` }}
+                  transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1], delay: 0.55 + i * 0.14 }}
+                />
+              </div>
+
+              <div className="mt-1">
+                <span className="text-[9px] font-medium tracking-wide"
+                  style={{ color: 'rgba(255,255,255,0.20)' }}>
+                  {m.source}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
 
-      {/* ── Full-screen SVG — everything in one coordinate system ── */}
+      {/* Full-screen SVG — ecosystem diagram */}
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox={`0 0 ${VW} ${VH}`}
@@ -153,10 +174,6 @@ export default function Market({ showSignals = false }: { showSignals?: boolean 
           <radialGradient id="kvad-glow" cx="50%" cy="50%" r="50%">
             <stop offset="0%"   stopColor="white" stopOpacity="0.10" />
             <stop offset="45%"  stopColor="white" stopOpacity="0.03" />
-            <stop offset="100%" stopColor="white" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id="nebula" cx="65%" cy="50%" r="38%">
-            <stop offset="0%"   stopColor="white" stopOpacity="0.016" />
             <stop offset="100%" stopColor="white" stopOpacity="0" />
           </radialGradient>
         </defs>
@@ -176,7 +193,7 @@ export default function Market({ showSignals = false }: { showSignals?: boolean 
           transition={{ duration: 1.4, ease, delay: 0.4 }}
         />
 
-        {/* Animated green dots flowing outward — randomised timing */}
+        {/* Animated green dots flowing outward */}
         {nodes.map((_, i) => {
           const pos = getPos(i, n, R * 0.84)
           const cfg = DOT_CONFIGS[i]
@@ -201,7 +218,7 @@ export default function Market({ showSignals = false }: { showSignals?: boolean 
           )
         })}
 
-        {/* Ecosystem nodes — on the ring */}
+        {/* Ecosystem nodes */}
         {nodes.map((node, i) => {
           const pos = getPos(i, n, R)
           const nx = CX + pos.x
@@ -215,16 +232,12 @@ export default function Market({ showSignals = false }: { showSignals?: boolean 
               transition={{ duration: 0.65, ease, delay: 0.95 + i * 0.11 }}
               style={{ transformOrigin: `${nx}px ${ny}px` }}
             >
-              {/* Node circle */}
               <circle cx={nx} cy={ny} r={26}
                 fill="#060606"
                 stroke="rgba(255,255,255,0.14)"
                 strokeWidth="0.8"
               />
-              {/* Center dot */}
               <circle cx={nx} cy={ny} r={4.5} fill="rgba(255,255,255,0.42)" />
-
-              {/* Label */}
               <text
                 x={nx + dx} y={ny + dy}
                 textAnchor={anchor}
@@ -236,7 +249,6 @@ export default function Market({ showSignals = false }: { showSignals?: boolean 
               >
                 {node.label}
               </text>
-              {/* Sub label */}
               <text
                 x={nx + dx} y={ny + dy + 18}
                 textAnchor={anchor}
@@ -252,28 +264,24 @@ export default function Market({ showSignals = false }: { showSignals?: boolean 
           )
         })}
 
-        {/* ── Kvad center node ── */}
+        {/* Kvad center node */}
         <motion.g
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.0, ease, delay: 0.28 }}
           style={{ transformOrigin: `${CX}px ${CY}px` }}
         >
-          {/* Main circle */}
-          <circle
-            cx={CX} cy={CY} r={50}
+          <circle cx={CX} cy={CY} r={50}
             fill="#040404"
             stroke="rgba(255,255,255,0.18)"
             strokeWidth="1"
           />
-          {/* Kvad icon */}
           <image
             href="/kvad-icon.svg"
             x={CX - 19} y={CY - 19}
             width={38} height={38}
             opacity={0.92}
           />
-          {/* Label */}
           <text
             x={CX} y={CY + 72}
             textAnchor="middle"
