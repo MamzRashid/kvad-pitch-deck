@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Kvad — Infrastruktur for menneskelig AI-kommunikasjon',
+  title: 'Kvad — Infrastruktur for naturlig norsk tale',
   description: 'Investorpresentasjon for Kvad.',
 }
 

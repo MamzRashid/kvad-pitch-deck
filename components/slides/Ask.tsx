@@ -7,20 +7,23 @@ const ease = [0.25, 0.1, 0.25, 1]
 const allocations = [
   {
     number: '01',
-    area: 'Bygge Nordens conversational AI-lag',
-    bullets: ['Norske og nordiske talemodeller', 'Sanntidsdialog og naturlig samtaleflyt', 'Proprietær conversational data'],
+    area: 'Bygge Nordens stemmeinfrastruktur',
+    legend: 'Stemmeinfrastruktur',
+    bullets: ['Norske og nordiske talemodeller', 'Sanntidsdialog og naturlig samtaleflyt', 'Proprietær norsk taledata'],
     pct: 45,
   },
   {
     number: '02',
-    area: 'Skalere conversational infrastructure',
-    bullets: ['Low-latency streaming', 'Production-grade AI infrastructure', 'API-distribusjon for AI-agenter'],
+    area: 'Skalere teknologi og plattform',
+    legend: 'Teknologi og plattform',
+    bullets: ['Ultra-lav forsinkelse', 'Produksjonsklar AI-infrastruktur', 'API-distribusjon til kunder'],
     pct: 30,
   },
   {
     number: '03',
     area: 'Etablere Kvad i enterprise-markedet',
-    bullets: ['AI-agent integrations', 'Strategiske piloter og distribusjon', 'Developer og enterprise onboarding'],
+    legend: 'Enterprise-marked',
+    bullets: ['Strategiske piloter og distribusjon', 'Partneravtaler med digitalbyrå', 'Developer og enterprise onboarding'],
     pct: 25,
   },
 ]
@@ -116,7 +119,7 @@ function DonutChart() {
               style={{ background: SEG_COLORS[i] }}
             />
             <span className="text-[10px] font-light flex-1" style={{ color: 'rgba(255,255,255,0.38)' }}>
-              {a.area.split(' ').slice(0, 3).join(' ')}
+              {a.legend}
             </span>
             <span className="text-[11px] font-semibold tabular-nums" style={{ color: 'rgba(255,255,255,0.60)' }}>
               {a.pct}%
@@ -135,6 +138,15 @@ export default function Ask() {
         style={{ background: 'radial-gradient(ellipse 65% 55% at 50% 44%, #0f0f0f 0%, #030303 100%)' }}
       />
 
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
+      >
+        Vi søker
+      </motion.span>
+
       <div className="relative z-10 w-full max-w-5xl mx-auto px-16 flex items-center gap-14">
 
         {/* Left: header + allocations */}
@@ -146,7 +158,7 @@ export default function Ask() {
             transition={{ duration: 0.85, ease }}
             className="flex flex-col gap-3"
           >
-            <span className="text-[10px] text-white/22 tracking-[0.26em] uppercase font-medium">Vi søker</span>
+            <span className="text-[10px] text-white/22 tracking-[0.26em] uppercase font-medium">Seed-runde</span>
             <div className="flex items-baseline gap-5">
               <div className="relative">
                 <div className="absolute pointer-events-none"

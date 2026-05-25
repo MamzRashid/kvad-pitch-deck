@@ -21,13 +21,13 @@ const DOT_CONFIGS = [
 ]
 
 const nodes = [
-  { label: 'Mediahus',     sub: 'Nyheter & innhold' },
-  { label: 'Utdanning',    sub: 'Læringsverktøy' },
+  { label: 'Mediahus',     sub: 'Nyhetsopplesning & radio' },
+  { label: 'Offentlig',    sub: 'NAV, kommuner & stat' },
   { label: 'Finans',       sub: 'Rådgivning & service' },
-  { label: 'Booking',      sub: 'Reservasjon & service' },
-  { label: 'Helse',        sub: 'Pasientdialog' },
+  { label: 'Innhold',      sub: 'Lydbok, podkast & e-læring' },
+  { label: 'Dubing',       sub: 'Film & TV' },
   { label: 'Kundeservice', sub: 'Live support' },
-  { label: 'Restauranter', sub: 'Bestilling & hjelp' },
+  { label: 'AI-agenter',   sub: 'Samtale & automatisering' },
 ]
 
 const STARS = Array.from({ length: 72 }, (_, i) => ({
@@ -78,19 +78,18 @@ export default function Market() {
   return (
     <div className="relative w-full h-full bg-[#030303] overflow-hidden">
 
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
+      >
+        Markedsmulighet
+      </motion.span>
+
       {/* Left panel */}
       <div className="absolute top-0 left-0 h-full z-20 flex flex-col justify-center"
         style={{ width: 420, paddingLeft: 64, paddingRight: 32 }}>
-
-        {/* Label */}
-        <motion.span
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.05 }}
-          className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium mb-4 block"
-        >
-          Markedsmulighet
-        </motion.span>
 
         {/* Heading */}
         <motion.h2
@@ -100,7 +99,7 @@ export default function Market() {
           className="font-bold tracking-tight text-white leading-[1.04] mb-4"
           style={{ fontSize: 'clamp(26px, 2.6vw, 34px)' }}
         >
-          Norden beveger seg mot conversational AI.
+          Tekst til tale er et milliardmarked. Norsk har ingen leder.
         </motion.h2>
 
         {/* Description */}

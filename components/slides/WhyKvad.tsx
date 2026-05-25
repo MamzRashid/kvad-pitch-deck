@@ -77,30 +77,35 @@ function MicroStudio() {
   )
 }
 
-// Podcast recording indicator — pulsing rec dot + episode lines
-function MicroRecord() {
+// Shield + lock — represents GDPR / data privacy
+function MicroShield() {
   return (
-    <div className="flex items-center gap-3">
-      <div className="relative flex items-center justify-center flex-shrink-0" style={{ width: 18, height: 18 }}>
-        <motion.div
-          className="absolute rounded-full"
-          style={{ width: 18, height: 18, border: '1px solid rgba(255,255,255,0.15)' }}
-          animate={{ opacity: [0.3, 0.7, 0.3], scale: [0.9, 1.1, 0.9] }}
+    <div className="flex items-center justify-center" style={{ width: 36, height: 36 }}>
+      <motion.svg
+        width="28" height="32" viewBox="0 0 28 32" fill="none"
+        animate={{ opacity: [0.30, 0.55, 0.30] }}
+        transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        {/* Shield outline */}
+        <path
+          d="M14 1.5L2.5 6.5V15C2.5 21.5 7.5 27.5 14 30C20.5 27.5 25.5 21.5 25.5 15V6.5L14 1.5Z"
+          stroke="rgba(255,255,255,0.40)"
+          strokeWidth="0.8"
+          fill="none"
+        />
+        {/* Lock body */}
+        <rect x="10" y="15" width="8" height="6" rx="1" stroke="rgba(255,255,255,0.32)" strokeWidth="0.8" fill="none" />
+        {/* Lock shackle */}
+        <path d="M11.5 15V13C11.5 11.6 12.2 10.5 14 10.5C15.8 10.5 16.5 11.6 16.5 13V15" stroke="rgba(255,255,255,0.28)" strokeWidth="0.8" strokeLinecap="round" fill="none" />
+        {/* Keyhole dot */}
+        <motion.circle
+          cx="14" cy="18"
+          r="1.2"
+          fill="rgba(255,255,255,0.50)"
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
         />
-        <div className="rounded-full bg-white" style={{ width: 6, height: 6, opacity: 0.40 }} />
-      </div>
-      <div className="flex flex-col gap-1.5">
-        {[0.55, 0.38, 0.70].map((w, i) => (
-          <motion.div
-            key={i}
-            className="rounded-full bg-white"
-            style={{ height: 1.5, width: w * 52, opacity: 0.20 }}
-            animate={{ opacity: [0.12, 0.28, 0.12] }}
-            transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
-          />
-        ))}
-      </div>
+      </motion.svg>
     </div>
   )
 }
@@ -115,17 +120,17 @@ const moats = [
   },
   {
     number: '02',
-    title: 'Samtalerytme og prosodi',
+    title: 'Trent på pauser, tempo og emosjonell flyt',
     desc: 'Trent på pauser, tempo, trykk og emosjonell flyt. Ikke bare ord — men hvordan de sies.',
     tag: 'Modellfortrinn',
     visual: <MicroWave />,
   },
   {
     number: '03',
-    title: 'Eksklusivt råmateriale fra norske podcastere',
-    desc: 'Direkte avtaler med norske podcastere gir oss tilgang til autentiske samtaler vi trener modellene direkte på.',
+    title: 'GDPR-compliant fra dag én',
+    desc: 'Alle data prosessert og lagret i Norden — trygt for norske bedrifter og offentlig sektor.',
     tag: 'Innholdsfortrinn',
-    visual: <MicroRecord />,
+    visual: <MicroShield />,
   },
   {
     number: '04',
@@ -152,7 +157,7 @@ export default function WhyKvad() {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
       >
-        Konkurransefortrinn
+        Hvorfor Kvad
       </motion.span>
 
       <motion.div
@@ -168,12 +173,9 @@ export default function WhyKvad() {
               className="font-bold tracking-tight text-white leading-[1.03]"
               style={{ fontSize: 'clamp(34px, 3.8vw, 50px)' }}
             >
-              Norsk conversational AI krever noe globale modeller ikke har.
+              Store aktører optimaliserer for verden. Vi optimaliserer for Norden.
             </h2>
 
-            <p className="text-[12.5px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.42)', maxWidth: 320 }}>
-              Generiske stemme-modeller er brede. Kvad er dypt optimalisert — trent på norsk rytme, norske pauser og norsk samtaleflyt.
-            </p>
 
           </motion.div>
         </div>
@@ -199,13 +201,10 @@ export default function WhyKvad() {
                 </span>
 
                 {/* Text */}
-                <div className="flex flex-col gap-1.5 flex-1">
-                  <h3 className="text-[17px] font-semibold tracking-tight leading-snug" style={{ color: 'rgba(255,255,255,0.92)' }}>
+                <div className="flex flex-col flex-1">
+                  <h3 className="text-[22px] font-semibold tracking-tight leading-snug" style={{ color: 'rgba(255,255,255,0.92)' }}>
                     {m.title}
                   </h3>
-                  <p className="text-[12px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.50)' }}>
-                    {m.desc}
-                  </p>
                 </div>
 
                 {/* Micro visual */}

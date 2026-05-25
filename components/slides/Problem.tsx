@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import AudioPlayer from '../AudioPlayer'
+import AudioPlayerInline from '../AudioPlayerInline'
 
 const container = {
   hidden: {},
@@ -31,34 +31,56 @@ export default function Problem() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 w-full max-w-5xl flex flex-col gap-16"
+        className="relative z-10 w-full max-w-5xl flex flex-col gap-10"
       >
-        <motion.div variants={item} className="flex flex-col gap-4">
+        <motion.div variants={item}>
           <h2 className="text-[52px] font-bold tracking-tight text-white leading-[1.05]">
             AI høres fortsatt ikke<br />menneskelig ut.
           </h2>
         </motion.div>
 
         <motion.div variants={item} className="grid grid-cols-2 gap-5">
-          <div className="flex flex-col gap-4">
-            <AudioPlayer type="ai" label="AI-stemme" />
-            <div className="flex flex-col gap-2.5 pl-1">
-              {['Robotaktig tale', 'Høy forsinkelse', 'Unaturlig samtaleflyt'].map((point) => (
-                <div key={point} className="flex items-center gap-3">
-                  <div className="w-[3px] h-[3px] rounded-full bg-white/40 flex-shrink-0" />
-                  <span className="text-[13px] text-white/72 font-light">{point}</span>
+          <div className="flex flex-col gap-5 p-7 bg-[#0c0c0c] border border-[#1e1e1e] rounded-2xl">
+            <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
+              Generisk AI-stemme i dag
+            </span>
+            <AudioPlayerInline label="DEMO" accent="rgba(255,255,255,0.40)" />
+            <div className="h-px bg-white/[0.05]" />
+            <div className="flex flex-col gap-3">
+              {[
+                ['Robotaktig tale', 'Trent på studioopplesning — mangler norsk rytme'],
+                ['Høy forsinkelse', '300–800ms ødelegger naturlig samtaleflyt'],
+                ['Ingen norsk tilpasning', 'Globale modeller er ikke bygget for norsk samtale-AI'],
+              ].map(([title, sub]) => (
+                <div key={title} className="flex items-start gap-3">
+                  <div className="w-[3px] h-[3px] rounded-full bg-white/30 flex-shrink-0 mt-[7px]" />
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-[13px] text-white/65 font-light">{title}</span>
+                    <span className="text-[11px] text-white/28 font-light leading-snug">{sub}</span>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <AudioPlayer type="human" label="Menneskestemme" />
-            <div className="flex flex-col gap-2.5 pl-1">
-              {['Naturlig tempo', 'Sanntidssvar', 'Flytende samtale'].map((point) => (
-                <div key={point} className="flex items-center gap-3">
-                  <div className="w-[3px] h-[3px] rounded-full bg-white/55 flex-shrink-0" />
-                  <span className="text-[13px] text-white/82 font-light">{point}</span>
+          <div className="flex flex-col gap-5 p-7 bg-[#0c0c0c] border border-[#1e1e1e] rounded-2xl">
+            <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
+              Menneskestemme
+            </span>
+            <AudioPlayerInline label="MENNESKE" accent="rgba(255,255,255,0.70)" />
+            <div className="h-px bg-white/[0.05]" />
+            <div className="flex flex-col gap-3">
+              {[
+                ['Naturlig tempo og rytme', 'Flytende norsk intonasjon og samtaledynamikk'],
+                ['Emosjonell troverdighet', 'Pauser, trykk og variasjon som bygger tillit'],
+                ['Samtaleflyt', 'Svar som føles menneskelige — ikke genererte'],
+              ].map(([title, sub]) => (
+                <div key={title} className="flex items-start gap-3">
+                  <div className="w-[3px] h-[3px] rounded-full bg-white/50 flex-shrink-0 mt-[7px]" />
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-[13px] text-white/82 font-light">{title}</span>
+                    <span className="text-[11px] text-white/35 font-light leading-snug">{sub}</span>
+                  </div>
                 </div>
               ))}
             </div>

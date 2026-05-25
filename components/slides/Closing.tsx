@@ -16,101 +16,57 @@ export default function Closing() {
         style={{ height: '1px', background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 40%, rgba(255,255,255,0.06) 60%, transparent 100%)' }}
       />
 
-      {/* Center logo */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, ease }}
-        >
-          <Image
-            src="/kvad-logo.svg"
-            alt="Kvad"
-            width={220}
-            height={50}
-            style={{ opacity: 0.08 }}
-          />
-        </motion.div>
-      </div>
+      {/* Strong center glow */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%)' }}
+      />
+      {/* Bottom vignette */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none"
+        style={{ height: '35%', background: 'linear-gradient(to top, #030303 0%, transparent 100%)' }}
+      />
 
-      {/* Left-side content — aligned like a letter */}
-      <div className="relative z-10 flex flex-col justify-between h-full px-20 py-16">
+      {/* Full-center content */}
+      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center gap-8 px-16">
 
-        {/* Top: closing statement */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0, ease }}
-          className="flex flex-col gap-5 max-w-2xl"
+          transition={{ duration: 1.2, ease }}
+          className="flex flex-col items-center gap-6"
         >
-          <span className="text-[10px] text-white/20 tracking-[0.28em] uppercase font-medium">
-            Neste steg
-          </span>
+          <Image src="/kvad-logo.svg" alt="Kvad" width={200} height={46} style={{ opacity: 0.70 }} />
+
           <h2
-            className="font-bold tracking-tight text-white leading-[1.06]"
-            style={{ fontSize: 'clamp(40px, 5vw, 58px)' }}
+            className="font-bold tracking-tight text-white leading-[1.02]"
+            style={{ fontSize: 'clamp(42px, 5.5vw, 68px)', maxWidth: 780 }}
           >
-            La oss bygge Nordens<br />stemmelag — sammen.
+            La oss bygge Nordens stemmelag
+            <span style={{ color: '#4ade80' }}> sammen.</span>
           </h2>
-          <p className="text-[14px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.32)', maxWidth: 420 }}>
-            Vi søker $2M i seed-kapital for å gjøre norsk tale-AI til infrastruktur.
-            Bli med på å definere neste generasjon AI-kommunikasjon.
-          </p>
         </motion.div>
 
-        {/* Bottom: contact + branding */}
-        <div className="flex items-end justify-between">
+        {/* Subtle divider */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 1.0, ease, delay: 0.35 }}
+          style={{ height: 1, width: 60, background: 'rgba(255,255,255,0.12)', transformOrigin: 'center' }}
+        />
 
-          {/* Contact block */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease, delay: 0.3 }}
-            className="flex flex-col gap-4"
-          >
-            <div className="w-8 h-px" style={{ background: 'rgba(255,255,255,0.10)' }} />
-            <div className="flex flex-col gap-1.5">
-              <span className="text-[13px] font-semibold" style={{ color: 'rgba(255,255,255,0.78)' }}>
-                Mamoon Rashid
-              </span>
-              <span className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.30)' }}>
-                Grunnlegger & CEO, Kvad
-              </span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-[11px] font-mono" style={{ color: 'rgba(255,255,255,0.22)' }}>
-                mamoon@kvad.no
-              </span>
-              <span className="text-[11px] font-mono" style={{ color: 'rgba(255,255,255,0.16)' }}>
-                kvad.no
-              </span>
-            </div>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease, delay: 0.5 }}
+          className="flex flex-col items-center gap-1.5"
+        >
+          <span className="text-[13px] font-light" style={{ color: 'rgba(255,255,255,0.45)' }}>
+            Mamoon Rashid · mamoon@kvad.no
+          </span>
+          <span className="text-[11px] font-mono tracking-[0.14em]" style={{ color: 'rgba(255,255,255,0.20)' }}>
+            $2M SEED · kvad.no
+          </span>
+        </motion.div>
 
-          {/* Ask reminder badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, ease, delay: 0.45 }}
-            className="flex flex-col items-end gap-1.5"
-            style={{ textAlign: 'right' }}
-          >
-            <span className="text-[9px] tracking-[0.22em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.16)' }}>
-              Seed-runde
-            </span>
-            <span className="text-[56px] font-bold tracking-tight text-white leading-none" style={{ opacity: 0.88 }}>
-              $2M
-            </span>
-            <div className="flex gap-3 mt-1">
-              {['45% AI-lag', '30% Infra', '25% Marked'].map((label, i) => (
-                <span key={i} className="text-[9px] font-mono" style={{ color: 'rgba(255,255,255,0.18)' }}>
-                  {label}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-        </div>
       </div>
     </div>
   )

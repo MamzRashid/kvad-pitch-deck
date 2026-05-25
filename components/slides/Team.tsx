@@ -72,9 +72,6 @@ export default function Team() {
           ))}
         </motion.div>
 
-        <motion.p variants={item} className="text-[12px] text-white/20 tracking-wide font-light">
-          Bygger stemmelaget for neste generasjon AI-systemer.
-        </motion.p>
       </motion.div>
     </div>
   )

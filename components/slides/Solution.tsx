@@ -71,7 +71,7 @@ export default function Solution() {
             className="font-bold tracking-tight text-white leading-[1.02] max-w-3xl"
             style={{ fontSize: 'clamp(40px, 5vw, 58px)' }}
           >
-            Kvad gjør det mulig for AI å kommunisere naturlig i sanntid.
+            Kvad er stemmen bak norsk tale-AI.
           </h2>
         </motion.div>
 

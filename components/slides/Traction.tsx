@@ -159,7 +159,7 @@ export default function Traction() {
           className="font-bold tracking-tight text-white leading-[1.04]"
           style={{ fontSize: 'clamp(26px, 2.8vw, 36px)' }}
         >
-          AI-systemer er allerede klare for naturlig norsk tale.
+          Etterspørselen er konkret. Stemmen mangler.
         </h2>
       </motion.div>
 

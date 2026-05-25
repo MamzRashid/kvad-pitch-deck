@@ -115,7 +115,7 @@ export default function GoToMarket() {
             {/* Description */}
             <motion.p
               className="text-[12px] font-light leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.38)' }}
+              style={{ color: 'rgba(255,255,255,0.62)' }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.65 + i * 0.15 }}
@@ -134,7 +134,7 @@ export default function GoToMarket() {
                   transition={{ duration: 0.55, ease, delay: 0.75 + i * 0.15 + j * 0.07 }}
                 >
                   <div className="w-[3px] h-[3px] rounded-full flex-shrink-0" style={{ background: 'rgba(255,255,255,0.22)' }} />
-                  <span className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.30)' }}>{b}</span>
+                  <span className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.52)' }}>{b}</span>
                 </motion.div>
               ))}
             </div>

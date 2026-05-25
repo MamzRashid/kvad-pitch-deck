@@ -106,7 +106,7 @@ function Cover() {
 
         <div className="flex flex-col items-center gap-6">
           <p className="text-[14px] font-light text-white/50 tracking-[0.14em] uppercase">
-            Infrastruktur for menneskelig AI-kommunikasjon
+            Infrastruktur for naturlig norsk tale
           </p>
           <div className="w-px h-6 bg-white/8" />
           <p className="text-[15px] md:text-[16px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.48)' }}>
@@ -254,23 +254,23 @@ function WhyNow() {
   const statements = [
     {
       number: '01',
-      title: 'AI-agenter er allerede her.',
-      desc: 'Norske bedrifter implementerer AI i kundedialog, salg og support raskere enn forventet. Etterspørselen etter stemmebasert AI er ikke fremtidig — den er nåtidig.',
+      title: 'AI-agenter venter på en menneskelig stemme.',
+      desc: 'Neste generasjon AI-agenter er under utvikling. De mangler én ting for å bli akseptert av norske brukere: en stemme som høres menneskelig ut.',
     },
     {
       number: '02',
-      title: 'Norsk tale-AI henger kritisk etter.',
-      desc: 'Infrastrukturen for naturlig norsk tale eksisterer ikke i produksjonskvalitet. Bedriftene som vil bygge dette, har ingen plattform å stole på.',
+      title: 'Stemmeskuespillere er dyre og trege.',
+      desc: 'Norsk innholdsproduksjon, dubbing og lydbok er avhengig av stemmeskuespillere. Det er dyrt, tregt og skalerer ikke. TTS er løsningen — men kvaliteten holder ikke mål.',
     },
     {
       number: '03',
-      title: 'Vinduet er åpent — men lukkes.',
-      desc: 'Store aktører som Google, Microsoft og ElevenLabs trener bredt. De vil komme til Norden, men norsk prosodi og samtaledynamikk krever lokal forankring. Det er Kvads fortrinn akkurat nå.',
+      title: 'Markedet er klart. Infrastrukturen er ikke.',
+      desc: 'Mediahus, forlag, offentlig sektor og teknologiselskaper er klare til å ta i bruk norsk tale-AI. Det som mangler er infrastrukturen som gjør det mulig.',
     },
     {
       number: '04',
-      title: 'Kvad bygger fundamentet.',
-      desc: 'Første aktør som etablerer seg som infrastrukturlaget vinner nettverkseffekter: data, kunder og integrasjoner forsterker hverandre. Vi er der.',
+      title: 'Vi har dataen. Vi har teamet. Vi har timingen.',
+      desc: 'Kvad har allerede tilgang til treningsdata ingen andre har, et team med riktig kompetanse, og er i posisjon før de store aktørene prioriterer Norden.',
     },
   ]
 
@@ -286,7 +286,7 @@ function WhyNow() {
           <h2 className="font-bold tracking-tight text-white leading-[1.02]"
             style={{ fontSize: 'clamp(36px, 5vw, 52px)' }}
           >
-            Conversational AI eksploderer.<br />Infrastrukturen henger etter.
+            Voice AI eksploderer.<br />Norsk talekvalitet henger etter.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
             Timingen er ikke tilfeldig. Fire konvergerende krefter gjør dette til det rette øyeblikket
@@ -358,7 +358,7 @@ function Solution() {
           <h2 className="font-bold tracking-tight text-white leading-[1.02]"
             style={{ fontSize: 'clamp(36px, 5vw, 52px)' }}
           >
-            Kvad gjør det mulig for AI å kommunisere naturlig på norsk i sanntid.
+            Kvad er stemmen bak norsk tale-AI.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
             Det er tre ting som må fungere simultant for at norsk tale-AI skal være akseptabelt i
@@ -477,7 +477,7 @@ function Traction() {
           <h2 className="font-bold tracking-tight text-white leading-[1.04]"
             style={{ fontSize: 'clamp(28px, 3.2vw, 42px)' }}
           >
-            Markedet er klart. Infrastrukturen er det eneste som mangler.
+            Etterspørselen er konkret. Stemmen mangler.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.50)' }}>
             Selly er en norsk AI-salgsagent som i over ett år har vært klar til å lansere.
@@ -600,11 +600,11 @@ function WhyKvad() {
       />
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-12 md:gap-0">
         <div className="flex flex-col gap-6 md:pr-14 flex-shrink-0 md:w-[42%] md:justify-center">
-          <Label>Konkurransefortrinn</Label>
+          <Label>Hvorfor Kvad</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.03]"
             style={{ fontSize: 'clamp(28px, 3.5vw, 44px)' }}
           >
-            Norsk conversational AI krever noe globale modeller ikke har.
+            Store aktører optimaliserer for verden. Vi optimaliserer for Norden.
           </h2>
           <p className="text-[13.5px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
             Generiske stemmemodeller er brede. Kvad er dypt optimalisert — trent på norsk rytme,
@@ -662,13 +662,13 @@ function WhyKvad() {
 // ── MARKED ───────────────────────────────────────────────────────────
 
 const M_NODES = [
-  { label: 'Mediahus',     sub: 'Nyheter & innhold' },
-  { label: 'Utdanning',    sub: 'Læringsverktøy' },
+  { label: 'Mediahus',     sub: 'Nyhetsopplesning & radio' },
+  { label: 'Offentlig',    sub: 'NAV, kommuner & stat' },
   { label: 'Finans',       sub: 'Rådgivning & service' },
-  { label: 'Booking',      sub: 'Reservasjon & service' },
-  { label: 'Helse',        sub: 'Pasientdialog' },
+  { label: 'Innhold',      sub: 'Lydbok, podkast & e-læring' },
+  { label: 'Dubing',       sub: 'Film & TV' },
   { label: 'Kundeservice', sub: 'Live support' },
-  { label: 'Restauranter', sub: 'Bestilling & hjelp' },
+  { label: 'AI-agenter',   sub: 'Samtale & automatisering' },
 ]
 const M_DOT_CONFIGS = [
   { duration: 1.4, delay: 1.2, repeatDelay: 5.8 },
@@ -777,7 +777,7 @@ function Market() {
           <h2 className="font-bold tracking-tight text-white leading-[1.04]"
             style={{ fontSize: 'clamp(28px, 3.5vw, 44px)' }}
           >
-            Norden beveger seg mot conversational AI — og trenger et stemmelag.
+            Tekst til tale er et milliardmarked. Norsk har ingen leder.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.50)' }}>
             Voice AI er et av de raskest voksende segmentene innen enterprise-teknologi globalt.
