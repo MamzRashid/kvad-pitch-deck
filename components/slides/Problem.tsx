@@ -44,7 +44,7 @@ export default function Problem() {
             <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
               Generisk AI-stemme i dag
             </span>
-            <AudioPlayerInline label="DEMO" accent="rgba(255,255,255,0.40)" />
+            <AudioPlayerInline label="DEMO" accent="rgba(255,255,255,0.40)" src="/audio/ai-demo.mp3" />
             <div className="h-px bg-white/[0.05]" />
             <div className="flex flex-col gap-3">
               {[
@@ -67,7 +67,7 @@ export default function Problem() {
             <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
               Menneskestemme
             </span>
-            <AudioPlayerInline label="MENNESKE" accent="rgba(255,255,255,0.70)" />
+            <AudioPlayerInline label="MENNESKE" accent="rgba(255,255,255,0.70)" src="/audio/demo01.wav" />
             <div className="h-px bg-white/[0.05]" />
             <div className="flex flex-col gap-3">
               {[

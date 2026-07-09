@@ -100,6 +100,7 @@ export default function Reveal() {
           <AudioPlayer
             type="human"
             label="Menneskestemme"
+            src="/audio/demo01.wav"
             size="large"
             revealMode
             revealed={revealed}

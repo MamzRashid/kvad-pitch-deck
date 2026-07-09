@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 interface AudioPlayerProps {
   type: 'ai' | 'human'
   label: string
+  src?: string
   size?: 'compact' | 'large'
   revealMode?: boolean
   onReveal?: () => void
@@ -45,6 +46,7 @@ function smoothPath(amp: number, freq: number, phase: number): string {
 export default function AudioPlayer({
   type,
   label,
+  src,
   size = 'compact',
   revealMode = false,
   onReveal,
@@ -52,26 +54,70 @@ export default function AudioPlayer({
 }: AudioPlayerProps) {
   const [playing, setPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
+  const [duration, setDuration] = useState(DURATION)
   const [phase, setPhase] = useState(0)
   const phaseRef = useRef(0)
   const animRef = useRef<number>(0)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const ctxRef = useRef<AudioContext | null>(null)
+  const analyserRef = useRef<AnalyserNode | null>(null)
+  const levelRef = useRef(0)
+  const freqRef = useRef<Uint8Array<ArrayBuffer> | null>(null)
+
+  // Web Audio graph can only be attached once per media element
+  const ensureGraph = () => {
+    const el = audioRef.current
+    if (!el || ctxRef.current) return
+    const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
+    const ctx = new Ctx()
+    const source = ctx.createMediaElementSource(el)
+    const analyser = ctx.createAnalyser()
+    analyser.fftSize = 256
+    analyser.smoothingTimeConstant = 0.8
+    source.connect(analyser)
+    analyser.connect(ctx.destination)
+    ctxRef.current = ctx
+    analyserRef.current = analyser
+    freqRef.current = new Uint8Array(analyser.frequencyBinCount)
+  }
 
   const isLarge = size === 'large'
 
   useEffect(() => {
     if (!playing) return
     const speed = type === 'human' ? 0.016 : 0.042
+    const analyser = analyserRef.current
+    const data = analyser ? new Uint8Array(analyser.fftSize) : null
     const tick = () => {
-      phaseRef.current += speed
+      if (analyser && data) {
+        analyser.getByteTimeDomainData(data)
+        if (freqRef.current) analyser.getByteFrequencyData(freqRef.current)
+        let sum = 0
+        for (let i = 0; i < data.length; i++) {
+          const d = (data[i] - 128) / 128
+          sum += d * d
+        }
+        const rms = Math.sqrt(sum / data.length)
+        levelRef.current = levelRef.current * 0.6 + rms * 0.4
+      }
+      // With live audio: wave moves fast when voice is loud, nearly freezes in silence
+      const speedScale = analyser ? 0.2 + Math.min(3, levelRef.current * 12) : 1
+      phaseRef.current += speed * speedScale
       setPhase(phaseRef.current)
       animRef.current = requestAnimationFrame(tick)
     }
     animRef.current = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(animRef.current)
+    return () => { cancelAnimationFrame(animRef.current); levelRef.current = 0 }
   }, [playing, type])
 
   useEffect(() => {
+    if (src) {
+      const el = audioRef.current
+      if (!el) return
+      if (playing) { el.play().catch(() => setPlaying(false)) } else { el.pause() }
+      return
+    }
     if (playing) {
       intervalRef.current = setInterval(() => {
         setProgress((p) => {
@@ -83,27 +129,37 @@ export default function AudioPlayer({
       if (intervalRef.current) clearInterval(intervalRef.current)
     }
     return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
-  }, [playing])
+  }, [playing, src])
 
   const togglePlay = () => {
-    if (progress >= 100) setProgress(0)
+    if (progress >= 100) {
+      setProgress(0)
+      if (audioRef.current) audioRef.current.currentTime = 0
+    }
+    if (!playing && src) {
+      ensureGraph()
+      ctxRef.current?.resume()
+    }
     setPlaying((p) => !p)
     if (revealMode && onReveal && !revealed) onReveal()
   }
 
   const formatTime = (pct: number) => {
-    const s = Math.floor((pct / 100) * DURATION)
+    const s = Math.floor((pct / 100) * duration)
     return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
   }
 
   const barW = W / BAR_COUNT
   const barGap = 2.5
 
+  // Live level drives amplitude when real audio is attached
+  const dyn = src && playing ? Math.min(2.1, 0.08 + levelRef.current * 8) : 1
+
   // Human paths: 3 overlapping sine layers
   const humanLayers = [
-    { amp: 0.38, freq: 2.0, phaseOffset: 0,   opacity: playing ? 0.88 : 0.55, width: 1.4 },
-    { amp: 0.22, freq: 3.4, phaseOffset: 1.1,  opacity: playing ? 0.55 : 0.30, width: 1.0 },
-    { amp: 0.13, freq: 5.2, phaseOffset: 2.3,  opacity: playing ? 0.32 : 0.18, width: 0.6 },
+    { amp: 0.38 * dyn, freq: 2.0, phaseOffset: 0,   opacity: playing ? 0.88 : 0.55, width: 1.4 },
+    { amp: 0.22 * dyn, freq: 3.4, phaseOffset: 1.1,  opacity: playing ? 0.55 : 0.30, width: 1.0 },
+    { amp: 0.13 * dyn, freq: 5.2, phaseOffset: 2.3,  opacity: playing ? 0.32 : 0.18, width: 0.6 },
   ]
 
   return (
@@ -116,6 +172,19 @@ export default function AudioPlayer({
         : 'bg-[#080808] border-white/[0.065]'
       }
     `}>
+      {src && (
+        <audio
+          ref={audioRef}
+          src={src}
+          preload="auto"
+          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+          onTimeUpdate={(e) => {
+            const el = e.currentTarget
+            if (el.duration > 0) setProgress((el.currentTime / el.duration) * 100)
+          }}
+          onEnded={() => { setPlaying(false); setProgress(100) }}
+        />
+      )}
       {/* Top edge highlight */}
       <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent pointer-events-none" />
 
@@ -177,17 +246,22 @@ export default function AudioPlayer({
             )}
           </AnimatePresence>
           <span className="font-mono text-[9px] tabular-nums" style={{ color: 'rgba(255,255,255,0.38)' }}>
-            {formatTime(progress)} / 0:{String(DURATION).padStart(2, '0')}
+            {formatTime(progress)} / {formatTime(100)}
           </span>
         </div>
       </div>
 
       {/* Waveform */}
       <div className="relative z-10 w-full" style={{ height: WAVE_H }}>
-        {type === 'ai' ? (
+        {type === 'ai' || src ? (
           <svg viewBox={`0 0 ${W} ${WAVE_H}`} preserveAspectRatio="none" className="w-full h-full">
             {Array.from({ length: BAR_COUNT }, (_, i) => {
-              const h = barHeight(i, phase, playing)
+              let h = barHeight(i, phase, playing)
+              // live spectrum when real audio plays; voice energy sits in lower bins
+              if (src && playing && freqRef.current) {
+                const bin = Math.floor((i / BAR_COUNT) * freqRef.current.length * 0.7)
+                h = 0.05 + (freqRef.current[bin] / 255) * 0.92
+              }
               const bh = h * WAVE_H * 0.88
               const x = i * barW + barGap / 2
               const bw = Math.max(1, barW - barGap)
@@ -240,7 +314,9 @@ export default function AudioPlayer({
         style={{ height: 1.5, background: 'rgba(255,255,255,0.05)' }}
         onClick={(e) => {
           const rect = e.currentTarget.getBoundingClientRect()
-          setProgress(Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100)))
+          const pct = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100))
+          setProgress(pct)
+          if (audioRef.current) audioRef.current.currentTime = (pct / 100) * duration
         }}
       >
         <div
