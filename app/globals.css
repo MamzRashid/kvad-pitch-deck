@@ -112,3 +112,14 @@ body {
   animation-delay: var(--bar-delay, 0s);
   transform-origin: center;
 }
+
+/* Rotate hint on portrait phones */
+@keyframes rotateHint {
+  0%, 20% { transform: rotate(0deg); }
+  50%, 80% { transform: rotate(-90deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.rotate-hint {
+  animation: rotateHint 2.8s ease-in-out infinite;
+}

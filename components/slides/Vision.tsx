@@ -229,14 +229,14 @@ export default function Vision() {
           variants={fadeUp}
           className="text-[10px] text-white/20 tracking-[0.28em] uppercase font-medium mb-5"
         >
-          Visjon
+          Vision
         </motion.span>
         <motion.h2
           variants={fadeUp}
           className="text-[66px] font-bold tracking-tight text-white leading-[1.04] text-center"
           style={{ maxWidth: 760 }}
         >
-          Fremtidens AI vil<br />bli snakket med.
+          The AI of the future<br />will be spoken to.
         </motion.h2>
       </motion.div>
 
@@ -254,7 +254,7 @@ export default function Vision() {
           className="text-[15px] font-medium text-white/55 tracking-wide leading-snug text-center"
           style={{ maxWidth: 560 }}
         >
-          Kvad bygger conversational infrastructure<br />for neste generasjon AI-systemer.
+          Kvad builds conversational infrastructure<br />for the next generation of AI systems.
         </motion.p>
 
         {/* Separator */}
@@ -269,9 +269,9 @@ export default function Vision() {
           className="text-[12.5px] text-white/28 font-normal leading-[1.75] text-center"
           style={{ maxWidth: 460 }}
         >
-          AI-agenter erstatter digitale grensesnitt. For å bli akseptert
-          av mennesker, må de kommunisere naturlig — sanntidsbasert, flytende
-          og menneskelig. Kvad bygger infrastrukturen som gjør det mulig.
+          AI agents are replacing digital interfaces. To be accepted
+          by people, they must communicate naturally: in real time, fluently
+          and like a human. Kvad builds the infrastructure that makes it possible.
         </motion.p>
       </motion.div>
     </div>

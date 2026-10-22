@@ -43,7 +43,7 @@ export default function Cover() {
           variants={item}
           className="text-[14px] font-light text-white/50 tracking-[0.14em] uppercase"
         >
-          Infrastruktur for naturlig norsk tale.
+          Infrastructure for natural Norwegian speech.
         </motion.p>
 
         <motion.div variants={item} className="mt-6">

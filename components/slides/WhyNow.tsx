@@ -4,10 +4,10 @@ import { motion } from 'framer-motion'
 import WaveformBg from '../WaveformBg'
 
 const statements = [
-  { number: '01', title: 'AI-agenter venter på en menneskelig stemme.' },
-  { number: '02', title: 'Stemmeskuespillere er dyre og trege.' },
-  { number: '03', title: 'Markedet er klart. Infrastrukturen er ikke.' },
-  { number: '04', title: 'Vi har dataen. Vi har teamet. Vi har timingen.' },
+  { number: '01', title: 'AI agents are waiting for a human voice.' },
+  { number: '02', title: 'Voice actors are expensive and slow.' },
+  { number: '03', title: 'The market is ready. The infrastructure isn\'t.' },
+  { number: '04', title: 'We have the data. We have the team. We have the timing.' },
 ]
 
 const ease = [0.25, 0.1, 0.25, 1]
@@ -38,7 +38,7 @@ export default function WhyNow() {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
       >
-        Hvorfor nå
+        Why now
       </motion.span>
 
       {/* Cinematic depth gradient — centered */}
@@ -63,7 +63,7 @@ export default function WhyNow() {
             className="font-bold tracking-tight text-white leading-[1.02]"
             style={{ fontSize: 'clamp(44px, 5.5vw, 64px)' }}
           >
-            Voice AI eksploderer.<br />Norsk talekvalitet henger etter.
+            Voice AI is exploding.<br />Norwegian speech quality lags behind.
           </h2>
         </motion.div>
 

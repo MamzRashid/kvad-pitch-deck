@@ -5,40 +5,22 @@ import { motion } from 'framer-motion'
 const ease = [0.25, 0.1, 0.25, 1]
 
 const allocations = [
-  {
-    number: '01',
-    area: 'Bygge Nordens stemmeinfrastruktur',
-    legend: 'Stemmeinfrastruktur',
-    bullets: ['Norske og nordiske talemodeller', 'Sanntidsdialog og naturlig samtaleflyt', 'Proprietær norsk taledata'],
-    pct: 45,
-  },
-  {
-    number: '02',
-    area: 'Skalere teknologi og plattform',
-    legend: 'Teknologi og plattform',
-    bullets: ['Ultra-lav forsinkelse', 'Produksjonsklar AI-infrastruktur', 'API-distribusjon til kunder'],
-    pct: 30,
-  },
-  {
-    number: '03',
-    area: 'Etablere Kvad i enterprise-markedet',
-    legend: 'Enterprise-marked',
-    bullets: ['Strategiske piloter og distribusjon', 'Partneravtaler med digitalbyrå', 'Developer og enterprise onboarding'],
-    pct: 25,
-  },
+  { number: '01', area: 'Inference & compute infrastructure', legend: 'Infrastructure', pct: 27 },
+  { number: '02', area: 'Proprietary speech data & labeling', legend: 'Data', pct: 21 },
+  { number: '03', area: 'Go-to-market & outbound', legend: 'Go-to-market', pct: 19 },
+  { number: '04', area: 'Legal, advisory & buffer', legend: 'Operations', pct: 19 },
+  { number: '05', area: 'Engineering team', legend: 'Team', pct: 14 },
 ]
 
 const SEG_COLORS = [
   '#38BDF8',
   '#818CF8',
   '#34D399',
+  '#FBBF24',
+  '#F472B6',
 ]
 
-const BAR_COLORS = [
-  '#38BDF8',
-  '#818CF8',
-  '#34D399',
-]
+const BAR_COLORS = SEG_COLORS
 
 // Donut config (pathLength=1 normalization)
 const GAP = 0.013
@@ -90,7 +72,7 @@ function DonutChart() {
           fontFamily="Inter, -apple-system, sans-serif"
           style={{ letterSpacing: '-0.03em' } as React.CSSProperties}
         >
-          $2M
+          6.5M
         </text>
         <text
           textAnchor="middle"
@@ -100,7 +82,7 @@ function DonutChart() {
           fontFamily="Inter, -apple-system, sans-serif"
           style={{ letterSpacing: '0.22em' } as React.CSSProperties}
         >
-          SEED
+          NOK · PRE-SEED
         </text>
       </svg>
 
@@ -144,7 +126,7 @@ export default function Ask() {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
       >
-        Vi søker
+        The ask
       </motion.span>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-16 flex items-center gap-14">
@@ -158,15 +140,15 @@ export default function Ask() {
             transition={{ duration: 0.85, ease }}
             className="flex flex-col gap-3"
           >
-            <span className="text-[10px] text-white/22 tracking-[0.26em] uppercase font-medium">Seed-runde</span>
+            <span className="text-[10px] text-white/22 tracking-[0.26em] uppercase font-medium">Pre-seed round</span>
             <div className="flex items-baseline gap-5">
               <div className="relative">
                 <div className="absolute pointer-events-none"
                   style={{ inset: '-14px -28px', background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.06) 0%, transparent 70%)', filter: 'blur(20px)' }}
                 />
-                <h2 className="relative text-[76px] font-bold tracking-tight text-white leading-none">$2M</h2>
+                <h2 className="relative text-[76px] font-bold tracking-tight text-white leading-none">NOK 6.5M</h2>
               </div>
-              <span className="text-[16px] font-light tracking-wide" style={{ color: 'rgba(255,255,255,0.26)' }}>Seed-runde</span>
+              <span className="text-[16px] font-light tracking-wide" style={{ color: 'rgba(255,255,255,0.26)' }}>Pre-seed round</span>
             </div>
 
           </motion.div>

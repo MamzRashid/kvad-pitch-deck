@@ -53,22 +53,22 @@ function Cover() {
 
         <div className="flex flex-col items-center gap-6">
           <p className="text-[14px] font-light text-white/50 tracking-[0.14em] uppercase">
-            Infrastruktur for naturlig norsk tale
+            Infrastructure for natural Norwegian speech
           </p>
           <div className="w-px h-6 bg-white/8" />
           <p className="text-[15px] md:text-[16px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.48)' }}>
-            Kvad bygger stemmelaget som mangler i norsk AI-infrastruktur — et API som gir
-            bedrifter og utviklere tilgang til naturlig norsk tale med sanntidsrespons og
-            menneskelig kvalitet. Tenk Twilio for norsk stemme.
+            Kvad is building the missing voice layer in Norwegian AI infrastructure: an API that gives
+            companies and developers access to natural Norwegian speech with real-time response and
+            human quality. Think Twilio for the Norwegian voice.
           </p>
         </div>
 
         <div className="flex flex-col items-center gap-3 pt-2">
           <p className="text-[12px] font-light" style={{ color: 'rgba(255,255,255,0.22)' }}>
-            Dette dokumentet er konfidensielt og kun ment for potensielle investorer.
+            This document is confidential and intended only for prospective investors.
           </p>
           <p className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.14)' }}>
-            Spørsmål? mamoon@kvad.no
+            Questions? mamoon@kvad.no
           </p>
         </div>
       </div>
@@ -81,28 +81,28 @@ function Cover() {
 function ExecutiveSummary() {
   const points = [
     {
-      label: 'Problemet',
-      text: 'AI-drevne taleagenter høres robotaktige ut på norsk. Norske brukere avviser dem — og bedriftene som bygger dem, har ingen god løsning.',
+      label: 'The problem',
+      text: 'AI voice agents sound robotic in Norwegian. Norwegian users reject them, and the companies building them have no good solution.',
     },
     {
-      label: 'Løsningen',
-      text: 'Kvad er et API for naturlig norsk tale i sanntid. Bedrifter integrerer med noen linjer kode og får menneskelig stemmekvalitet ut av boksen.',
+      label: 'The solution',
+      text: 'Kvad is an API for natural Norwegian speech in real time. Companies integrate with a few lines of code and get human voice quality out of the box.',
     },
     {
-      label: 'Markedet',
-      text: '$47B global voice AI-markedsverdi innen 2029. Vi anslår et nordisk SAM på $2.4B. Kvad posisjonerer seg som standardinfrastrukturen for norsk tale-AI.',
+      label: 'The market',
+      text: 'Text-to-speech is a $7.6B global market by 2029 (MarketsandMarkets). We estimate a Nordic SAM of $135M, and target a SOM of $4M: 10% of the $39M Norwegian market. Kvad is positioning itself as the standard infrastructure for Norwegian speech AI.',
     },
     {
-      label: 'Traksjon',
-      text: 'Selly — en AI-salgsagent med interesse fra store norske selskaper — er klar til å lansere, men blokkert av manglende norsk TTS-kvalitet. Kvad er løsningen.',
+      label: 'Traction',
+      text: 'Selly, an AI sales agent with interest from large Norwegian companies, is ready to launch but blocked by the lack of Norwegian TTS quality. Kvad is the solution.',
     },
     {
-      label: 'Teamet',
-      text: 'Mamoon Rashid (Produkt & distribusjon) og Vebjørn (Modelltrening & teknisk arkitekt). Kompetansen treffer kjernen av det som kreves for å lykkes.',
+      label: 'The team',
+      text: 'Mamoon Rashid (Product & distribution) and Vebjørn (Model training & technical architect). Their skills hit the core of what it takes to succeed.',
     },
     {
-      label: 'Vi søker',
-      text: '$2M seed for å ferdigstille kjerneinfrastrukturen, skalere treningsdata og sikre de første betalende enterprise-kundene.',
+      label: 'The ask',
+      text: 'NOK 6.5M pre-seed, 18 months of runway, to complete the core infrastructure, scale training data and secure the first paying enterprise customers.',
     },
   ]
 
@@ -110,10 +110,10 @@ function ExecutiveSummary() {
     <section className="relative w-full bg-[#030303] px-8 py-16 md:py-20">
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-10">
         <div className="flex flex-col gap-3">
-          <Label>Sammendrag</Label>
+          <Label>Summary</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.04]"
             style={{ fontSize: 'clamp(28px, 3vw, 38px)' }}>
-            Kvad på ett minutt.
+            Kvad in one minute.
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px"
@@ -146,47 +146,47 @@ function Problem() {
       />
       <div className="relative z-10 w-full max-w-5xl flex flex-col gap-14">
         <div className="flex flex-col gap-5 max-w-3xl">
-          <Label>Problemet</Label>
+          <Label>The problem</Label>
           <h2 className="text-[42px] md:text-[52px] font-bold tracking-tight text-white leading-[1.05]">
-            AI høres fortsatt ikke<br />menneskelig ut på norsk.
+            AI still doesn&apos;t sound<br />human in Norwegian.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.50)' }}>
-            Globale tale-modeller er trent på engelske datasett og etterpå tilpasset norsk. Resultatet er
-            stiv, umenneskelig tale som norske brukere umiddelbart kjenner igjen og avviser. Norske
-            selskaper som vil bygge AI-agenter, callbots og stemmeprodukter har ikke et godt nok
-            fundament å bygge på — og vet det.
+            Global speech models are trained on English datasets and adapted to Norwegian afterwards. The result is
+            stiff, inhuman speech that Norwegian users instantly recognize and reject. Norwegian
+            companies that want to build AI agents, callbots and voice products don&apos;t have a good enough
+            foundation to build on, and they know it.
           </p>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.36)' }}>
-            Dette er ikke et bekvemmelhetsproblem. Forsinkelse på 300–800ms og unaturlig intonasjon
-            ødelegger tillit i kundedialoger, support og salg. For selskaper som konkurrerer på
-            kundeopplevelse, er dette en blokkerende faktor — ikke en "nice to have".
+            This isn&apos;t a convenience problem. Latency of 300–800ms and unnatural intonation
+            destroy trust in customer dialogue, support and sales. For companies competing on
+            customer experience, this is a blocker, not a &quot;nice to have&quot;.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="flex flex-col gap-5 p-7 bg-[#0c0c0c] border border-[#181818] rounded-2xl">
             <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
-              Generisk AI-stemme i dag
+              Generic AI voice today
             </span>
             <AudioPlayerInline label="DEMO" accent="rgba(255,255,255,0.40)" src="/audio/ai-demo.mp3" />
             <div className="flex flex-col gap-3 mt-1">
-              <Bullet>Forsinkelse på 300–800ms ødelegger naturlig samtaleflyt</Bullet>
-              <Bullet>Trent på studioopplesning — mangler norsk rytme og intonasjon</Bullet>
-              <Bullet>Norske brukere har lavere toleranse for robotaktig tale enn f.eks. engelsktalende markeder</Bullet>
-              <Bullet>Ingen eksisterende løsning er bygget spesifikt for norsk samtale-AI</Bullet>
+              <Bullet>300–800ms latency breaks natural conversation flow</Bullet>
+              <Bullet>Trained on studio reads, lacks Norwegian rhythm and intonation</Bullet>
+              <Bullet>Norwegian users have lower tolerance for robotic speech than, for example, English-speaking markets</Bullet>
+              <Bullet>No existing solution is built specifically for Norwegian conversational AI</Bullet>
             </div>
           </div>
 
           <div className="flex flex-col gap-5 p-7 bg-[#0c0c0c] border border-[#181818] rounded-2xl">
             <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
-              Kvad-stemme
+              Kvad voice
             </span>
             <AudioPlayerInline label="KVAD" accent="rgba(255,255,255,0.70)" src="/audio/demo01.wav" />
             <div className="flex flex-col gap-3 mt-1">
-              <Bullet>Trent på norske samtaler — ikke studioopplesning. Naturlig rytme og intonasjon</Bullet>
-              <Bullet>Under 200ms ende-til-ende forsinkelse — reell sanntidsdialog</Bullet>
-              <Bullet>Emosjonell troverdighet og naturlige pauser som bygger tillit</Bullet>
-              <Bullet>API-første — integreres i eksisterende systemer med noen linjer kode</Bullet>
+              <Bullet>Trained on Norwegian conversations, not studio reads. Natural rhythm and intonation</Bullet>
+              <Bullet>Under 200ms end-to-end latency, true real-time dialogue</Bullet>
+              <Bullet>Emotional credibility and natural pauses that build trust</Bullet>
+              <Bullet>API-first, integrates into existing systems with a few lines of code</Bullet>
             </div>
           </div>
         </div>
@@ -195,29 +195,29 @@ function Problem() {
   )
 }
 
-// ── HVORFOR NÅ ───────────────────────────────────────────────────────
+// ── WHY NOW ─────────────────────────────────────────────────────────
 
 function WhyNow() {
   const statements = [
     {
       number: '01',
-      title: 'AI-agenter venter på en menneskelig stemme.',
-      desc: 'Neste generasjon AI-agenter er under utvikling. De mangler én ting for å bli akseptert av norske brukere: en stemme som høres menneskelig ut.',
+      title: 'AI agents are waiting for a human voice.',
+      desc: 'The next generation of AI agents is being built. They lack one thing to be accepted by Norwegian users: a voice that sounds human.',
     },
     {
       number: '02',
-      title: 'Stemmeskuespillere er dyre og trege.',
-      desc: 'Norsk innholdsproduksjon, dubbing og lydbok er avhengig av stemmeskuespillere. Det er dyrt, tregt og skalerer ikke. TTS er løsningen — men kvaliteten holder ikke mål.',
+      title: 'Voice actors are expensive and slow.',
+      desc: 'Norwegian content production, dubbing and audiobooks depend on voice actors. It is expensive, slow and doesn\'t scale. TTS is the answer, but the quality isn\'t good enough.',
     },
     {
       number: '03',
-      title: 'Markedet er klart. Infrastrukturen er ikke.',
-      desc: 'Mediahus, forlag, offentlig sektor og teknologiselskaper er klare til å ta i bruk norsk tale-AI. Det som mangler er infrastrukturen som gjør det mulig.',
+      title: 'The market is ready. The infrastructure isn\'t.',
+      desc: 'Media houses, publishers, the public sector and tech companies are ready to adopt Norwegian speech AI. What\'s missing is the infrastructure that makes it possible.',
     },
     {
       number: '04',
-      title: 'Vi har dataen. Vi har teamet. Vi har timingen.',
-      desc: 'Kvad har allerede tilgang til treningsdata ingen andre har, et team med riktig kompetanse, og er i posisjon før de store aktørene prioriterer Norden.',
+      title: 'We have the data. We have the team. We have the timing.',
+      desc: 'Kvad already has access to training data no one else has, a team with the right skills, and is in position before the big players prioritize the Nordics.',
     },
   ]
 
@@ -229,15 +229,15 @@ function WhyNow() {
       />
       <div className="relative z-10 w-full max-w-5xl flex flex-col gap-14">
         <div className="flex flex-col gap-5 max-w-3xl">
-          <Label>Hvorfor nå</Label>
+          <Label>Why now</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.02]"
             style={{ fontSize: 'clamp(36px, 5vw, 52px)' }}
           >
-            Voice AI eksploderer.<br />Norsk talekvalitet henger etter.
+            Voice AI is exploding.<br />Norwegian speech quality lags behind.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
-            Timingen er ikke tilfeldig. Fire konvergerende krefter gjør dette til det rette øyeblikket
-            for Kvad — og vi er allerede i posisjon.
+            The timing isn&apos;t a coincidence. Four converging forces make this the right moment
+            for Kvad, and we are already in position.
           </p>
         </div>
 
@@ -269,27 +269,27 @@ function WhyNow() {
   )
 }
 
-// ── LØSNINGEN ────────────────────────────────────────────────────────
+// ── SOLUTION ────────────────────────────────────────────────────────
 
 function Solution() {
   const sections = [
     {
       number: '01',
-      title: 'Menneskelig tale',
-      body: 'Naturlig rytme, emosjonell flyt og samtalevennlig levering — ikke studioopplesning.',
-      detail: 'Trent på ekte norske samtaler med pauser, temperaturveksling og emosjonell variasjon. Modellen modulerer tone og tempo kontekstuelt — noe ingen global modell gjør for norsk i dag.',
+      title: 'Human-like speech',
+      body: 'Natural rhythm, emotional flow and conversational delivery, not studio reads.',
+      detail: 'Trained on real Norwegian conversations with pauses, shifts in tone and emotional variation. The model modulates tone and pace in context, something no global model does for Norwegian today.',
     },
     {
       number: '02',
-      title: 'Sanntidsrespons',
-      body: 'Optimalisert for live samtaler med under 200ms ende-til-ende forsinkelse.',
-      detail: 'Streaming-arkitektur som genererer og leverer tale mens setningen formuleres. Dette er ikke batch-TTS — det er konversasjonell infrastruktur bygget for agenter som må svare umiddelbart.',
+      title: 'Real-time response',
+      body: 'Optimized for live conversations with under 200ms end-to-end latency.',
+      detail: 'Streaming architecture that generates and delivers speech while the sentence is being formed. This isn\'t batch TTS. It\'s conversational infrastructure built for agents that must respond instantly.',
     },
     {
       number: '03',
-      title: 'API-første infrastruktur',
-      body: 'Produksjonsklar API som integreres på minutter og skalerer til enterprise.',
-      detail: 'Fungerer på alle plattformer, fra prototype til produksjon. Gratis tier for utviklere senker adopsjonsbarrieren. Enterprise-kunder får dedikerte deployments med SLA og prioritert support.',
+      title: 'API-first infrastructure',
+      body: 'Production-ready API that integrates in minutes and scales to enterprise.',
+      detail: 'Works on every platform, from prototype to production. A free developer tier lowers the adoption barrier. Enterprise customers get dedicated deployments with SLA and priority support.',
     },
   ]
 
@@ -301,15 +301,15 @@ function Solution() {
       />
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-14">
         <div className="flex flex-col gap-5 max-w-3xl">
-          <Label>Løsningen</Label>
+          <Label>The solution</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.02]"
             style={{ fontSize: 'clamp(36px, 5vw, 52px)' }}
           >
-            Kvad er stemmen bak norsk tale-AI.
+            Kvad is the voice behind Norwegian speech AI.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
-            Det er tre ting som må fungere simultant for at norsk tale-AI skal være akseptabelt i
-            produksjon. Kvad er bygget rundt alle tre.
+            Three things must work simultaneously for Norwegian speech AI to be acceptable in
+            production. Kvad is built around all three.
           </p>
         </div>
 
@@ -342,7 +342,7 @@ function Solution() {
   )
 }
 
-// ── TRAKSJON ─────────────────────────────────────────────────────────
+// ── TRACTION ─────────────────────────────────────────────────────────
 
 const GREEN = '#4ade80'
 const KVAD_SELLY = 1.8
@@ -420,23 +420,23 @@ function Traction() {
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-14">
 
         <div className="flex flex-col gap-5 max-w-3xl">
-          <Label>Tidlig etterspørsel</Label>
+          <Label>Early demand</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.04]"
             style={{ fontSize: 'clamp(28px, 3.2vw, 42px)' }}
           >
-            Etterspørselen er konkret. Stemmen mangler.
+            The demand is real. The voice is missing.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.50)' }}>
-            Selly er en norsk AI-salgsagent som i over ett år har vært klar til å lansere.
-            Problemet er at ingen norsk TTS-løsning er god nok til at norske sluttbrukere
-            aksepterer den. De har allerede interesse fra store norske selskaper som ønsker å
-            bruke tjenesten — men har ikke gått ut i markedet fordi stemmen ikke holder mål.
+            Selly is a Norwegian AI sales agent that has been ready to launch for over a year.
+            The problem is that no Norwegian TTS solution is good enough for Norwegian end users
+            to accept it. Selly already has interest from large Norwegian companies that want to
+            use the service, but hasn&apos;t gone to market because the voice isn&apos;t good enough.
           </p>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.36)' }}>
-            Kvad fjerner den blokkerende faktoren. Når Selly lanserer med Kvad, får vi umiddelbar
-            eksponering mot de fem kundene i diagrammet nedenfor — selskaper som allerede er
-            interessert og ventet. Dette er ikke hypotetisk fremtidig etterspørsel.
-            Det er konkret, ventet etterspørsel som Kvad låser opp dag én.
+            Kvad removes the blocker. When Selly launches with Kvad, we get immediate
+            exposure to the five customers in the diagram below: companies that are already
+            interested and waiting. This isn&apos;t hypothetical future demand.
+            It&apos;s concrete, pent-up demand that Kvad unlocks on day one.
           </p>
         </div>
 
@@ -456,7 +456,7 @@ function Traction() {
                   <span className="text-[10px] font-semibold tracking-[0.28em] uppercase text-white/85">Kvad</span>
                 </div>
               </div>
-              <span className="text-[9px] tracking-[0.18em] uppercase font-medium mt-2.5" style={{ color: 'rgba(255,255,255,0.28)' }}>Infrastrukturlag</span>
+              <span className="text-[9px] tracking-[0.18em] uppercase font-medium mt-2.5" style={{ color: 'rgba(255,255,255,0.28)' }}>Infrastructure layer</span>
             </div>
 
             <TFlowLine height={40} />
@@ -467,7 +467,7 @@ function Traction() {
               >
                 <Image src="/selly-logo-white.svg" alt="Selly" width={48} height={18} style={{ opacity: 0.82 }} />
               </div>
-              <span className="text-[9px] tracking-[0.18em] uppercase font-medium mt-2.5" style={{ color: 'rgba(255,255,255,0.28)' }}>Selly — Venter på Kvad.</span>
+              <span className="text-[9px] tracking-[0.18em] uppercase font-medium mt-2.5" style={{ color: 'rgba(255,255,255,0.28)' }}>Selly: waiting for Kvad</span>
             </div>
 
             <TBranchConnector />
@@ -488,7 +488,7 @@ function Traction() {
               ))}
             </div>
             <p className="text-[11px] font-light mt-4 text-center" style={{ color: 'rgba(255,255,255,0.28)' }}>
-              Konverterer når stemmen høres menneskelig ut
+              Converts once the voice sounds human
             </p>
           </div>
 
@@ -497,13 +497,13 @@ function Traction() {
               style={{ background: '#0b0b0b', border: '1px solid rgba(255,255,255,0.07)' }}>
               <span className="text-[10px] font-semibold tracking-[0.18em] uppercase"
                 style={{ color: 'rgba(255,255,255,0.25)' }}>
-                Hva dette betyr
+                What this means
               </span>
               <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                Selly er ett eksempel på et bredere mønster: norske AI-produktselskaper er klare til å lansere stemmefunksjoner, men blokkert av infrastrukturmangel.
+                Selly is one example of a broader pattern: Norwegian AI product companies are ready to launch voice features but are blocked by missing infrastructure.
               </p>
               <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
-                Kvad posisjonerer seg som løsningen hele dette segmentet venter på. Det er ikke bare én kunde — det er et nytt produktkategori som aktiveres.
+                Kvad is positioning itself as the solution this entire segment is waiting for. It isn&apos;t just one customer. It&apos;s a new product category being unlocked.
               </p>
             </div>
           </div>
@@ -514,29 +514,29 @@ function Traction() {
   )
 }
 
-// ── KONKURRANSEFORTRINN ───────────────────────────────────────────────
+// ── COMPETITIVE EDGE ────────────────────────────────────────────────
 
 function WhyKvad() {
   const moats = [
     {
-      number: '01', title: 'Bygget på data ingen andre har tilgang til', tag: 'Datafortrinn',
-      desc: 'Flere hundre timer segmentert norsk tale — ikke studioopplesning, men autentiske samtaler med naturlig rytme, pauser og emosjonell variasjon.',
-      detail: 'Historisk samtaledata kan ikke gjenskapes på bestilling. Konkurrenter som vil inn i dette markedet i dag, må starte fra null og vente år på sammenlignbart volum og kvalitet.',
+      number: '01', title: 'Built on data no one else has access to', tag: 'Data advantage',
+      desc: 'Hundreds of hours of segmented Norwegian speech. Not studio reads, but authentic conversations with natural rhythm, pauses and emotional variation.',
+      detail: 'Historical conversation data can\'t be recreated on demand. Competitors entering this market today must start from zero and wait years for comparable volume and quality.',
     },
     {
-      number: '02', title: 'Samtalerytme og prosodi som en kjernekompetanse', tag: 'Modellfortrinn',
-      desc: 'Vi trener ikke bare på hva som sies — men på hvordan det sies. Tempo, trykk, pauser og emosjonell flyt er eksplisitt modellert.',
-      detail: 'Global TTS er bredde-optimert. Kvad er dypt optimalisert for norsk samtale-AI. Ingen global aktør vil gjøre dette arbeidet for et marked på 5 millioner mennesker.',
+      number: '02', title: 'Conversational rhythm and prosody as a core competency', tag: 'Model advantage',
+      desc: 'We don\'t just train on what is said, but on how it is said. Pace, stress, pauses and emotional flow are explicitly modeled.',
+      detail: 'Global TTS is optimized for breadth. Kvad is deeply optimized for Norwegian conversational AI. No global player will do this work for a market of 5 million people.',
     },
     {
-      number: '03', title: 'Eksklusivt råmateriale fra norske podcastere', tag: 'Innholdsfortrinn',
-      desc: 'Direkte avtaler med norske podcastere gir oss tilgang til autentiske samtaleopptak med rettigheter klare for modelltrening.',
-      detail: 'Disse relasjonene og rettighetene er utilgjengelige for konkurrenter. Dataen er ikke skrapet — den er eksklusivt lisensiert.',
+      number: '03', title: 'Exclusive raw material from Norwegian podcasters', tag: 'Content advantage',
+      desc: 'Direct agreements with Norwegian podcasters give us access to authentic conversation recordings with rights cleared for model training.',
+      detail: 'These relationships and rights are unavailable to competitors. The data isn\'t scraped. It is exclusively licensed.',
     },
     {
-      number: '04', title: 'Internt produksjonsapparat for taledata', tag: 'Produksjonsfortrinn',
-      desc: 'Eget opptaksrom lar teamet produsere og kontrollere treningsdata løpende — med full kontroll over kvalitet, format og volum.',
-      detail: 'Vi er ikke avhengig av tredjeparter for dataproduksjon. Det betyr raskere iterasjon og konsekvent datakvalitet over tid.',
+      number: '04', title: 'In-house production of speech data', tag: 'Production advantage',
+      desc: 'Our own recording room lets the team produce training data continuously, with full control over quality, format and volume.',
+      detail: 'We don\'t depend on third parties for data production. That means faster iteration and consistent data quality over time.',
     },
   ]
 
@@ -547,20 +547,20 @@ function WhyKvad() {
       />
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-12 md:gap-0">
         <div className="flex flex-col gap-6 md:pr-14 flex-shrink-0 md:w-[42%] md:justify-center">
-          <Label>Hvorfor Kvad</Label>
+          <Label>Why Kvad</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.03]"
             style={{ fontSize: 'clamp(28px, 3.5vw, 44px)' }}
           >
-            Store aktører optimaliserer for verden. Vi optimaliserer for Norden.
+            Big players optimize for the world. We optimize for the Nordics.
           </h2>
           <p className="text-[13.5px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
-            Generiske stemmemodeller er brede. Kvad er dypt optimalisert — trent på norsk rytme,
-            norske pauser og norsk samtaleflyt. Fire fortrinn som forsterker hverandre over tid,
-            og som skaper en grøft som er vanskeligere å krysse for hver måned vi opererer.
+            Generic voice models are broad. Kvad is deeply optimized: trained on Norwegian rhythm,
+            Norwegian pauses and Norwegian conversational flow. Four advantages that reinforce each other over time
+            and build a moat that gets harder to cross every month we operate.
           </p>
           <p className="text-[13px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.28)' }}>
-            ElevenLabs, Google og Microsoft tilbyr norsk TTS — men de er ikke bygget for norsk samtale-AI.
-            Det er forskjellen mellom å lese opp en tekst og å føre en naturlig dialog.
+            ElevenLabs, Google and Microsoft offer Norwegian TTS, but they aren&apos;t built for Norwegian conversational AI.
+            It&apos;s the difference between reading a text aloud and holding a natural dialogue.
           </p>
         </div>
 
@@ -606,16 +606,16 @@ function WhyKvad() {
   )
 }
 
-// ── MARKED ───────────────────────────────────────────────────────────
+// ── MARKET ───────────────────────────────────────────────────────────
 
 const M_NODES = [
-  { label: 'Mediahus',     sub: 'Nyhetsopplesning & radio' },
-  { label: 'Offentlig',    sub: 'NAV, kommuner & stat' },
-  { label: 'Finans',       sub: 'Rådgivning & service' },
-  { label: 'Innhold',      sub: 'Lydbok, podkast & e-læring' },
-  { label: 'Dubing',       sub: 'Film & TV' },
-  { label: 'Kundeservice', sub: 'Live support' },
-  { label: 'AI-agenter',   sub: 'Samtale & automatisering' },
+  { label: 'Media',        sub: 'News reading & radio' },
+  { label: 'Public sector', sub: 'Agencies & municipalities' },
+  { label: 'Finance',      sub: 'Advisory & service' },
+  { label: 'Content',      sub: 'Audiobooks, podcasts & e-learning' },
+  { label: 'Dubbing',      sub: 'Film & TV' },
+  { label: 'Customer service', sub: 'Live support' },
+  { label: 'AI agents',    sub: 'Conversation & automation' },
 ]
 const M_DOT_CONFIGS = [
   { duration: 1.4, delay: 1.2, repeatDelay: 5.8 },
@@ -687,26 +687,26 @@ function MarketOrbit() {
 const MARKET_SEGMENTS = [
   {
     label: 'TAM',
-    desc: 'Global voice AI-markedsverdi innen 2029',
-    value: '$47B',
+    desc: 'Global text-to-speech market by 2029',
+    value: '$7.6B',
     bar: 1.0,
-    source: 'MarketsandMarkets',
+    source: 'Source: MarketsandMarkets',
     color: 'rgba(255,255,255,0.55)',
   },
   {
     label: 'SAM',
-    desc: 'Nordisk enterprise voice AI',
-    value: '$2.4B',
-    bar: 0.30,
-    source: 'Estimert',
+    desc: 'Nordic text-to-speech market by 2029',
+    value: '$135M',
+    bar: 0.13,
+    source: '1.8% of TAM, the Nordic share of world GDP',
     color: 'rgba(255,255,255,0.36)',
   },
   {
     label: 'SOM',
-    desc: 'Kvads adresserbart marked — år 1–3',
-    value: '$85M',
-    bar: 0.10,
-    source: 'Intern estimat',
+    desc: 'Kvad target share by 2029',
+    value: '$4M',
+    bar: 0.05,
+    source: '10% of Norway ($39M, 0.51% of TAM)',
     color: 'rgba(74,222,128,0.70)',
   },
 ]
@@ -720,21 +720,21 @@ function Market() {
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-14">
 
         <div className="flex flex-col gap-5 max-w-3xl">
-          <Label>Markedsmulighet</Label>
+          <Label>Market opportunity</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.04]"
             style={{ fontSize: 'clamp(28px, 3.5vw, 44px)' }}
           >
-            Tekst til tale er et milliardmarked. Norsk har ingen leder.
+            Text-to-speech is a billion-dollar market. Norwegian has no leader.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.50)' }}>
-            Voice AI er et av de raskest voksende segmentene innen enterprise-teknologi globalt.
-            Kvad addresserer den nordiske delen av dette markedet — et segment som i dag ikke
-            har dedikert infrastruktur for naturlig samtale-AI.
+            Voice AI is one of the fastest-growing segments in enterprise technology globally.
+            Kvad addresses the Nordic part of this market: a segment that today has no
+            dedicated infrastructure for natural conversational AI.
           </p>
           <p className="text-[13.5px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.34)' }}>
-            Det er ikke bare ett marked — Kvad er horisontal infrastruktur. Mediahus, finans,
-            helse, booking, kundeservice: alle trenger naturlig norsk tale-AI.
-            Infrastrukturlaget vinner på tvers av alle vertikaler.
+            It isn&apos;t just one market. Kvad is horizontal infrastructure. Media, finance,
+            healthcare, booking, customer service: all of them need natural Norwegian speech AI.
+            The infrastructure layer wins across every vertical.
           </p>
         </div>
 
@@ -767,8 +767,8 @@ function Market() {
                     transition={{ duration: 1.0, ease: [0.25, 0.1, 0.25, 1] }}
                   />
                 </div>
-                <span className="text-[9px] font-medium tracking-wide"
-                  style={{ color: 'rgba(255,255,255,0.20)' }}>
+                <span className="text-[10.5px] font-normal tracking-wide leading-snug"
+                  style={{ color: 'rgba(255,255,255,0.45)' }}>
                   {m.source}
                 </span>
               </div>
@@ -790,33 +790,33 @@ function Market() {
 function GoToMarket() {
   const phases = [
     {
-      number: '01', timeframe: '0 – 6 mnd', title: 'Developer API',
-      desc: 'Vi åpner APIet med en gratis tier og fokuserer på å få norske utviklere til å bygge med Kvad. Målet er å etablere Kvad som standardvalget for norsk tale-AI fra dag én.',
+      number: '01', timeframe: '0 – 6 months', title: 'Developer API',
+      desc: 'We open the API with a free tier and focus on getting Norwegian developers to build with Kvad. The goal is to establish Kvad as the default choice for Norwegian speech AI from day one.',
       bullets: [
-        'Gratis tier senker adopsjonsbariæren til null',
-        'Mål: 50 aktive integrasjoner i løpet av 6 måneder',
-        'Tett feedback-loop for rask produktiterasjon',
-        'Selly-lansering gir umiddelbar distribusjon til enterprise-kunder',
+        'Free tier lowers the adoption barrier to zero',
+        'Goal: 50 active integrations within 6 months',
+        'Tight feedback loop for fast product iteration',
+        'Selly launch gives immediate distribution to enterprise customers',
       ],
     },
     {
-      number: '02', timeframe: '6 – 18 mnd', title: 'Vertikal ekspansjon',
-      desc: 'Direktesalg mot de vertikalene med høyest ROI på naturlig tale: kundeservice, mediahus og helse. Vi fokuserer på å vinne referansekunder som beviser forretningsverdien.',
+      number: '02', timeframe: '6 – 18 months', title: 'Vertical expansion',
+      desc: 'Direct sales to the verticals with the highest ROI on natural speech: customer service, media and healthcare. We focus on winning reference customers that prove the business value.',
       bullets: [
-        'Mål: 10 betalende enterprise-kunder i Norge',
-        'Partneravtaler med norske digitalbyråer for distribusjon',
-        'SLA-avtaler og dedikert onboarding for enterprise',
-        'ARR-mål: [FYLL INN] innen måned 18',
+        'Goal: 10 paying enterprise customers in Norway',
+        'Partnerships with Norwegian digital agencies for distribution',
+        'SLA agreements and dedicated enterprise onboarding',
+        'ARR target: [FILL IN] by month 18',
       ],
     },
     {
-      number: '03', timeframe: '18 – 36 mnd', title: 'Nordisk skalering',
-      desc: 'Med norsk posisjon etablert ekspanderer vi til Sverige og Danmark via white-label og partnernettverk. Modellen er skalert, relasjoner er bygd, og Kvad er nordisk standard.',
+      number: '03', timeframe: '18 – 36 months', title: 'Nordic scaling',
+      desc: 'With our Norwegian position established, we expand to Sweden and Denmark through white-label and partner networks. The model is scaled, relationships are built, and Kvad is the Nordic standard.',
       bullets: [
-        'Sverige og Danmark i år 2 — lokalt tilpassede modeller',
-        'White-label for store nordiske aktører',
-        'Kvad som defacto-infrastruktur for nordisk enterprise voice AI',
-        'Posisjoner for serie A-runde',
+        'Sweden and Denmark in year 2, with locally adapted models',
+        'White-label for large Nordic players',
+        'Kvad as the de facto infrastructure for Nordic enterprise voice AI',
+        'Position for a Series A round',
       ],
     },
   ]
@@ -832,11 +832,11 @@ function GoToMarket() {
         <h2 className="font-bold tracking-tight text-white leading-[1.04]"
           style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}
         >
-          Tre faser mot nordisk markedsledelse.
+          Three phases to Nordic market leadership.
         </h2>
         <p className="text-[14px] font-light leading-[1.8] max-w-3xl" style={{ color: 'rgba(255,255,255,0.44)' }}>
-          Vi starter tett og dypt med norske utviklere, vinner enterprise-referansekunder vertikalt,
-          og skalerer deretter nordisk. Alle tre faser er finansiert av denne seed-runden.
+          We start close and deep with Norwegian developers, win enterprise reference customers vertical by vertical,
+          and then scale across the Nordics. This pre-seed round funds phases one and two.
         </p>
       </div>
 
@@ -881,33 +881,33 @@ function GoToMarket() {
   )
 }
 
-// ── FORRETNINGSMODELL ─────────────────────────────────────────────────
+// ── BUSINESS MODEL ─────────────────────────────────────────────────
 
 function BusinessModel() {
   const tiers = [
     {
       number: '01',
       title: 'API & Usage',
-      pricing: 'Pay-as-you-go · per sekund',
-      who: 'Utviklere og voksende produkter',
-      desc: 'Gratis tier for utviklere, betalt bruk fra første sekund over kvoten. Inntekten skalerer automatisk — jo mer produktet til kunden vokser, jo mer tjener vi.',
+      pricing: 'Pay-as-you-go · per second',
+      who: 'Developers and growing products',
+      desc: 'Free tier for developers, paid usage from the first second over quota. Revenue scales automatically: the more the customer’s product grows, the more we earn.',
       retention: 'Medium',
     },
     {
       number: '02',
       title: 'AI Infrastructure',
-      pricing: 'Fast MRR · månedlig abonnement',
-      who: 'Bedrifter i produksjon',
-      desc: 'Dedikert infrastruktur med SLA og garantert kapasitet. Fast månedlig kontrakt gir forutsigbar ARR og lav churn — disse kundene bytter ikke.',
-      retention: 'Høy',
+      pricing: 'Fixed MRR · monthly subscription',
+      who: 'Companies in production',
+      desc: 'Dedicated infrastructure with SLA and guaranteed capacity. A fixed monthly contract gives predictable ARR and low churn. These customers don’t switch.',
+      retention: 'High',
     },
     {
       number: '03',
       title: 'Enterprise Licensing',
-      pricing: 'Custom ACV · årskontrakter',
-      who: 'Store aktører og mediehus',
-      desc: 'White-label og on-premise. Multi-år kontrakter med høy ACV og ekstremt sterke switching costs — kunden bygger produktet sitt på Kvad.',
-      retention: 'Svært høy',
+      pricing: 'Custom ACV · annual contracts',
+      who: 'Large players and media houses',
+      desc: 'White-label and on-premise. Multi-year contracts with high ACV and extremely high switching costs: the customer builds its product on Kvad.',
+      retention: 'Very high',
     },
   ]
 
@@ -919,15 +919,15 @@ function BusinessModel() {
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col gap-14">
 
         <div className="flex flex-col gap-5 max-w-3xl">
-          <Label>Forretningsmodell</Label>
+          <Label>Business model</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.04]"
             style={{ fontSize: 'clamp(28px, 3.5vw, 42px)' }}
           >
-            Kvad skalerer med hver AI-samtale.
+            Kvad scales with every AI conversation.
           </h2>
           <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.44)' }}>
-            Tre inntektsstrømmer bygget for land-and-expand. Utviklere starter gratis,
-            voksende produkter oppgraderer, de største kundene låses inn. Hvert nivå mater det neste.
+            Three revenue streams built for land-and-expand. Developers start for free,
+            growing products upgrade, the largest customers get locked in. Each tier feeds the next.
           </p>
         </div>
 
@@ -935,9 +935,9 @@ function BusinessModel() {
         <div>
           <div className="hidden md:grid grid-cols-12 gap-4 pb-3"
             style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-            {['Tier', 'Prising · målgruppe', 'Beskrivelse', 'Retensjon'].map((h) => (
+            {['Tier', 'Pricing · audience', 'Description', 'Retention'].map((h) => (
               <span key={h} className={`text-[9px] font-medium tracking-[0.18em] uppercase
-                ${h === 'Tier' ? 'col-span-2' : h === 'Prising · målgruppe' ? 'col-span-3' : h === 'Beskrivelse' ? 'col-span-5' : 'col-span-2 text-right'}
+                ${h === 'Tier' ? 'col-span-2' : h === 'Pricing · audience' ? 'col-span-3' : h === 'Description' ? 'col-span-5' : 'col-span-2 text-right'}
               `} style={{ color: 'rgba(255,255,255,0.20)' }}>
                 {h}
               </span>
@@ -986,8 +986,8 @@ function BusinessModel() {
 
         <p className="text-[13px] font-light leading-relaxed max-w-2xl"
           style={{ color: 'rgba(255,255,255,0.26)' }}>
-          Infrastrukturselskaper med usage-based pricing vinner nettverkseffekter —
-          jo mer kundene bruker, jo dyrere er det å bytte. Kvad er bygget slik fra dag én.
+          Infrastructure companies with usage-based pricing win network effects:
+          the more customers use it, the more expensive it is to switch. Kvad is built this way from day one.
         </p>
 
       </div>
@@ -1001,24 +1001,24 @@ function Team() {
   const founders = [
     {
       name: 'Mamoon Rashid',
-      role: 'Medgrunnlegger & President',
+      role: 'Co-founder & President',
       initials: 'MR',
-      bio: 'Mamoon leder produkt, distribusjon og go-to-market for Kvad. Han har erfaring med å bygge AI-agentsystemer og conversational products, og forstår samspillet mellom brukerbehov, teknisk arkitektur og kommersiell vekst.',
+      bio: 'Mamoon leads product, distribution and go-to-market for Kvad. He has experience building AI agent systems and conversational products, and understands the interplay between user needs, technical architecture and commercial growth.',
       focus: [
-        'Produkt og brukeropplevelse',
-        'Go-to-market og partnerskap',
-        'AI-agentarkitektur og sanntids-AI-opplevelser',
+        'Product and user experience',
+        'Go-to-market and partnerships',
+        'AI agent architecture and real-time AI experiences',
       ],
     },
     {
       name: 'Vebjørn',
-      role: 'Medgrunnlegger & CEO',
+      role: 'Co-founder & CEO',
       initials: 'V',
-      bio: 'Vebjørn er den tekniske arkitekten bak Kvad-plattformen. Han leder modelltrening, latency-optimering og utviklingen av den nordiske taleinfrastrukturen — og har dyp kompetanse innen real-time talesystemer.',
+      bio: 'Vebjørn is the technical architect behind the Kvad platform. He leads model training, latency optimization and the development of the Nordic speech infrastructure, and has deep expertise in real-time speech systems.',
       focus: [
-        'Modelltrening og nordisk taleoptimering',
-        'Streaming-arkitektur og latency',
-        'Conversational infrastructure og API-design',
+        'Model training and Nordic speech optimization',
+        'Streaming architecture and latency',
+        'Conversational infrastructure and API design',
       ],
     },
   ]
@@ -1030,14 +1030,14 @@ function Team() {
       />
       <div className="relative z-10 w-full max-w-5xl flex flex-col gap-12">
         <div className="flex flex-col gap-5">
-          <Label>Teamet</Label>
+          <Label>The team</Label>
           <h2 className="font-bold tracking-tight text-white leading-[1.04]"
             style={{ fontSize: 'clamp(32px, 4vw, 48px)' }}>
-            To grunnleggere. Komplementær kompetanse. Eksakt det som trengs.
+            Two founders. Complementary skills. Exactly what it takes.
           </h2>
           <p className="text-[14px] font-light leading-[1.8] max-w-2xl" style={{ color: 'rgba(255,255,255,0.44)' }}>
-            Kvad krever to ting for å lykkes: teknisk dybde i talemodeller og sanntidssystemer,
-            og kommersiell evne til å distribuere og skalere. Teamet er bygget rundt nettopp dette.
+            Kvad needs two things to succeed: technical depth in speech models and real-time systems,
+            and the commercial ability to distribute and scale. The team is built around exactly that.
           </p>
         </div>
 
@@ -1068,10 +1068,10 @@ function Team() {
 
         <div className="p-6 rounded-2xl" style={{ background: '#0b0b0b', border: '1px solid rgba(255,255,255,0.07)' }}>
           <p className="text-[13px] font-light leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
-            <span style={{ color: 'rgba(255,255,255,0.60)' }}>Hvorfor vi vinner:</span>{' '}
-            De beste stemme-AI-selskapene kombinerer modellkompetanse med sterk markedsforståelse.
-            Mamoon og Vebjørn dekker begge dimensjoner — og har allerede etablert relasjoner
-            med dataeiere, partnerselskaper og potensielle kunder i det nordiske markedet.
+            <span style={{ color: 'rgba(255,255,255,0.60)' }}>Why we win:</span>{' '}
+            The best voice AI companies combine model expertise with strong market understanding.
+            Mamoon and Vebjørn cover both dimensions, and have already built relationships
+            with data owners, partner companies and potential customers in the Nordic market.
           </p>
         </div>
       </div>
@@ -1084,30 +1084,42 @@ function Team() {
 function Ask() {
   const allocations = [
     {
-      number: '01', area: 'Modell & infrastruktur', pct: 45,
-      detail: 'Ferdigstille kjernemodellen for norsk conversational AI, skalere treningsdata og bygge produksjonsklar streaming-infrastruktur.',
-      bullets: ['Norske og nordiske talemodeller', 'Sanntidsdialog og naturlig samtaleflyt', 'Proprietær conversational data'],
+      number: '01', area: 'Inference & compute infrastructure', pct: 27,
+      detail: 'GPU inference for real-time speech in production, plus dedicated development servers for training and experimentation.',
+      bullets: ['Inference: NOK 35k/month', 'Development servers: NOK 60k/month', 'Other hosting: NOK 3.5k/month'],
       color: '#38BDF8',
     },
     {
-      number: '02', area: 'Skalering av infrastruktur', pct: 30,
-      detail: 'Bygge API-distribusjon, latency-optimering og produksjonsinfrastruktur som tåler enterprise-scale.',
-      bullets: ['Low-latency streaming', 'Production-grade AI infrastructure', 'API-distribusjon og integrasjoner'],
+      number: '02', area: 'Proprietary speech data & labeling', pct: 21,
+      detail: 'Acquire and label natural Norwegian conversation data, the core of our model advantage.',
+      bullets: ['Data budget: NOK 1M', 'Labeling budget: NOK 400k'],
       color: '#818CF8',
     },
     {
-      number: '03', area: 'Salg & enterprise-etablering', pct: 25,
-      detail: 'Sikre de første betalende enterprise-kundene, bygge partnernettverk og etablere Kvad som foretrukket infrastruktur.',
-      bullets: ['Strategiske piloter og direktesalg', 'Developer og enterprise onboarding', 'Partneravtaler og vekst'],
+      number: '03', area: 'Go-to-market & outbound', pct: 19,
+      detail: 'Reach developers and enterprise buyers through targeted outbound and paid acquisition.',
+      bullets: ['Email outbound: NOK 10k/month', 'Ads: NOK 60k/month'],
       color: '#34D399',
+    },
+    {
+      number: '04', area: 'Legal, advisory & buffer', pct: 19,
+      detail: 'Legal work, external expertise, travel and a buffer for the unexpected.',
+      bullets: ['External consultants: NOK 20k/month', 'Legal: NOK 20k/month', 'Buffer: NOK 30k/month'],
+      color: '#FBBF24',
+    },
+    {
+      number: '05', area: 'Engineering team', pct: 14,
+      detail: 'Full-time technical co-founder leading model training and infrastructure.',
+      bullets: ['Salary incl. holiday pay and benefits: NOK 50k/month'],
+      color: '#F472B6',
     },
   ]
 
   const milestones = [
-    { label: 'Mnd 3', text: 'API i produksjon, Selly lansert, første betalende kunder' },
-    { label: 'Mnd 6', text: '50+ aktive integrasjoner, [X] betalende kunder' },
-    { label: 'Mnd 12', text: '[X] enterprise-kunder, [ARR] årlig tilbakevendende inntekt' },
-    { label: 'Mnd 18', text: 'Posisjon for Serie A eller breakeven i norsk markedet' },
+    { label: 'Month 3', text: 'API in production, Selly launched, first paying customers' },
+    { label: 'Month 6', text: '50+ active integrations, [X] paying customers' },
+    { label: 'Month 12', text: '[X] enterprise customers, [ARR] annual recurring revenue' },
+    { label: 'Month 18', text: 'Positioned for Series A or breakeven in the Norwegian market' },
   ]
 
   return (
@@ -1120,17 +1132,17 @@ function Ask() {
         <div className="flex flex-col md:flex-row items-start gap-14">
           <div className="flex flex-col gap-6 flex-1">
             <div className="flex flex-col gap-3">
-              <Label>Vi søker</Label>
+              <Label>The ask</Label>
               <div className="flex items-baseline gap-5">
-                <h2 className="text-[72px] md:text-[80px] font-bold tracking-tight text-white leading-none">$2M</h2>
+                <h2 className="text-[72px] md:text-[80px] font-bold tracking-tight text-white leading-none">NOK 6.5M</h2>
                 <span className="text-[16px] font-light tracking-wide" style={{ color: 'rgba(255,255,255,0.26)' }}>
-                  Seed-runde
+                  Pre-seed round
                 </span>
               </div>
               <p className="text-[14px] font-light leading-[1.8] max-w-lg" style={{ color: 'rgba(255,255,255,0.48)' }}>
-                $2M gir oss 18 måneder med full fart: ferdigstille modellen, lansere i markedet,
-                sikre de første enterprise-kundene og nå et punkt der veksten er selvforsterkende.
-                Alle tre allokeringer er kritiske for å nå dette.
+                NOK 6.5M gives us 18 months at full speed: complete the model, launch in the market,
+                secure the first enterprise customers and reach the point where growth becomes self-reinforcing.
+                Every allocation below is critical to getting there.
               </p>
             </div>
 
@@ -1176,7 +1188,7 @@ function Ask() {
               style={{ background: '#0b0b0b', border: '1px solid rgba(255,255,255,0.07)' }}>
               <span className="text-[10px] font-semibold tracking-[0.18em] uppercase"
                 style={{ color: 'rgba(255,255,255,0.25)' }}>
-                Milepæler
+                Milestones
               </span>
               <div className="flex flex-col gap-4">
                 {milestones.map((m, i) => (
@@ -1198,14 +1210,14 @@ function Ask() {
               style={{ background: '#0b0b0b', border: '1px solid rgba(255,255,255,0.07)' }}>
               <span className="text-[10px] font-semibold tracking-[0.18em] uppercase"
                 style={{ color: 'rgba(255,255,255,0.25)' }}>
-                Kontakt
+                Contact
               </span>
               <div className="flex flex-col gap-1.5">
                 <span className="text-[13px] font-semibold" style={{ color: 'rgba(255,255,255,0.78)' }}>
                   Mamoon Rashid
                 </span>
                 <span className="text-[11px] font-light" style={{ color: 'rgba(255,255,255,0.30)' }}>
-                  Grunnlegger & President, Kvad
+                  Co-founder & President, Kvad
                 </span>
               </div>
               <a href="mailto:mamoon@kvad.no"
@@ -1235,12 +1247,12 @@ function Closing() {
         <Image src="/kvad-icon.svg" alt="Kvad" width={40} height={40} style={{ opacity: 0.35 }} />
         <h2 className="font-bold tracking-tight text-white leading-[1.05]"
           style={{ fontSize: 'clamp(28px, 4vw, 44px)' }}>
-          Norsk AI trenger en stemme.<br />Vi bygger den.
+          Norwegian AI needs a voice.<br />We&apos;re building it.
         </h2>
         <p className="text-[14px] font-light leading-[1.8]" style={{ color: 'rgba(255,255,255,0.38)' }}>
-          Infrastrukturlaget for norsk tale-AI finnes ikke ennå. Kvad bygger det —
-          med de rette menneskene, de rette dataene og den rette timingen.
-          Vi inviterer deg med på den reisen.
+          The infrastructure layer for Norwegian speech AI doesn&apos;t exist yet. Kvad is building it,
+          with the right people, the right data and the right timing.
+          We invite you to join us on that journey.
         </p>
         <div className="flex flex-col items-center gap-2 pt-4">
           <a href="mailto:mamoon@kvad.no"

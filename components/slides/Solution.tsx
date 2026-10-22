@@ -6,18 +6,18 @@ import WaveformBg from '../WaveformBg'
 const sections = [
   {
     number: '01',
-    title: 'Menneskelig tale',
-    body: 'Naturlig rytme, emosjonell flyt og samtalevennlig levering.',
+    title: 'Human-like speech',
+    body: 'Natural rhythm, emotional flow and conversational delivery.',
   },
   {
     number: '02',
-    title: 'Sanntidsrespons',
-    body: 'Optimalisert for live samtaler med ultra-lav forsinkelse.',
+    title: 'Real-time response',
+    body: 'Optimized for live conversations with ultra-low latency.',
   },
   {
     number: '03',
-    title: 'Skalerbar stemmeinfrastruktur',
-    body: 'Produksjonsklar API som skalerer med produktet — uavhengig av plattform eller brukscase.',
+    title: 'Scalable voice infrastructure',
+    body: 'Production-ready API that scales with your product, regardless of platform or use case.',
   },
 ]
 
@@ -56,7 +56,7 @@ export default function Solution() {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
       >
-        Løsningen
+        The solution
       </motion.span>
 
       <motion.div
@@ -71,7 +71,7 @@ export default function Solution() {
             className="font-bold tracking-tight text-white leading-[1.02] max-w-3xl"
             style={{ fontSize: 'clamp(40px, 5vw, 58px)' }}
           >
-            Kvad er stemmen bak norsk tale-AI.
+            Kvad is the voice behind Norwegian speech AI.
           </h2>
         </motion.div>
 

@@ -40,8 +40,8 @@ export default function Closing() {
             className="font-bold tracking-tight text-white leading-[1.02]"
             style={{ fontSize: 'clamp(42px, 5.5vw, 68px)', maxWidth: 780 }}
           >
-            La oss bygge Nordens stemmelag
-            <span style={{ color: '#4ade80' }}> sammen.</span>
+            Let’s build the Nordic voice layer
+            <span style={{ color: '#4ade80' }}> together.</span>
           </h2>
         </motion.div>
 
@@ -63,7 +63,7 @@ export default function Closing() {
             Mamoon Rashid · mamoon@kvad.no
           </span>
           <span className="text-[11px] font-mono tracking-[0.14em]" style={{ color: 'rgba(255,255,255,0.20)' }}>
-            $2M SEED · kvad.no
+            NOK 6.5M PRE-SEED · kvad.no
           </span>
         </motion.div>
 

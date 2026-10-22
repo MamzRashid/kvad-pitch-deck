@@ -153,13 +153,13 @@ export default function Traction() {
         style={{ maxWidth: 260 }}
       >
         <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">
-          Tidlig etterspørsel
+          Early demand
         </span>
         <h2
           className="font-bold tracking-tight text-white leading-[1.04]"
           style={{ fontSize: 'clamp(26px, 2.8vw, 36px)' }}
         >
-          Etterspørselen er konkret. Stemmen mangler.
+          The demand is real. The voice is missing.
         </h2>
       </motion.div>
 
@@ -202,7 +202,7 @@ export default function Traction() {
                 <span className="text-[12px] font-semibold tracking-[0.32em] uppercase text-white" style={{ opacity: 0.88 }}>Kvad</span>
               </div>
             </div>
-            <TierLabel text="Kvad" sub="Infrastrukturlag" />
+            <TierLabel text="Kvad" sub="Infrastructure layer" />
           </motion.div>
 
           {/* Flow line — Kvad → Selly */}
@@ -224,12 +224,12 @@ export default function Traction() {
               >
                 <Image src="/selly-logo-white.svg" alt="Selly" width={58} height={22} style={{ opacity: 0.82 }} />
               </div>
-              <TierLabel text="Selly" sub="AI-agent" />
+              <TierLabel text="Selly" sub="AI agent" />
             </div>
 
             {/* Selly annotation */}
             <div className="absolute flex items-center" style={{ left: 100 + 20, top: 50, transform: 'translateY(-50%)' }}>
-              <Annotation text="Venter på Kvads stemme før lansering til kunder" />
+              <Annotation text="Waiting for Kvad’s voice before customer launch" />
             </div>
           </motion.div>
 
@@ -286,7 +286,7 @@ export default function Traction() {
 
             {/* Kahlon annotation */}
             <div className="absolute flex items-center" style={{ left: CUST_TOTAL + 18, top: CUST_SIZE / 2, transform: 'translateY(-50%)' }}>
-              <Annotation text="Konverterer når stemmen høres menneskelig ut" />
+              <Annotation text="Converts once the voice sounds human" />
             </div>
           </motion.div>
 

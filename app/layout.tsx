@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -10,8 +10,16 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Kvad — Infrastruktur for naturlig norsk tale',
-  description: 'Investorpresentasjon for Kvad.',
+  title: 'Kvad | Infrastructure for natural Norwegian speech',
+  description: 'Kvad investor presentation.',
+}
+
+// Draw under the iPhone notch / Dynamic Island so slides reach the screen edges in landscape
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#030303',
 }
 
 export default function RootLayout({

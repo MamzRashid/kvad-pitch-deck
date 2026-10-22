@@ -24,7 +24,7 @@ export default function Problem() {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
       >
-        Problemet
+        The problem
       </motion.span>
 
       <motion.div
@@ -35,22 +35,22 @@ export default function Problem() {
       >
         <motion.div variants={item}>
           <h2 className="text-[52px] font-bold tracking-tight text-white leading-[1.05]">
-            AI høres fortsatt ikke<br />menneskelig ut.
+            AI still doesn&apos;t<br />sound human.
           </h2>
         </motion.div>
 
         <motion.div variants={item} className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-5 p-7 bg-[#0c0c0c] border border-[#1e1e1e] rounded-2xl">
             <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
-              Generisk AI-stemme i dag
+              Generic AI voice today
             </span>
             <AudioPlayerInline label="DEMO" accent="rgba(255,255,255,0.40)" src="/audio/ai-demo.mp3" />
             <div className="h-px bg-white/[0.05]" />
             <div className="flex flex-col gap-3">
               {[
-                ['Robotaktig tale', 'Trent på studioopplesning — mangler norsk rytme'],
-                ['Høy forsinkelse', '300–800ms ødelegger naturlig samtaleflyt'],
-                ['Ingen norsk tilpasning', 'Globale modeller er ikke bygget for norsk samtale-AI'],
+                ['Robotic speech', 'Trained on studio reads, lacks Norwegian rhythm'],
+                ['High latency', '300–800ms breaks natural conversation flow'],
+                ['No Norwegian adaptation', 'Global models aren\'t built for Norwegian conversational AI'],
               ].map(([title, sub]) => (
                 <div key={title} className="flex items-start gap-3">
                   <div className="w-[3px] h-[3px] rounded-full bg-white/30 flex-shrink-0 mt-[7px]" />
@@ -65,15 +65,15 @@ export default function Problem() {
 
           <div className="flex flex-col gap-5 p-7 bg-[#0c0c0c] border border-[#1e1e1e] rounded-2xl">
             <span className="text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: 'rgba(255,255,255,0.28)' }}>
-              Menneskestemme
+              Human voice
             </span>
-            <AudioPlayerInline label="MENNESKE" accent="rgba(255,255,255,0.70)" src="/audio/demo01.wav" />
+            <AudioPlayerInline label="HUMAN" accent="rgba(255,255,255,0.70)" src="/audio/demo01.wav" />
             <div className="h-px bg-white/[0.05]" />
             <div className="flex flex-col gap-3">
               {[
-                ['Naturlig tempo og rytme', 'Flytende norsk intonasjon og samtaledynamikk'],
-                ['Emosjonell troverdighet', 'Pauser, trykk og variasjon som bygger tillit'],
-                ['Samtaleflyt', 'Svar som føles menneskelige — ikke genererte'],
+                ['Natural pace and rhythm', 'Fluent Norwegian intonation and conversational dynamics'],
+                ['Emotional credibility', 'Pauses, stress and variation that build trust'],
+                ['Conversational flow', 'Responses that feel human, not generated'],
               ].map(([title, sub]) => (
                 <div key={title} className="flex items-start gap-3">
                   <div className="w-[3px] h-[3px] rounded-full bg-white/50 flex-shrink-0 mt-[7px]" />

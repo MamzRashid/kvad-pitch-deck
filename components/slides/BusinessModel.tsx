@@ -81,27 +81,27 @@ const BANDS = [
   {
     number: '01',
     title: 'API & Usage',
-    tag: 'Betal per samtale',
-    desc: 'AI-systemer kaller Kvad per sekund. Jo mer de bruker, jo mer tjener vi.',
-    detail: ['Fakturering per sekund', 'Streaming og sanntidsdialog', 'Gratis tier for utviklere'],
+    tag: 'Pay per conversation',
+    desc: 'AI systems call Kvad per second. The more they use, the more we earn.',
+    detail: ['Per-second billing', 'Streaming and real-time dialogue', 'Free tier for developers'],
     visual: <ApiVisual />,
     bg: 'rgba(255,255,255,0.012)',
   },
   {
     number: '02',
-    title: 'AI-Agent Infrastructure',
-    tag: 'Månedlig abonnement',
-    desc: 'Bedrifter betaler fast for dedikert infrastruktur til AI-agentene sine.',
-    detail: ['Dedikerte agent-deployments', 'SLA-støttet oppetid', 'Volumbasert prising'],
+    title: 'AI Agent Infrastructure',
+    tag: 'Monthly subscription',
+    desc: 'Companies pay a fixed fee for dedicated infrastructure for their AI agents.',
+    detail: ['Dedicated agent deployments', 'SLA-backed uptime', 'Volume-based pricing'],
     visual: <AgentVisual />,
     bg: 'transparent',
   },
   {
     number: '03',
     title: 'Enterprise Licensing',
-    tag: 'Egendefinerte kontrakter',
-    desc: 'Store aktører lisenser Kvad som eget stemmelag — white-label og on-premise.',
-    detail: ['Egendefinerte stemmemodeller', 'On-premise integrasjoner', 'White-label distribusjon'],
+    tag: 'Custom contracts',
+    desc: 'Large players license Kvad as their own voice layer, white-label and on-premise.',
+    detail: ['Custom voice models', 'On-premise integrations', 'White-label distribution'],
     visual: <EnterpriseVisual />,
     bg: 'rgba(255,255,255,0.008)',
   },
@@ -119,11 +119,11 @@ export default function BusinessModel() {
         className="absolute top-8 left-16 z-20 flex items-center gap-6"
       >
         <span className="text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium">
-          Forretningsmodell
+          Business model
         </span>
         <div className="h-px w-8" style={{ background: 'rgba(255,255,255,0.08)' }} />
         <span className="text-[10px] font-light" style={{ color: 'rgba(255,255,255,0.22)' }}>
-          Kvad skalerer med hver AI-samtale
+          Kvad scales with every AI conversation
         </span>
       </motion.div>
 

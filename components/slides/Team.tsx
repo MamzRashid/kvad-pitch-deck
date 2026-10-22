@@ -15,15 +15,15 @@ const item = {
 const founders = [
   {
     name: 'Mamoon Rashid',
-    role: 'Medgrunnlegger & President',
-    focus: 'AI-agentsystemer og conversational products',
-    detail: 'Produkt, distribusjon og sanntids-AI-opplevelser.',
+    role: 'Co-founder & President',
+    focus: 'AI agent systems and conversational products',
+    detail: 'Product, distribution and real-time AI experiences.',
   },
   {
     name: 'Vebjørn',
-    role: 'Medgrunnlegger & CEO',
-    focus: 'Real-time talesystemer og nordiske talemodeller',
-    detail: 'Modelltrening, latency-optimering og conversational infrastructure.',
+    role: 'Co-founder & CEO',
+    focus: 'Real-time speech systems and Nordic speech models',
+    detail: 'Model training, latency optimization and conversational infrastructure.',
   },
 ]
 
@@ -38,7 +38,7 @@ export default function Team() {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
       >
-        Teamet
+        The team
       </motion.span>
 
       <motion.div
@@ -49,7 +49,7 @@ export default function Team() {
       >
         <motion.div variants={item} className="flex flex-col gap-3">
           <h2 className="text-[52px] font-bold tracking-tight text-white leading-[1.05]">
-            Grunnleggerne.
+            The founders.
           </h2>
         </motion.div>
 

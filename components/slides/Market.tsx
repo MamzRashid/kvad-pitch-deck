@@ -8,7 +8,10 @@ const VW = 1440
 const VH = 820
 const CX = 940
 const CY = 410
-const R = 205
+const R = 265
+// Crop the empty space above/below the orbit so it scales up to fill the slide height
+const VIEW_Y = 55
+const VIEW_H = 690
 
 const DOT_CONFIGS = [
   { duration: 1.4, delay: 1.2, repeatDelay: 5.8 },
@@ -21,13 +24,13 @@ const DOT_CONFIGS = [
 ]
 
 const nodes = [
-  { label: 'Mediahus',     sub: 'Nyhetsopplesning & radio' },
-  { label: 'Offentlig',    sub: 'NAV, kommuner & stat' },
-  { label: 'Finans',       sub: 'Rådgivning & service' },
-  { label: 'Innhold',      sub: 'Lydbok, podkast & e-læring' },
-  { label: 'Dubing',       sub: 'Film & TV' },
-  { label: 'Kundeservice', sub: 'Live support' },
-  { label: 'AI-agenter',   sub: 'Samtale & automatisering' },
+  { label: 'Media',        sub: 'News reading & radio' },
+  { label: 'Public sector', sub: 'Agencies & municipalities' },
+  { label: 'Finance',      sub: 'Advisory & service' },
+  { label: 'Content',      sub: 'Audiobooks, podcasts & e-learning' },
+  { label: 'Dubbing',      sub: 'Film & TV' },
+  { label: 'Customer service', sub: 'Live support' },
+  { label: 'AI agents',    sub: 'Conversation & automation' },
 ]
 
 const STARS = Array.from({ length: 72 }, (_, i) => ({
@@ -40,24 +43,24 @@ const STARS = Array.from({ length: 72 }, (_, i) => ({
 const MARKETS = [
   {
     label: 'TAM',
-    desc: 'Global voice AI-markedsverdi innen 2029',
-    value: '$47B',
+    desc: 'Global text-to-speech market by 2029',
+    value: '$7.6B',
     bar: 1.0,
-    source: 'MarketsandMarkets',
+    source: 'Source: MarketsandMarkets',
   },
   {
     label: 'SAM',
-    desc: 'Nordisk enterprise voice AI',
-    value: '$2.4B',
-    bar: 0.30,
-    source: 'Estimert',
+    desc: 'Nordic text-to-speech market by 2029',
+    value: '$135M',
+    bar: 0.13,
+    source: '1.8% of TAM, the Nordic share of world GDP',
   },
   {
     label: 'SOM',
-    desc: 'Kvads adresserbart marked — år 1–3',
-    value: '$85M',
-    bar: 0.10,
-    source: 'Intern estimat',
+    desc: 'Kvad target share by 2029',
+    value: '$4M',
+    bar: 0.05,
+    source: '10% of Norway ($39M, 0.51% of TAM)',
   },
 ]
 
@@ -84,7 +87,7 @@ export default function Market() {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
       >
-        Markedsmulighet
+        Market opportunity
       </motion.span>
 
       {/* Left panel */}
@@ -99,7 +102,7 @@ export default function Market() {
           className="font-bold tracking-tight text-white leading-[1.04] mb-4"
           style={{ fontSize: 'clamp(26px, 2.6vw, 34px)' }}
         >
-          Tekst til tale er et milliardmarked. Norsk har ingen leder.
+          Text-to-speech is a billion-dollar market. Norwegian has no leader.
         </motion.h2>
 
         {/* Description */}
@@ -110,7 +113,7 @@ export default function Market() {
           className="text-[13px] font-light leading-relaxed mb-10"
           style={{ color: 'rgba(255,255,255,0.42)' }}
         >
-          Voice AI er et av de raskest voksende segmentene innen enterprise-teknologi. Kvad er infrastrukturlaget for norsk og nordisk tale — på tvers av alle bransjer.
+          Voice AI is one of the fastest-growing segments in enterprise technology. Kvad is the infrastructure layer for Norwegian and Nordic speech, across every industry.
         </motion.p>
 
         {/* TAM / SAM / SOM */}
@@ -151,8 +154,8 @@ export default function Market() {
               </div>
 
               <div className="mt-1">
-                <span className="text-[9px] font-medium tracking-wide"
-                  style={{ color: 'rgba(255,255,255,0.20)' }}>
+                <span className="text-[10px] font-normal tracking-wide leading-snug"
+                  style={{ color: 'rgba(255,255,255,0.45)' }}>
                   {m.source}
                 </span>
               </div>
@@ -165,7 +168,7 @@ export default function Market() {
       {/* Full-screen SVG — ecosystem diagram */}
       <svg
         className="absolute inset-0 w-full h-full"
-        viewBox={`0 0 ${VW} ${VH}`}
+        viewBox={`0 ${VIEW_Y} ${VW} ${VIEW_H}`}
         preserveAspectRatio="xMidYMid meet"
         style={{ shapeRendering: 'geometricPrecision' } as React.CSSProperties}
       >
@@ -231,17 +234,17 @@ export default function Market() {
               transition={{ duration: 0.65, ease, delay: 0.95 + i * 0.11 }}
               style={{ transformOrigin: `${nx}px ${ny}px` }}
             >
-              <circle cx={nx} cy={ny} r={26}
+              <circle cx={nx} cy={ny} r={30}
                 fill="#060606"
                 stroke="rgba(255,255,255,0.14)"
                 strokeWidth="0.8"
               />
-              <circle cx={nx} cy={ny} r={4.5} fill="rgba(255,255,255,0.42)" />
+              <circle cx={nx} cy={ny} r={5} fill="rgba(255,255,255,0.42)" />
               <text
                 x={nx + dx} y={ny + dy}
                 textAnchor={anchor}
                 fill="rgba(255,255,255,0.95)"
-                fontSize="13"
+                fontSize="15"
                 fontFamily="Inter, -apple-system, sans-serif"
                 fontWeight="600"
                 style={{ letterSpacing: '0.10em', textTransform: 'uppercase' } as React.CSSProperties}
@@ -249,10 +252,10 @@ export default function Market() {
                 {node.label}
               </text>
               <text
-                x={nx + dx} y={ny + dy + 18}
+                x={nx + dx} y={ny + dy + 21}
                 textAnchor={anchor}
-                fill="rgba(255,255,255,0.32)"
-                fontSize="11"
+                fill="rgba(255,255,255,0.55)"
+                fontSize="13"
                 fontFamily="Inter, -apple-system, sans-serif"
                 fontWeight="300"
                 style={{ letterSpacing: '0.06em' } as React.CSSProperties}
@@ -270,22 +273,22 @@ export default function Market() {
           transition={{ duration: 1.0, ease, delay: 0.28 }}
           style={{ transformOrigin: `${CX}px ${CY}px` }}
         >
-          <circle cx={CX} cy={CY} r={50}
+          <circle cx={CX} cy={CY} r={62}
             fill="#040404"
             stroke="rgba(255,255,255,0.18)"
             strokeWidth="1"
           />
           <image
             href="/kvad-icon.svg"
-            x={CX - 19} y={CY - 19}
-            width={38} height={38}
+            x={CX - 24} y={CY - 24}
+            width={48} height={48}
             opacity={0.92}
           />
           <text
-            x={CX} y={CY + 72}
+            x={CX} y={CY + 86}
             textAnchor="middle"
             fill="rgba(255,255,255,0.88)"
-            fontSize="10"
+            fontSize="12"
             fontFamily="Inter, -apple-system, sans-serif"
             fontWeight="600"
             style={{ letterSpacing: '0.28em' } as React.CSSProperties}
@@ -293,15 +296,15 @@ export default function Market() {
             KVAD
           </text>
           <text
-            x={CX} y={CY + 87}
+            x={CX} y={CY + 103}
             textAnchor="middle"
-            fill="rgba(255,255,255,0.30)"
-            fontSize="8.5"
+            fill="rgba(255,255,255,0.50)"
+            fontSize="10.5"
             fontFamily="Inter, -apple-system, sans-serif"
             fontWeight="300"
             style={{ letterSpacing: '0.14em' } as React.CSSProperties}
           >
-            Stemmelaget
+            The voice layer
           </text>
         </motion.g>
       </svg>

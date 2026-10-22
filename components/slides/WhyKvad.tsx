@@ -113,30 +113,30 @@ function MicroShield() {
 const moats = [
   {
     number: '01',
-    title: 'Bygget på data ingen andre har tilgang til',
-    desc: 'Flere hundre timer segmentert norsk tale — ikke studioopplesning, men naturlig samtale.',
-    tag: 'Datafortrinn',
+    title: 'Built on data no one else has access to',
+    desc: 'Hundreds of hours of segmented Norwegian speech. Not studio reads, but natural conversation.',
+    tag: 'Data advantage',
     visual: <MicroDots />,
   },
   {
     number: '02',
-    title: 'Trent på pauser, tempo og emosjonell flyt',
-    desc: 'Trent på pauser, tempo, trykk og emosjonell flyt. Ikke bare ord — men hvordan de sies.',
-    tag: 'Modellfortrinn',
+    title: 'Trained on pauses, pace and emotional flow',
+    desc: 'Trained on pauses, pace, stress and emotional flow. Not just words, but how they are spoken.',
+    tag: 'Model advantage',
     visual: <MicroWave />,
   },
   {
     number: '03',
-    title: 'GDPR-compliant fra dag én',
-    desc: 'Alle data prosessert og lagret i Norden — trygt for norske bedrifter og offentlig sektor.',
-    tag: 'Innholdsfortrinn',
+    title: 'GDPR-compliant from day one',
+    desc: 'All data processed and stored in the Nordics. Safe for Nordic businesses and the public sector.',
+    tag: 'Compliance advantage',
     visual: <MicroShield />,
   },
   {
     number: '04',
-    title: 'Internt podcastrom for norsk taleinnsamling',
-    desc: 'Eget opptaksrom lar teamet snakke fritt på norsk — lydfilene brukes direkte til å trene og forbedre modellene løpende.',
-    tag: 'Produksjonsfortrinn',
+    title: 'In-house podcast studio for Norwegian speech collection',
+    desc: 'Our own recording room lets the team speak freely in Norwegian. The recordings feed directly into training and continuously improving the models.',
+    tag: 'Production advantage',
     visual: <MicroStudio />,
   },
 ]
@@ -157,7 +157,7 @@ export default function WhyKvad() {
         transition={{ duration: 0.8, delay: 0.1 }}
         className="absolute top-8 left-16 z-20 text-[10px] text-white/22 tracking-[0.28em] uppercase font-medium"
       >
-        Hvorfor Kvad
+        Why Kvad
       </motion.span>
 
       <motion.div
@@ -173,7 +173,7 @@ export default function WhyKvad() {
               className="font-bold tracking-tight text-white leading-[1.03]"
               style={{ fontSize: 'clamp(34px, 3.8vw, 50px)' }}
             >
-              Store aktører optimaliserer for verden. Vi optimaliserer for Norden.
+              Big players optimize for the world. We optimize for the Nordics.
             </h2>
 
 
