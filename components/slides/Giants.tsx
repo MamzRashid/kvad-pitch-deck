@@ -445,12 +445,6 @@ export default function Giants() {
           </div>
         </div>
 
-        <span
-          className="absolute bottom-7 left-16 z-20 text-[9.5px] font-mono tracking-[0.12em]"
-          style={{ color: 'rgba(255,255,255,0.22)' }}
-        >
-          Illustrative. A strategic hypothesis, not competitor data.
-        </span>
       </div>
     </MotionConfig>
   )
