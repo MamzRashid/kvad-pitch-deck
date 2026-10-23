@@ -38,9 +38,9 @@ export default function Closing() {
 
           <h2
             className="font-bold tracking-tight text-white leading-[1.02]"
-            style={{ fontSize: 'clamp(42px, 5.5vw, 68px)', maxWidth: 780 }}
+            style={{ fontSize: 'clamp(38px, 4.6vw, 62px)', maxWidth: 1040 }}
           >
-            Let’s build the Nordic voice layer
+            A native voice for every language.<br />Let’s build it
             <span style={{ color: '#4ade80' }}> together.</span>
           </h2>
         </motion.div>

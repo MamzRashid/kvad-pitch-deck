@@ -141,14 +141,16 @@ export default function Ask() {
             className="flex flex-col gap-3"
           >
             <span className="text-[10px] text-white/22 tracking-[0.26em] uppercase font-medium">Pre-seed round</span>
-            <div className="flex items-baseline gap-5">
-              <div className="relative">
+            <div className="flex items-end gap-6">
+              <div className="relative flex-shrink-0">
                 <div className="absolute pointer-events-none"
                   style={{ inset: '-14px -28px', background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.06) 0%, transparent 70%)', filter: 'blur(20px)' }}
                 />
-                <h2 className="relative text-[76px] font-bold tracking-tight text-white leading-none">NOK 6.5M</h2>
+                <h2 className="relative text-[76px] font-bold tracking-tight text-white leading-none whitespace-nowrap">NOK 6.5M</h2>
               </div>
-              <span className="text-[16px] font-light tracking-wide" style={{ color: 'rgba(255,255,255,0.26)' }}>Pre-seed round</span>
+              <p className="text-[13px] font-light leading-relaxed pb-2" style={{ color: 'rgba(255,255,255,0.45)', maxWidth: 300 }}>
+                Takes Norwegian to production and proves the playbook we repeat in every market after it.
+              </p>
             </div>
 
           </motion.div>

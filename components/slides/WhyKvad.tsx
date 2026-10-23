@@ -173,7 +173,7 @@ export default function WhyKvad() {
               className="font-bold tracking-tight text-white leading-[1.03]"
               style={{ fontSize: 'clamp(34px, 3.8vw, 50px)' }}
             >
-              Big players optimize for the world. We optimize for the Nordics.
+              Big players optimize for scale. We optimize for native quality.
             </h2>
 
 
