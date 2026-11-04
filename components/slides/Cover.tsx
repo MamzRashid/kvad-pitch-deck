@@ -43,7 +43,7 @@ export default function Cover() {
           variants={item}
           className="text-[14px] font-light text-white/50 tracking-[0.14em] uppercase"
         >
-          Natural speech infrastructure. Starting with Norwegian.
+          Native voice AI for the languages the giants overlook.
         </motion.p>
 
         <motion.div variants={item} className="mt-6">

@@ -15,13 +15,13 @@ const item = {
 const founders = [
   {
     name: 'Mamoon Rashid',
-    role: 'Co-founder & President',
-    focus: 'AI agent systems and conversational products',
-    detail: 'Product, distribution and real-time AI experiences.',
+    role: 'Co-founder & CEO',
+    focus: 'Product, strategy and sales',
+    detail: 'Vision, brand, business development and investor relations.',
   },
   {
-    name: 'Vebjørn',
-    role: 'Co-founder & CEO',
+    name: 'Vebjørn Pedersen',
+    role: 'Co-founder & CTO',
     focus: 'Real-time speech systems and Nordic speech models',
     detail: 'Model training, latency optimization and conversational infrastructure.',
   },

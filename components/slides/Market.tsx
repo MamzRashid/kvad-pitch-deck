@@ -60,7 +60,7 @@ const MARKETS = [
     desc: 'Kvad target share by 2029',
     value: '$4M',
     bar: 0.05,
-    source: '10% of Norway ($39M, 0.51% of TAM)',
+    source: '3% of the Nordic market',
   },
 ]
 
@@ -102,7 +102,7 @@ export default function Market() {
           className="font-bold tracking-tight text-white leading-[1.04] mb-4"
           style={{ fontSize: 'clamp(26px, 2.6vw, 34px)' }}
         >
-          Text-to-speech is a billion-dollar market. Norwegian has no leader.
+          Text-to-speech is a billion-dollar market. Smaller languages have no leader.
         </motion.h2>
 
         {/* Description */}
@@ -113,7 +113,7 @@ export default function Market() {
           className="text-[13px] font-light leading-relaxed mb-10"
           style={{ color: 'rgba(255,255,255,0.42)' }}
         >
-          Voice AI is one of the fastest-growing segments in enterprise technology. Kvad is the infrastructure layer for Norwegian and Nordic speech, across every industry.
+          Voice AI is one of the fastest-growing segments in enterprise technology. We start with the Nordics, then take the same model to every language the leaders leave behind.
         </motion.p>
 
         {/* TAM / SAM / SOM */}

@@ -149,7 +149,7 @@ export default function Ask() {
                 <h2 className="relative text-[76px] font-bold tracking-tight text-white leading-none whitespace-nowrap">NOK 6.5M</h2>
               </div>
               <p className="text-[13px] font-light leading-relaxed pb-2" style={{ color: 'rgba(255,255,255,0.45)', maxWidth: 300 }}>
-                Takes Norwegian to production and proves the playbook we repeat in every market after it.
+                Takes the first Scandinavian model to production and funds the path to five more languages.
               </p>
             </div>
 
@@ -196,6 +196,10 @@ export default function Ask() {
               </motion.div>
             ))}
           </div>
+
+          <span className="text-[12px] font-light" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            Mamoon Rashid · mamoon@kvad.no · kvad.no
+          </span>
         </div>
 
         {/* Right: donut chart */}

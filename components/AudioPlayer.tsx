@@ -84,6 +84,15 @@ export default function AudioPlayer({
 
   const isLarge = size === 'large'
 
+  // Only one sample plays at a time: starting another player pauses this one
+  useEffect(() => {
+    const onPlay = (e: Event) => {
+      if (e.target !== audioRef.current) setPlaying(false)
+    }
+    document.addEventListener('play', onPlay, true)
+    return () => document.removeEventListener('play', onPlay, true)
+  }, [])
+
   useEffect(() => {
     if (!playing) return
     const speed = type === 'human' ? 0.016 : 0.042
@@ -361,7 +370,7 @@ export default function AudioPlayer({
             style={{ color: type === 'ai' ? 'rgba(255,255,255,0.50)' : 'rgba(255,255,255,0.65)' }}
           >
             {type === 'ai'
-              ? 'High latency · Robotic speech'
+              ? 'Generic pronunciation · Flat delivery'
               : revealed ? 'Real-time · < 200ms · Human-like' : 'Natural pace · Conversational'}
           </span>
         </div>

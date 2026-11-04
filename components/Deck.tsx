@@ -5,20 +5,15 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import Cover from './slides/Cover'
 import Problem from './slides/Problem'
-import WhyNow from './slides/WhyNow'
 import Solution from './slides/Solution'
 import Reveal from './slides/Reveal'
-import Traction from './slides/Traction'
-import WhyKvad from './slides/WhyKvad'
-import Giants from './slides/Giants'
 import Market from './slides/Market'
-import GoToMarket from './slides/GoToMarket'
-import Expansion from './slides/Expansion'
-import Playbook from './slides/Playbook'
+import Milestones from './slides/Milestones'
+import Competition from './slides/Competition'
 import BusinessModel from './slides/BusinessModel'
+import GoToMarket from './slides/GoToMarket'
 import Team from './slides/Team'
 import Ask from './slides/Ask'
-import Closing from './slides/Closing'
 
 // Design canvas on phones: fixed height, width follows the screen so the slide fills it edge to edge
 const STAGE_H = 600
@@ -27,20 +22,15 @@ const STAGE_MIN_W = 1080
 const SLIDES = [
   Cover,
   Problem,
-  WhyNow,
   Solution,
   Reveal,
-  Traction,
-  WhyKvad,
-  Giants,
   Market,
-  GoToMarket,
-  Expansion,
-  Playbook,
+  Milestones,
+  Competition,
   BusinessModel,
+  GoToMarket,
   Team,
   Ask,
-  Closing,
 ]
 
 const slideVariants = {

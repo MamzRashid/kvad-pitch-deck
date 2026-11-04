@@ -6,18 +6,23 @@ import WaveformBg from '../WaveformBg'
 const sections = [
   {
     number: '01',
-    title: 'Human-like speech',
-    body: 'Natural rhythm, emotional flow and conversational delivery.',
+    title: 'Exclusive data',
+    body: 'We secure exclusive rights to the best native speech data in the languages others overlook. No one can train an equally good model without it.',
   },
   {
     number: '02',
-    title: 'Real-time response',
-    body: 'Optimized for live conversations with ultra-low latency.',
+    title: 'Local hosting, zero retention',
+    body: 'Models run in the region they serve, and no customer audio or text is stored. Safe for regulated industries and the public sector.',
   },
   {
     number: '03',
-    title: 'Scalable voice infrastructure',
-    body: 'Production-ready API that scales with your product, regardless of platform or use case.',
+    title: 'Native quality, proven blind',
+    body: 'Every voice is judged by native speakers in blind tests before it ships.',
+  },
+  {
+    number: '04',
+    title: 'Built for real-time',
+    body: 'Streaming API with low latency, ready for live conversations and AI agents.',
   },
 ]
 
@@ -63,7 +68,7 @@ export default function Solution() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 w-full max-w-5xl mx-auto px-20 flex flex-col gap-16"
+        className="relative z-10 w-full max-w-5xl mx-auto px-20 flex flex-col gap-12"
       >
         {/* Header */}
         <motion.div variants={fadeUp} className="flex flex-col gap-5">
@@ -71,7 +76,7 @@ export default function Solution() {
             className="font-bold tracking-tight text-white leading-[1.02] max-w-3xl"
             style={{ fontSize: 'clamp(40px, 5vw, 58px)' }}
           >
-            Kvad is the voice behind Norwegian speech AI.
+            We own the best data in the languages the giants overlook.
           </h2>
         </motion.div>
 
@@ -82,7 +87,7 @@ export default function Solution() {
               {/* Top rule */}
               <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
 
-              <div className="flex items-baseline gap-20 py-8">
+              <div className="flex items-baseline gap-20 py-6">
                 {/* Left: number + title */}
                 <div className="flex items-baseline gap-5 flex-shrink-0" style={{ width: 260 }}>
                   <span className="text-[9px] font-mono text-white/18 tracking-[0.2em]">
