@@ -18,7 +18,7 @@ const item = {
 
 const metrics = [
   { label: 'Streaming', value: 'Real-time' },
-  { label: 'Latency', value: '< 200ms' },
+  { label: 'Latency', value: '< 150ms' },
   { label: 'Blind test win rate', value: '76%' },
 ]
 

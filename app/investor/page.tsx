@@ -184,7 +184,7 @@ function Problem() {
             <AudioPlayerInline label="KVAD" accent="rgba(255,255,255,0.70)" src="/audio/demo01.wav" />
             <div className="flex flex-col gap-3 mt-1">
               <Bullet>Trained on Norwegian conversations, not studio reads. Natural rhythm and intonation</Bullet>
-              <Bullet>Under 200ms end-to-end latency, true real-time dialogue</Bullet>
+              <Bullet>Under 150ms end-to-end latency, true real-time dialogue</Bullet>
               <Bullet>Emotional credibility and natural pauses that build trust</Bullet>
               <Bullet>API-first, integrates into existing systems with a few lines of code</Bullet>
             </div>
@@ -282,7 +282,7 @@ function Solution() {
     {
       number: '02',
       title: 'Real-time response',
-      body: 'Optimized for live conversations with under 200ms end-to-end latency.',
+      body: 'Optimized for live conversations with under 150ms end-to-end latency.',
       detail: 'Streaming architecture that generates and delivers speech while the sentence is being formed. This isn\'t batch TTS. It\'s conversational infrastructure built for agents that must respond instantly.',
     },
     {
@@ -888,9 +888,9 @@ function BusinessModel() {
     {
       number: '01',
       title: 'API & Usage',
-      pricing: 'Pay-as-you-go · per second',
+      pricing: 'Pay-as-you-go · per character',
       who: 'Developers and growing products',
-      desc: 'Free tier for developers, paid usage from the first second over quota. Revenue scales automatically: the more the customer’s product grows, the more we earn.',
+      desc: 'Free tier for developers, paid usage from the first character over quota. Revenue scales automatically: the more the customer’s product grows, the more we earn.',
       retention: 'Medium',
     },
     {

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 const ease = [0.25, 0.1, 0.25, 1]
 
-// API band — many rapid vertical bars (volume/usage)
+// Pricing band: many rapid vertical bars (volume/usage)
 function ApiVisual() {
   const bars = Array.from({ length: 28 }, (_, i) => ({
     h: 0.25 + Math.abs(Math.sin(i * 0.7)) * 0.65,
@@ -26,7 +26,7 @@ function ApiVisual() {
   )
 }
 
-// Agent band — smooth slow sine wave
+// Data band: smooth slow sine wave
 function AgentVisual() {
   return (
     <svg width={180} height={36} viewBox="0 0 180 36" style={{ overflow: 'visible' }}>
@@ -62,7 +62,7 @@ function AgentVisual() {
   )
 }
 
-// Enterprise band — single bold line with slow travelling pulse
+// Enterprise band: single bold line with slow travelling pulse
 function EnterpriseVisual() {
   return (
     <div className="relative flex items-center" style={{ width: 180, height: 2 }}>
@@ -80,19 +80,19 @@ function EnterpriseVisual() {
 const BANDS = [
   {
     number: '01',
-    title: 'API & Usage',
-    tag: 'Pay per conversation',
-    desc: 'AI systems call Kvad per second. The more they use, the more we earn.',
-    detail: ['Per-second billing', 'Streaming and real-time dialogue', 'Free tier for developers'],
+    title: 'Usage-based pricing',
+    tag: 'Pay per character',
+    desc: 'Customers pay for every character Kvad speaks. The more they use, the more we earn.',
+    detail: ['Per-character billing', 'Streaming and real-time dialogue', 'Free tier for developers'],
     visual: <ApiVisual />,
     bg: 'rgba(255,255,255,0.012)',
   },
   {
     number: '02',
-    title: 'AI Agent Infrastructure',
-    tag: 'Monthly subscription',
-    desc: 'Companies pay a fixed fee for dedicated infrastructure for their AI agents.',
-    detail: ['Dedicated agent deployments', 'SLA-backed uptime', 'Volume-based pricing'],
+    title: 'Data exclusivity',
+    tag: 'Exclusive rights',
+    desc: 'We license the best native speech data in each language exclusively. Once we hold it, no one else can train on it.',
+    detail: ['Exclusively licensed, not scraped', 'Natural conversation, not studio reads', 'Unavailable to competitors'],
     visual: <AgentVisual />,
     bg: 'transparent',
   },

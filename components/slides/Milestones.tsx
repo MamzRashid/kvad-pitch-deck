@@ -27,15 +27,10 @@ const BLIND_TEST = [
 const WHITE = { filter: 'brightness(0) invert(1)' }
 const CUSTOMERS = [
   {
-    group: 'Pilots',
+    group: 'In dialogue',
     logos: [
       { name: 'Finansavisen', src: '/logos/finansavisen.svg', w: 24, h: 24, style: { filter: 'grayscale(1) brightness(1.8)' } },
       { name: 'vårtOslo', src: '/logos/vartoslo.svg', w: 74, h: 22, style: WHITE },
-    ],
-  },
-  {
-    group: 'In dialogue',
-    logos: [
       { name: 'Phonero', src: '/logos/phonero.svg', w: 74, h: 20, style: WHITE },
       { name: 'Telia', src: '/logos/telia.svg', w: 58, h: 23, style: WHITE },
     ],
@@ -55,15 +50,15 @@ const STEPS: {
     status: 'Done',
     done: true,
     title: 'Blind test',
-    body: '159 Norwegian listeners compared Kvad with ElevenLabs, Cartesia, Azure and Google, without knowing which was which.',
+    body: '185 Norwegian listeners compared Kvad with ElevenLabs, Cartesia, Azure and Google, without knowing which was which.',
     extra: 'stats',
   },
   {
     number: '02',
-    status: 'Done',
+    status: 'Ongoing',
     done: true,
-    title: 'Pilots and pipeline',
-    body: 'Pilots running with media customers. Enterprise interest through organic inbound.',
+    title: 'Pipeline',
+    body: 'In dialogue with media and telecom companies about the first pilots. Enterprise interest through organic inbound.',
     extra: 'logos',
   },
   {
@@ -187,15 +182,14 @@ export default function Milestones() {
 
                 {s.extra === 'logos' && (
                   <div className="flex flex-col gap-10 pt-7">
-                    {CUSTOMERS.map((g, gi) => (
+                    {CUSTOMERS.map((g) => (
                       <div key={g.group} className="flex flex-col gap-3">
                         <span className="text-[9px] font-mono tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.35)' }}>
                           {g.group}
                         </span>
-                        <div className="flex items-center gap-6">
+                        <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
                           {g.logos.map((c) => (
-                            // Prospects sit a step back from live pilots
-                            <Image key={c.name} src={c.src} alt={c.name} width={c.w} height={c.h} style={{ opacity: gi === 0 ? 0.85 : 0.5, ...c.style }} />
+                            <Image key={c.name} src={c.src} alt={c.name} width={c.w} height={c.h} style={{ opacity: 0.7, ...c.style }} />
                           ))}
                         </div>
                       </div>

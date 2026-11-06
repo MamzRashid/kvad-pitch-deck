@@ -371,7 +371,7 @@ export default function AudioPlayer({
           >
             {type === 'ai'
               ? 'Generic pronunciation · Flat delivery'
-              : revealed ? 'Real-time · < 200ms · Human-like' : 'Natural pace · Conversational'}
+              : revealed ? 'Real-time · < 150ms · Human-like' : 'Natural pace · Conversational'}
           </span>
         </div>
       </div>

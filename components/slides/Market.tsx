@@ -50,17 +50,17 @@ const MARKETS = [
   },
   {
     label: 'SAM',
-    desc: 'Nordic text-to-speech market by 2029',
-    value: '$135M',
-    bar: 0.13,
-    source: '1.8% of TAM, the Nordic share of world GDP',
+    desc: 'Text-to-speech in our roadmap languages by 2029',
+    value: '$280M',
+    bar: 0.22,
+    source: '3.7% of TAM, the roadmap markets\u2019 share of world GDP',
   },
   {
     label: 'SOM',
-    desc: 'Kvad target share by 2029',
-    value: '$4M',
-    bar: 0.05,
-    source: '3% of the Nordic market',
+    desc: 'Kvad as the leader in the markets we enter by 2029',
+    value: '$57M',
+    bar: 0.07,
+    source: '35% of the Nordic, Baltic and Balkan markets ($162M)',
   },
 ]
 
@@ -72,7 +72,7 @@ function getPos(i: number, n: number, radius: number) {
 function getLabelProps(px: number, py: number) {
   if (px > 80)  return { anchor: 'start' as const,  dx: 36,  dy: py > 0 ? 42 : -50 }
   if (px < -80) return { anchor: 'end'   as const,  dx: -36, dy: py > 0 ? 42 : -50 }
-  return          { anchor: 'middle' as const, dx: 0,   dy: py > 0 ? 52 : -52 }
+  return          { anchor: 'middle' as const, dx: 0,   dy: py > 0 ? 52 : -68 }
 }
 
 export default function Market() {

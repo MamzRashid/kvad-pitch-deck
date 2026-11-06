@@ -11,7 +11,6 @@ import Market from './slides/Market'
 import Milestones from './slides/Milestones'
 import Competition from './slides/Competition'
 import BusinessModel from './slides/BusinessModel'
-import GoToMarket from './slides/GoToMarket'
 import Team from './slides/Team'
 import Ask from './slides/Ask'
 
@@ -28,7 +27,6 @@ const SLIDES = [
   Milestones,
   Competition,
   BusinessModel,
-  GoToMarket,
   Team,
   Ask,
 ]

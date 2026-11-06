@@ -17,7 +17,7 @@ const phases = [
     number: '02',
     timeframe: 'First 6 months',
     title: 'Direct sales',
-    desc: 'Direct sales to customer service, media and the public sector, starting with our pilot customers.',
+    desc: 'Direct sales to customer service, media and the public sector, starting with the media and telecom companies we are already in dialogue with.',
     bullets: ['10 paying enterprise customers', 'Partnerships with digital agencies', 'Focus: media & customer service'],
     verticalPos: '52%',
   },
