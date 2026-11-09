@@ -22,7 +22,7 @@ const founders: { about: string; role: string; by: string; photo: string | null;
     about: 'Vebjørn Pedersen',
     role: 'Co-founder & CTO',
     by: 'Mamoon',
-    photo: null,
+    photo: '/team/vebjorn.jpg',
     quote:
       'Vebjørn has been coding since he was twelve, and for the last five years almost only with AI. He does not stop until latency is lower than others say is possible. Every part of the model behind Kvad is built by him.',
   },
@@ -30,7 +30,7 @@ const founders: { about: string; role: string; by: string; photo: string | null;
     about: 'Mamoon Rashid',
     role: 'Co-founder & CEO',
     by: 'Vebjørn',
-    photo: null,
+    photo: '/team/mamoon.jpg',
     quote:
       'Mamoon has sold for more than ten years: on the phone, as a sales manager and in new-build real estate. He knows how our customers buy, and he gets people to say yes. He makes sure what I build actually reaches the market.',
   },
@@ -73,7 +73,7 @@ export default function Team() {
                 style={{ width: 150, height: 190 }}
               >
                 {f.photo ? (
-                  <Image src={f.photo} alt={f.about} fill sizes="150px" className="object-cover" />
+                  <Image src={f.photo} alt={f.about} fill sizes="150px" unoptimized className="object-cover object-top" />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="text-[40px] font-bold text-white/[0.07] tracking-tight select-none">
